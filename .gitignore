@@ -29,3 +29,7 @@
 
 #SCons
 .sconsign.dblite
+
+global/build/*
+heart/build/*
+test_summary
