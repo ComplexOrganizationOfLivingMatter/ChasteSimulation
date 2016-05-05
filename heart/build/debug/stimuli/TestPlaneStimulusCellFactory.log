@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestPlaneStimulusCellFactory.hpp *****
+
+
+Entering TestBasicContructor
+Passed
+Entering TestHeartGeometryIntoCellFactory
+Passed
+OK!

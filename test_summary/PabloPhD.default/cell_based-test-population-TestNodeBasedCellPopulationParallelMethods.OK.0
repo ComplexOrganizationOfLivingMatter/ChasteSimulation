@@ -1,0 +1,24 @@
+Running 9 tests
+
+ ***** TestNodeBasedCellPopulationParallelMethods.hpp *****
+
+
+Entering TestGetCellAndNodePair
+Passed
+Entering TestAddNodeAndCellsToSend
+Passed
+Entering TestSendAndReceiveCells
+Passed
+Entering TestSendAndReceiveCellsNonBlocking
+Passed
+Entering TestUpdateCellProcessLocation
+Passed
+Entering TestRefreshHaloCells
+Passed
+Entering TestUpdateWithLoadBalanceDoesntThrow
+Passed
+Entering TestGetCellUsingLocationIndexWithHaloCell
+Passed
+Entering TestNodeBasedCellPopulationOutputInParallel
+Passed
+OK!

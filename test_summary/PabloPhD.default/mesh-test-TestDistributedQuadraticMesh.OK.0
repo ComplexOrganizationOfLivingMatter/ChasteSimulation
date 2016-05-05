@@ -1,0 +1,30 @@
+Running 9 tests
+
+ ***** TestDistributedQuadraticMesh.hpp *****
+
+
+Entering TestDumbMeshPartitioning
+Passed
+Entering TestMetisMeshPartitioning
+
+./mesh/test/TestDistributedQuadraticMesh.hpp:102: Trace: This test is not meant to be executed in sequential.
+Passed
+Entering TestPetscMatrixPartitioning
+
+./mesh/test/TestDistributedQuadraticMesh.hpp:117: Trace: This test is not meant to be executed in sequential.
+Passed
+Entering TestConstructFromMeshReader2D
+Passed
+Entering TestConstructFromMeshReader2DWithPetscSupport
+
+./mesh/test/TestDistributedQuadraticMesh.hpp:315: Trace: This test is not meant to be executed in sequential.
+Passed
+Entering TestConstructFromMeshReader3DElementHintsInFile
+Passed
+Entering TestConstructFromMeshReader3DFullyQuadratic
+Passed
+Entering TestConstructFromLinearMeshReaderException
+Passed
+Entering TestArchiveOfReadMesh
+Passed
+OK!

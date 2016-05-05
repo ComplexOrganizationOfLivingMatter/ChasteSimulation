@@ -1,0 +1,18 @@
+Running 6 tests
+
+ ***** TestPropagationPropertiesCalculator.hpp *****
+
+
+Entering TestConductionVelocity1D
+Passed
+Entering TestConductionVelocityWithRepeatedStimuli
+Passed
+Entering TestConductionBidomain3D
+Passed
+Entering TestUpstrokeBidomain3D
+Passed
+Entering TestAPDCalculatorOverMultipleNodes
+Passed
+Entering TestEadCalculation
+Passed
+OK!

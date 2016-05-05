@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestException.hpp *****
+
+
+Entering TestGetMessage
+Passed
+Entering TestCheckStreamingException
+Passed
+Entering TestCheckMethods
+Passed
+OK!

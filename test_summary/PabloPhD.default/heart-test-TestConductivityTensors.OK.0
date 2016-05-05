@@ -1,0 +1,28 @@
+Running 11 tests
+
+ ***** TestConductivityTensors.hpp *****
+
+
+Entering TestConstantTensor3D
+Passed
+Entering TestTensorException
+Passed
+Entering TestFibreOrientationFileExceptions
+Passed
+Entering TestFibreOrientationTensor3D
+Passed
+Entering TestCompareOrthotropicAxisymmetricTensors
+Passed
+Entering TestFibreOrientationAxisymmetric3D
+Passed
+Entering TestHeterogeneousConductivitiesTensor3D
+Passed
+Entering TestHeterogeneousConductivitiesTensorDistributed3D
+Passed
+Entering TestHeterogeneousCondPlusFibreOrientationTensor1D
+Passed
+Entering TestHeterogeneousCondPlusFibreOrientationTensor2D
+Passed
+Entering TestHeterogeneousCondPlusFibreOrientationTensor3DDistributedTetrahedralMesh
+Passed
+OK!

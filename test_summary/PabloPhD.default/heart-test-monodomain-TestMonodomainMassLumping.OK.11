@@ -1,0 +1,18 @@
+Running 2 tests
+
+ ***** TestMonodomainMassLumping.hpp *****
+
+
+Entering TestCompareCubePlaneStimulus
+         InMesh             Init           AssSys              Ode            Comms           AssRhs           NeuBCs           DirBCs              Ksp           Output   DataConversion         PostProc            User1            User2            User3            Total  
+   0.050 (  2%)     0.004 (  0%)     0.422 ( 14%)     2.198 ( 72%)     0.031 (  1%)     0.018 (  1%)     0.000 (  0%)     0.000 (  0%)     0.202 (  7%)     0.081 (  3%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     3.053 (100%)  (seconds) 
+         InMesh             Init           AssSys              Ode            Comms           AssRhs           NeuBCs           DirBCs              Ksp           Output   DataConversion         PostProc            User1            User2            User3            Total  
+   0.052 (  2%)     0.004 (  0%)     0.516 ( 19%)     1.731 ( 64%)     0.050 (  2%)     0.019 (  1%)     0.000 (  0%)     0.000 (  0%)     0.212 (  8%)     0.089 (  3%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     2.721 (100%)  (seconds) 
+Passed
+Entering TestCompareCubePlaneStimulusOnlyPrecondLumping
+         InMesh             Init           AssSys              Ode            Comms           AssRhs           NeuBCs           DirBCs              Ksp           Output   DataConversion         PostProc            User1            User2            User3            Total  
+   0.040 (  2%)     0.003 (  0%)     0.376 ( 14%)     1.783 ( 68%)     0.037 (  1%)     0.019 (  1%)     0.000 (  0%)     0.000 (  0%)     0.216 (  8%)     0.101 (  4%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     2.620 (100%)  (seconds) 
+         InMesh             Init           AssSys              Ode            Comms           AssRhs           NeuBCs           DirBCs              Ksp           Output   DataConversion         PostProc            User1            User2            User3            Total  
+   0.045 (  2%)     0.003 (  0%)     0.574 ( 21%)     1.758 ( 64%)     0.030 (  1%)     0.017 (  1%)     0.000 (  0%)     0.000 (  0%)     0.223 (  8%)     0.073 (  3%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     2.766 (100%)  (seconds) 
+Passed
+OK!

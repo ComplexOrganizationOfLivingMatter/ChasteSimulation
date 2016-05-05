@@ -1,0 +1,32 @@
+Running 13 tests
+
+ ***** TestRandomNumberGenerator.hpp *****
+
+
+Entering TestRandomNumbersCreation
+Passed
+Entering TestNewMethodSeed
+Passed
+Entering TestOtherRandomStuffDoesNotDestroyRandomSequence
+Passed
+Entering TestDifferentRandomSeed
+Passed
+Entering TestArchiveRandomNumberGenerator
+Passed
+Entering TestPermutationShuffle
+Passed
+Entering TestGenericShuffle
+Passed
+Entering TestDistributionReproducibilityAcrossPlatforms
+Passed
+Entering TestExponentialMethodsInsideBoost
+Passed
+Entering TestReproducibilityAcrossPlatforms
+Passed
+Entering TestReseedingWorksProperly
+Passed
+Entering TestGammaRandomDeviate
+Passed
+Entering TestExponentialRandomDeviate
+Passed
+OK!

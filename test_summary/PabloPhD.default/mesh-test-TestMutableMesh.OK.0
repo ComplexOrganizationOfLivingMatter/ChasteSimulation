@@ -1,0 +1,70 @@
+Running 32 tests
+
+ ***** TestMutableMesh.hpp *****
+
+
+Entering TestNodeIterator
+Passed
+Entering TestElementIterator
+Passed
+Entering TestRescaleMeshFromBoundaryNode
+Passed
+Entering Test1DSetPoint
+Passed
+Entering Test2DSetPoint
+Passed
+Entering TestMovingNodesIn3D
+Passed
+Entering Test1DMeshIn2DSetPoint
+Passed
+Entering Test2DMeshIn3DSetPoint
+Passed
+Entering TestDeletingNodes
+Passed
+Entering TestDeleteNodePriorToReMesh
+Passed
+Entering TestAddingAndDeletingNodes
+Passed
+Entering Test1DBoundaryNodeMerger
+Passed
+Entering Test1DNodeMerger
+Passed
+Entering Test2DNodeMerger
+Passed
+Entering Test3DNodeMerger
+Passed
+Entering Test2DBoundaryNodeMergerChangeArea
+Passed
+Entering Test2DBoundaryNodeMerger
+Passed
+Entering Test3DBoundaryNodeMerger
+Passed
+Entering TestCheckVoronoiDisk
+Passed
+Entering TestCheckVoronoiSquare
+Passed
+Entering TestCheckCircularFan
+Passed
+Entering TestCheckMovingMesh
+Passed
+Entering TestDeleteNodes
+Passed
+Entering TestDeleteNodeFails
+Passed
+Entering TestMeshAddNodeAndReMeshMethod
+Passed
+Entering TestReindex
+Passed
+Entering TestReindex2dMeshIn3dSpace
+Passed
+Entering TestConstructFromNodes
+Passed
+Entering TestEdgeIterator
+Passed
+Entering TestDeleteElement
+Passed
+Entering TestDeleteElement1DIn3D
+Passed
+Entering TestArchiving
+Passed
+OK!

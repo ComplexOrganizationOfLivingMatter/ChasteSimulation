@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestGIModifiedModels.hpp *****
+
+
+Entering TestICCmodelModified
+Passed
+Entering TestSMCmodelModified
+Passed
+Entering TestArchiving
+Passed
+OK!

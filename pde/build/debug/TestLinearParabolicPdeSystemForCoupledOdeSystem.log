@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestLinearParabolicPdeSystemForCoupledOdeSystem.hpp *****
+
+
+Entering TestHeatEquationForCoupledOdeSystem
+Passed
+Entering TestSchnackenbergCoupledPdeSystem
+Passed
+OK!

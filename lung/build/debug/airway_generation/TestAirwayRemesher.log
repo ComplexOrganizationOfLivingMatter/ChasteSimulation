@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestAirwayRemesher.hpp *****
+
+
+Entering TestRemeshSingleBranch
+Passed
+Entering TestRemeshFullTree
+Passed
+OK!

@@ -1,0 +1,57 @@
+Running 23 tests
+
+ ***** TestHdf5DataWriter.hpp *****
+
+
+Entering TestSimpleParallelWriteDirectlyWithHdf5
+Passed
+Entering TestPetscWriteDirectlyWithHdf5
+Passed
+Entering TestReadAndChecksumHdf5
+Passed
+Entering TestHdf5DataWriterMultipleColumns
+The next comparison should fail...
+Vectors differ in global NORM_2 by 949.595
+Vectors differ in global NORM_2 by 7987.33
+Passed
+Entering TestHdf5DataWriterNonEvenRowDistribution
+Passed
+Entering TestHdf5DataWriterFullFormatIncomplete
+This one needs fixing too:
+Passed
+Entering TestHdf5DataWriterFullFormat
+Passed
+Entering TestHdf5DataWriterFullFormatStriped
+Passed
+Entering TestHdf5DataWriterFullFormatStripedWith3Variables
+Passed
+Entering TestHdf5DataWriterFullFormatStripedIncomplete
+Passed
+Entering TestNonImplementedFeatures
+Passed
+Entering TestDefineThings
+Passed
+Entering TestEndDefineMode
+Passed
+Entering TestCantAddUnlimitedAfterEndDefine
+Passed
+Entering TestAdvanceAlongUnlimitedDimension
+Passed
+Entering TestCantWriteDataWhileInDefineMode
+Passed
+Entering TestFailCreateFile
+Passed
+Entering TestWriteNewDatasetToExistingFile
+Passed
+Entering TestHdf5DataWriterAddNewVariable
+Unlimited variable names Distance and BadDistance don't match
+Passed
+Entering TestWriteToExistingFile
+Passed
+Entering TestPermutation
+Passed
+Entering TestHdf5DataWriterFullFormatIncompleteUsingMatrix
+Passed
+Entering TestHdf5DataWriterFullFormatStripedIncompleteUsingMatrix
+Passed
+OK!

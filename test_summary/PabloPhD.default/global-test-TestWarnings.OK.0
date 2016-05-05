@@ -1,0 +1,21 @@
+Running 6 tests
+
+ ***** TestWarnings.hpp *****
+
+
+Entering TestGetMessage
+Passed
+Entering TestWarningsWithLogging
+Passed
+Entering TestWarningOnceOnly
+Murray won in 2013!
+Passed
+Entering TestPrintWarnings
+Chaste warning: in file ./global/test/TestWarnings.hpp at line 119: This warning is printed inside TestPrintWarnings().
+Passed
+Entering TestWarningOnlyOnceReset
+Passed
+Entering TestLastTestWithWarningsIsNoisy
+Passed
+OK!
+Chaste warning: in file ./global/test/TestWarnings.hpp at line 144: This one will get printed 1 time

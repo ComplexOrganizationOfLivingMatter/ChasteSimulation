@@ -1,0 +1,28 @@
+Running 11 tests
+
+ ***** TestAbstractIvpOdeSolver.hpp *****
+
+
+Entering TestCoverageOfWriteToFile
+Passed
+Entering TestEulerSolver
+Passed
+Entering TestRungeKutta2Solver
+Passed
+Entering TestRungeKutta4Solver
+Passed
+Entering TestWithParameters
+Passed
+Entering TestLastTimeStep
+Passed
+Entering TestGlobalError
+Passed
+Entering TestGlobalErrorSystemOf2Equations
+Passed
+Entering TestGlobalErrorSystemOf3Equations
+Passed
+Entering TestGlobalError2
+Passed
+Entering TestArchivingSolvers
+Passed
+OK!

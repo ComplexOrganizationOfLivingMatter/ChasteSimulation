@@ -1,0 +1,507 @@
+Running 8 tests
+
+ ***** TestConvergenceTester.hpp *****
+
+
+Entering Test1DOdeTime
+=========================== Beginning Test...==================================
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.01 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:50 2016
+Time to solve = 0.457959 seconds
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.005 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:50 2016
+Time to solve = 0.148496 seconds
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.0025 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Time to solve = 0.162107 seconds
+Results: 
+#Abcisa	l2-norm-full	l2-norm-onset	Max absolute err	APD90_1st_quad	APD90_3rd_quad	Conduction velocity (relative diffs)
+0.005	0.014792383	0.014792383	4.1851502	0 1e+10	0 1e+10	0.079365079 0.015873016
+0.0025	0.0076571789	0.0076571789	2.1837127	0 1e+10	0 1e+10	0.079365079 2.220446e-16
+Passed
+Entering Test1DOdeTimeWarning
+=========================== Beginning Test...==================================
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.01 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Global node 0 had problems with ODE solve between t = 0.02 and 0.04ms.
+Voltage at this node before solve was 689.5293663449545mV
+(this SHOULD NOT necessarily be the same as the one in the state variables,
+which can be ignored and stay at the initial condition - the voltage is dictated by PDE instead of state variable.)
+Stimulus current (NB converted to micro-Amps per cm^3) applied here is equal to:
+	-62500000 at t = 0.02ms,
+	-62500000 at t = 0.04ms.
+Cell model: luo_rudy_1991
+All state variables are now:
+	membrane_voltage	:	689.5293663449545
+	fast_sodium_current_m_gate__m	:	0.001870168562895563
+	fast_sodium_current_h_gate__h	:	0.9804715407420711
+	fast_sodium_current_j_gate__j	:	0.9876714089194195
+	slow_inward_current_d_gate__d	:	0.003163524941476048
+	slow_inward_current_f_gate__f	:	0.9942807276137584
+	time_dependent_potassium_current_X_gate__X	:	0.1664630671065718
+	cytosolic_calcium_concentration	:	0.0001999748072366136
+
+Chaste error: heart/build/debug/src/odes/cellml/LuoRudy1991BackwardEuler.cpp:540: membrane_voltage outside lookup table range
+At independent variable (usually time) = 0.02
+State:
+	membrane_voltage:689.529 millivolt
+	fast_sodium_current_m_gate__m:0.00187017 dimensionless
+	fast_sodium_current_h_gate__h:0.980472 dimensionless
+	fast_sodium_current_j_gate__j:0.987671 dimensionless
+	slow_inward_current_d_gate__d:0.00316352 dimensionless
+	slow_inward_current_f_gate__f:0.994281 dimensionless
+	time_dependent_potassium_current_X_gate__X:0.166463 dimensionless
+	cytosolic_calcium_concentration:0.000199975 millimolar
+
+Time to solve = 0.00306391716003418 seconds
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.005 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Global node 0 had problems with ODE solve between t = 0.02 and 0.04ms.
+Voltage at this node before solve was 689.5293663449507mV
+(this SHOULD NOT necessarily be the same as the one in the state variables,
+which can be ignored and stay at the initial condition - the voltage is dictated by PDE instead of state variable.)
+Stimulus current (NB converted to micro-Amps per cm^3) applied here is equal to:
+	-62500000 at t = 0.02ms,
+	-62500000 at t = 0.04ms.
+Cell model: luo_rudy_1991
+All state variables are now:
+	membrane_voltage	:	689.5293663449507
+	fast_sodium_current_m_gate__m	:	0.001870167863771184
+	fast_sodium_current_h_gate__h	:	0.9804715408875726
+	fast_sodium_current_j_gate__j	:	0.9876714089439105
+	slow_inward_current_d_gate__d	:	0.003163524936903793
+	slow_inward_current_f_gate__f	:	0.9942807277139641
+	time_dependent_potassium_current_X_gate__X	:	0.1664630669546711
+	cytosolic_calcium_concentration	:	0.0001999748027879553
+
+Chaste error: heart/build/debug/src/odes/cellml/LuoRudy1991BackwardEuler.cpp:540: membrane_voltage outside lookup table range
+At independent variable (usually time) = 0.02
+State:
+	membrane_voltage:689.529 millivolt
+	fast_sodium_current_m_gate__m:0.00187017 dimensionless
+	fast_sodium_current_h_gate__h:0.980472 dimensionless
+	fast_sodium_current_j_gate__j:0.987671 dimensionless
+	slow_inward_current_d_gate__d:0.00316352 dimensionless
+	slow_inward_current_f_gate__f:0.994281 dimensionless
+	time_dependent_potassium_current_X_gate__X:0.166463 dimensionless
+	cytosolic_calcium_concentration:0.000199975 millimolar
+
+Time to solve = 0.002810001373291016 seconds
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.0025 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Global node 0 had problems with ODE solve between t = 0.02 and 0.04ms.
+Voltage at this node before solve was 689.5293663449489mV
+(this SHOULD NOT necessarily be the same as the one in the state variables,
+which can be ignored and stay at the initial condition - the voltage is dictated by PDE instead of state variable.)
+Stimulus current (NB converted to micro-Amps per cm^3) applied here is equal to:
+	-62500000 at t = 0.02ms,
+	-62500000 at t = 0.04ms.
+Cell model: luo_rudy_1991
+All state variables are now:
+	membrane_voltage	:	689.5293663449489
+	fast_sodium_current_m_gate__m	:	0.001870167501285085
+	fast_sodium_current_h_gate__h	:	0.9804715409604119
+	fast_sodium_current_j_gate__j	:	0.9876714089561598
+	slow_inward_current_d_gate__d	:	0.003163524934616277
+	slow_inward_current_f_gate__f	:	0.9942807277640711
+	time_dependent_potassium_current_X_gate__X	:	0.1664630668787191
+	cytosolic_calcium_concentration	:	0.0001999748005628441
+
+Chaste error: heart/build/debug/src/odes/cellml/LuoRudy1991BackwardEuler.cpp:540: membrane_voltage outside lookup table range
+At independent variable (usually time) = 0.02
+State:
+	membrane_voltage:689.529 millivolt
+	fast_sodium_current_m_gate__m:0.00187017 dimensionless
+	fast_sodium_current_h_gate__h:0.980472 dimensionless
+	fast_sodium_current_j_gate__j:0.987671 dimensionless
+	slow_inward_current_d_gate__d:0.00316352 dimensionless
+	slow_inward_current_f_gate__f:0.994281 dimensionless
+	time_dependent_potassium_current_X_gate__X:0.166463 dimensionless
+	cytosolic_calcium_concentration:0.000199975 millimolar
+
+Time to solve = 0.00288081169128418 seconds
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.00125 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Global node 0 had problems with ODE solve between t = 0.02 and 0.04ms.
+Voltage at this node before solve was 689.5293663449481mV
+(this SHOULD NOT necessarily be the same as the one in the state variables,
+which can be ignored and stay at the initial condition - the voltage is dictated by PDE instead of state variable.)
+Stimulus current (NB converted to micro-Amps per cm^3) applied here is equal to:
+	-62500000 at t = 0.02ms,
+	-62500000 at t = 0.04ms.
+Cell model: luo_rudy_1991
+All state variables are now:
+	membrane_voltage	:	689.5293663449481
+	fast_sodium_current_m_gate__m	:	0.001870167322176535
+	fast_sodium_current_h_gate__h	:	0.9804715409968519
+	fast_sodium_current_j_gate__j	:	0.9876714089622844
+	slow_inward_current_d_gate__d	:	0.003163524933472174
+	slow_inward_current_f_gate__f	:	0.994280727789126
+	time_dependent_potassium_current_X_gate__X	:	0.1664630668407429
+	cytosolic_calcium_concentration	:	0.0001999747994500929
+
+Chaste error: heart/build/debug/src/odes/cellml/LuoRudy1991BackwardEuler.cpp:540: membrane_voltage outside lookup table range
+At independent variable (usually time) = 0.02
+State:
+	membrane_voltage:689.529 millivolt
+	fast_sodium_current_m_gate__m:0.00187017 dimensionless
+	fast_sodium_current_h_gate__h:0.980472 dimensionless
+	fast_sodium_current_j_gate__j:0.987671 dimensionless
+	slow_inward_current_d_gate__d:0.00316352 dimensionless
+	slow_inward_current_f_gate__f:0.994281 dimensionless
+	time_dependent_potassium_current_X_gate__X:0.166463 dimensionless
+	cytosolic_calcium_concentration:0.000199975 millimolar
+
+Time to solve = 0.00290989875793457 seconds
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.000625 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Global node 0 had problems with ODE solve between t = 0.02 and 0.04ms.
+Voltage at this node before solve was 689.5293663449476mV
+(this SHOULD NOT necessarily be the same as the one in the state variables,
+which can be ignored and stay at the initial condition - the voltage is dictated by PDE instead of state variable.)
+Stimulus current (NB converted to micro-Amps per cm^3) applied here is equal to:
+	-62500000 at t = 0.02ms,
+	-62500000 at t = 0.04ms.
+Cell model: luo_rudy_1991
+All state variables are now:
+	membrane_voltage	:	689.5293663449476
+	fast_sodium_current_m_gate__m	:	0.00187016723446542
+	fast_sodium_current_h_gate__h	:	0.9804715410150813
+	fast_sodium_current_j_gate__j	:	0.9876714089653508
+	slow_inward_current_d_gate__d	:	0.003163524932900027
+	slow_inward_current_f_gate__f	:	0.9942807278016534
+	time_dependent_potassium_current_X_gate__X	:	0.166463066821754
+	cytosolic_calcium_concentration	:	0.0001999747988936684
+
+Chaste error: heart/build/debug/src/odes/cellml/LuoRudy1991BackwardEuler.cpp:540: membrane_voltage outside lookup table range
+At independent variable (usually time) = 0.02
+State:
+	membrane_voltage:689.529 millivolt
+	fast_sodium_current_m_gate__m:0.00187017 dimensionless
+	fast_sodium_current_h_gate__h:0.980472 dimensionless
+	fast_sodium_current_j_gate__j:0.987671 dimensionless
+	slow_inward_current_d_gate__d:0.00316352 dimensionless
+	slow_inward_current_f_gate__f:0.994281 dimensionless
+	time_dependent_potassium_current_X_gate__X:0.166463 dimensionless
+	cytosolic_calcium_concentration:0.000199975 millimolar
+
+Time to solve = 0.003210067749023438 seconds
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.0003125 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Global node 0 had problems with ODE solve between t = 0.02 and 0.04ms.
+Voltage at this node before solve was 689.5293663449474mV
+(this SHOULD NOT necessarily be the same as the one in the state variables,
+which can be ignored and stay at the initial condition - the voltage is dictated by PDE instead of state variable.)
+Stimulus current (NB converted to micro-Amps per cm^3) applied here is equal to:
+	-62500000 at t = 0.02ms,
+	-62500000 at t = 0.04ms.
+Cell model: luo_rudy_1991
+All state variables are now:
+	membrane_voltage	:	689.5293663449474
+	fast_sodium_current_m_gate__m	:	0.001870167191303603
+	fast_sodium_current_h_gate__h	:	0.9804715410241887
+	fast_sodium_current_j_gate__j	:	0.9876714089668717
+	slow_inward_current_d_gate__d	:	0.003163524932613957
+	slow_inward_current_f_gate__f	:	0.9942807278079173
+	time_dependent_potassium_current_X_gate__X	:	0.1664630668122589
+	cytosolic_calcium_concentration	:	0.000199974798615444
+
+Chaste error: heart/build/debug/src/odes/cellml/LuoRudy1991BackwardEuler.cpp:540: membrane_voltage outside lookup table range
+At independent variable (usually time) = 0.02
+State:
+	membrane_voltage:689.529 millivolt
+	fast_sodium_current_m_gate__m:0.00187017 dimensionless
+	fast_sodium_current_h_gate__h:0.980472 dimensionless
+	fast_sodium_current_j_gate__j:0.987671 dimensionless
+	slow_inward_current_d_gate__d:0.00316352 dimensionless
+	slow_inward_current_f_gate__f:0.994281 dimensionless
+	time_dependent_potassium_current_X_gate__X:0.166463 dimensionless
+	cytosolic_calcium_concentration:0.000199975 millimolar
+
+Time to solve = 0.003531932830810547 seconds
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.00015625 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Global node 0 had problems with ODE solve between t = 0.02 and 0.04ms.
+Voltage at this node before solve was 689.5293663449473mV
+(this SHOULD NOT necessarily be the same as the one in the state variables,
+which can be ignored and stay at the initial condition - the voltage is dictated by PDE instead of state variable.)
+Stimulus current (NB converted to micro-Amps per cm^3) applied here is equal to:
+	-62500000 at t = 0.02ms,
+	-62500000 at t = 0.04ms.
+Cell model: luo_rudy_1991
+All state variables are now:
+	membrane_voltage	:	689.5293663449473
+	fast_sodium_current_m_gate__m	:	0.001870167169931086
+	fast_sodium_current_h_gate__h	:	0.9804715410287538
+	fast_sodium_current_j_gate__j	:	0.9876714089676516
+	slow_inward_current_d_gate__d	:	0.003163524932470909
+	slow_inward_current_f_gate__f	:	0.9942807278110495
+	time_dependent_potassium_current_X_gate__X	:	0.1664630668075119
+	cytosolic_calcium_concentration	:	0.0001999747984763286
+
+Chaste error: heart/build/debug/src/odes/cellml/LuoRudy1991BackwardEuler.cpp:540: membrane_voltage outside lookup table range
+At independent variable (usually time) = 0.02
+State:
+	membrane_voltage:689.529 millivolt
+	fast_sodium_current_m_gate__m:0.00187017 dimensionless
+	fast_sodium_current_h_gate__h:0.980472 dimensionless
+	fast_sodium_current_j_gate__j:0.987671 dimensionless
+	slow_inward_current_d_gate__d:0.00316352 dimensionless
+	slow_inward_current_f_gate__f:0.994281 dimensionless
+	time_dependent_potassium_current_X_gate__X:0.166463 dimensionless
+	cytosolic_calcium_concentration:0.000199975 millimolar
+
+Time to solve = 0.003732204437255859 seconds
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 7.8125e-05 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Global node 0 had problems with ODE solve between t = 0.02 and 0.04ms.
+Voltage at this node before solve was 689.5293663449471mV
+(this SHOULD NOT necessarily be the same as the one in the state variables,
+which can be ignored and stay at the initial condition - the voltage is dictated by PDE instead of state variable.)
+Stimulus current (NB converted to micro-Amps per cm^3) applied here is equal to:
+	-62500000 at t = 0.02ms,
+	-62500000 at t = 0.04ms.
+Cell model: luo_rudy_1991
+All state variables are now:
+	membrane_voltage	:	689.5293663449471
+	fast_sodium_current_m_gate__m	:	0.001870167159301718
+	fast_sodium_current_h_gate__h	:	0.9804715410310454
+	fast_sodium_current_j_gate__j	:	0.9876714089680343
+	slow_inward_current_d_gate__d	:	0.003163524932399344
+	slow_inward_current_f_gate__f	:	0.9942807278126014
+	time_dependent_potassium_current_X_gate__X	:	0.1664630668051419
+	cytosolic_calcium_concentration	:	0.0001999747984067703
+
+Chaste error: heart/build/debug/src/odes/cellml/LuoRudy1991BackwardEuler.cpp:540: membrane_voltage outside lookup table range
+At independent variable (usually time) = 0.02
+State:
+	membrane_voltage:689.529 millivolt
+	fast_sodium_current_m_gate__m:0.00187017 dimensionless
+	fast_sodium_current_h_gate__h:0.980472 dimensionless
+	fast_sodium_current_j_gate__j:0.987671 dimensionless
+	slow_inward_current_d_gate__d:0.00316352 dimensionless
+	slow_inward_current_f_gate__f:0.994281 dimensionless
+	time_dependent_potassium_current_X_gate__X:0.166463 dimensionless
+	cytosolic_calcium_concentration:0.000199975 millimolar
+
+Time to solve = 0.004801034927368164 seconds
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 3.90625e-05 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Global node 0 had problems with ODE solve between t = 0.02 and 0.04ms.
+Voltage at this node before solve was 689.5293663449471mV
+(this SHOULD NOT necessarily be the same as the one in the state variables,
+which can be ignored and stay at the initial condition - the voltage is dictated by PDE instead of state variable.)
+Stimulus current (NB converted to micro-Amps per cm^3) applied here is equal to:
+	-62500000 at t = 0.02ms,
+	-62500000 at t = 0.04ms.
+Cell model: luo_rudy_1991
+All state variables are now:
+	membrane_voltage	:	689.5293663449471
+	fast_sodium_current_m_gate__m	:	0.001870167154001905
+	fast_sodium_current_h_gate__h	:	0.9804715410321297
+	fast_sodium_current_j_gate__j	:	0.9876714089682257
+	slow_inward_current_d_gate__d	:	0.00316352493236358
+	slow_inward_current_f_gate__f	:	0.9942807278133843
+	time_dependent_potassium_current_X_gate__X	:	0.166463066803955
+	cytosolic_calcium_concentration	:	0.0001999747983719906
+
+Chaste error: heart/build/debug/src/odes/cellml/LuoRudy1991BackwardEuler.cpp:540: membrane_voltage outside lookup table range
+At independent variable (usually time) = 0.02
+State:
+	membrane_voltage:689.529 millivolt
+	fast_sodium_current_m_gate__m:0.00187017 dimensionless
+	fast_sodium_current_h_gate__h:0.980472 dimensionless
+	fast_sodium_current_j_gate__j:0.987671 dimensionless
+	slow_inward_current_d_gate__d:0.00316352 dimensionless
+	slow_inward_current_f_gate__f:0.994281 dimensionless
+	time_dependent_potassium_current_X_gate__X:0.166463 dimensionless
+	cytosolic_calcium_concentration:0.000199975 millimolar
+
+Time to solve = 0.007046937942504883 seconds
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 1.953125e-05 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Global node 0 had problems with ODE solve between t = 0.02 and 0.04ms.
+Voltage at this node before solve was 689.5293663449471mV
+(this SHOULD NOT necessarily be the same as the one in the state variables,
+which can be ignored and stay at the initial condition - the voltage is dictated by PDE instead of state variable.)
+Stimulus current (NB converted to micro-Amps per cm^3) applied here is equal to:
+	-62500000 at t = 0.02ms,
+	-62500000 at t = 0.04ms.
+Cell model: luo_rudy_1991
+All state variables are now:
+	membrane_voltage	:	689.5293663449471
+	fast_sodium_current_m_gate__m	:	0.001870167151355818
+	fast_sodium_current_h_gate__h	:	0.9804715410328108
+	fast_sodium_current_j_gate__j	:	0.9876714089682663
+	slow_inward_current_d_gate__d	:	0.003163524932345836
+	slow_inward_current_f_gate__f	:	0.9942807278138885
+	time_dependent_potassium_current_X_gate__X	:	0.1664630668033474
+	cytosolic_calcium_concentration	:	0.000199974798354601
+
+Chaste error: heart/build/debug/src/odes/cellml/LuoRudy1991BackwardEuler.cpp:540: membrane_voltage outside lookup table range
+At independent variable (usually time) = 0.02
+State:
+	membrane_voltage:689.529 millivolt
+	fast_sodium_current_m_gate__m:0.00187017 dimensionless
+	fast_sodium_current_h_gate__h:0.980472 dimensionless
+	fast_sodium_current_j_gate__j:0.987671 dimensionless
+	slow_inward_current_d_gate__d:0.00316352 dimensionless
+	slow_inward_current_f_gate__f:0.994281 dimensionless
+	time_dependent_potassium_current_X_gate__X:0.166463 dimensionless
+	cytosolic_calcium_concentration:0.000199975 millimolar
+
+Time to solve = 0.01177406311035156 seconds
+Results: 
+#Abcisa	l2-norm-full	l2-norm-onset	Max absolute err	APD90_1st_quad	APD90_3rd_quad	Conduction velocity (relative diffs)
+Passed
+Entering Test1DPdeTime
+=========================== Beginning Test...==================================
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.04 ms	ODE step 0.0025 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Time to solve = 0.09595608711242676 seconds
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.0025 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Time to solve = 0.160369873046875 seconds
+Results: 
+#Abcisa	l2-norm-full	l2-norm-onset	Max absolute err	APD90_1st_quad	APD90_3rd_quad	Conduction velocity (relative diffs)
+0.02	0.025429223	0.025429223	4.4447796	0 1e+10	0 1e+10	0.079365079 0.015873016
+Passed
+Entering Test1DOdePdeTime
+=========================== Beginning Test...==================================
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.01 ms	ODE step 0.01 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Time to solve = 0.273745059967041 seconds
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.005 ms	ODE step 0.005 ms	KSP absolute 0.0002	Stimulus = Plane
+Thu May  5 09:24:51 2016
+Time to solve = 0.5486230850219727 seconds
+Results: 
+#Abcisa	l2-norm-full	l2-norm-onset	Max absolute err	APD90_1st_quad	APD90_3rd_quad	Conduction velocity (relative diffs)
+0.005	0.012633448	0.012633448	2.9727573	0 1e+10	0 1e+10	0.078431373 0.0039215686
+Passed
+Entering Test1DPdeTimeRegion
+=========================== Beginning Test...==================================
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.04 ms	ODE step 0.0025 ms	KSP absolute 0.0002	Stimulus = Ramped first quarter
+Thu May  5 09:24:52 2016
+Time to solve = 0.09943699836730957 seconds
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.0025 ms	KSP absolute 0.0002	Stimulus = Ramped first quarter
+Thu May  5 09:24:52 2016
+Time to solve = 0.1622071266174316 seconds
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.01 ms	ODE step 0.0025 ms	KSP absolute 0.0002	Stimulus = Ramped first quarter
+Thu May  5 09:24:52 2016
+Time to solve = 0.2927210330963135 seconds
+Results: 
+#Abcisa	l2-norm-full	l2-norm-onset	Max absolute err	APD90_1st_quad	APD90_3rd_quad	Conduction velocity (relative diffs)
+0.02	0.023975772	0.023975772	3.643124	0 1e+10	0 1e+10	0.079365079 0.015873016
+0.01	0.014054419	0.014054419	2.3793891	0 1e+10	0 1e+10	0.078740157 0.0078740157
+Passed
+Entering Test1DPdeTimeNeumann
+=========================== Beginning Test...==================================
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.04 ms	ODE step 0.0025 ms	KSP absolute 0.0002	Stimulus = Neumann
+Thu May  5 09:24:52 2016
+Time to solve = 0.09937381744384766 seconds
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.02 ms	ODE step 0.0025 ms	KSP absolute 0.0002	Stimulus = Neumann
+Thu May  5 09:24:53 2016
+Time to solve = 0.1686270236968994 seconds
+Results: 
+#Abcisa	l2-norm-full	l2-norm-onset	Max absolute err	APD90_1st_quad	APD90_3rd_quad	Conduction velocity (relative diffs)
+0.02	0.020326614	0.020326614	2.4123879	0 1e+10	0 1e+10	0.079365079 0.015873016
+Passed
+Entering TestSpaceConvergenceMonoIn1DWithRelativeTolerance
+=========================== Beginning Test...==================================
+================================================================================
+Solving in 1D	Space step 0.05 cm (mesh 0)
+PDE step 0.005 ms	ODE step 0.0025 ms	KSP relative 0.0001	Stimulus = Plane
+Thu May  5 09:24:53 2016
+Time to solve = 0.4881360530853271 seconds
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.005 ms	ODE step 0.0025 ms	KSP relative 0.0001	Stimulus = Plane
+Thu May  5 09:24:53 2016
+Time to solve = 0.5518569946289062 seconds
+================================================================================
+Solving in 1D	Space step 0.0125 cm (mesh 2)
+PDE step 0.005 ms	ODE step 0.0025 ms	KSP relative 0.0001	Stimulus = Plane
+Thu May  5 09:24:54 2016
+Time to solve = 0.591418981552124 seconds
+Results: 
+#Abcisa	l2-norm-full	l2-norm-onset	Max absolute err	APD90_1st_quad	APD90_3rd_quad	Conduction velocity (relative diffs)
+0.025	0.1800851	0.1800851	49.08891	0 1e+10	0 1e+10	0.078740157 0.12204724
+0.0125	0.064275809	0.064275809	13.704569	0 1e+10	0 1e+10	0.076335878 0.030534351
+Passed
+Entering TestSpaceConvergenceBidomainIn1DWithAbsoluteTolerance
+=========================== Beginning Test...==================================
+================================================================================
+Solving in 1D	Space step 0.05 cm (mesh 0)
+PDE step 0.005 ms	ODE step 0.0025 ms	KSP absolute 0.0001	Stimulus = Plane
+Thu May  5 09:24:54 2016
+Time to solve = 0.8552298545837402 seconds
+================================================================================
+Solving in 1D	Space step 0.025 cm (mesh 1)
+PDE step 0.005 ms	ODE step 0.0025 ms	KSP absolute 0.0001	Stimulus = Plane
+Thu May  5 09:24:55 2016
+Time to solve = 1.041090965270996 seconds
+================================================================================
+Solving in 1D	Space step 0.0125 cm (mesh 2)
+PDE step 0.005 ms	ODE step 0.0025 ms	KSP absolute 0.0001	Stimulus = Plane
+Thu May  5 09:24:56 2016
+Time to solve = 1.484524011611938 seconds
+Results: 
+#Abcisa	l2-norm-full	l2-norm-onset	Max absolute err	APD90_1st_quad	APD90_3rd_quad	Conduction velocity (relative diffs)
+0.025	0.23171837	0.23171837	59.276351	0 1e+10	0 1e+10	0.070422535 0.17253521
+0.0125	0.061066883	0.061066883	12.865252	0 1e+10	0 1e+10	0.068493151 0.02739726
+Passed
+OK!

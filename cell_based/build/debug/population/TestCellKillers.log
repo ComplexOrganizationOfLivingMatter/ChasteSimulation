@@ -1,0 +1,33 @@
+Running 13 tests
+
+ ***** TestCellKillers.hpp *****
+
+
+Entering TestTargetedCellKiller
+Passed
+Entering TestRandomCellKiller
+Passed
+Entering TestApoptoticCellKiller
+Passed
+Entering TestPlaneBasedCellKillerIn1d
+Passed
+Entering TestPlaneBasedCellKillerIn2d
+Passed
+Entering TestPlaneBasedCellKillerIn3d
+Passed
+Entering TestIsolatedLabelledCellKiller
+Passed
+Entering TestArchivingOfTargetedCellKiller
+Passed
+Entering TestArchivingOfRandomCellKiller
+Passed
+Entering TestArchivingOfApoptoticCellKiller
+Passed
+Entering TestArchivingOfPlaneBasedCellKiller
+Passed
+Entering TestArchivingOfIsolatedLabelledCellKiller
+Passed
+Entering TestCellKillersOutputParameters
+Passed
+OK!
+Chaste warning: in file cell_based/src/population/VertexBasedCellPopulation.cpp at line 249: A Cell is removed without performing a T2 swap. This could leave a void in the mesh.

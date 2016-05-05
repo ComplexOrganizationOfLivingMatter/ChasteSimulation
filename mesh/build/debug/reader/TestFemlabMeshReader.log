@@ -1,0 +1,20 @@
+Running 7 tests
+
+ ***** TestFemlabMeshReaders.hpp *****
+
+
+Entering TestFilesOpen
+Passed
+Entering TestNodesDataRead
+Passed
+Entering TestElementsDataRead
+Passed
+Entering TestFacesDataRead
+Passed
+Entering TestGetNextNode
+Passed
+Entering TestGetNextElementData
+Passed
+Entering TestGetNextFace
+Passed
+OK!

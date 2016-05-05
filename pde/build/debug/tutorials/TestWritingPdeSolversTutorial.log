@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestWritingPdeSolversTutorial.hpp *****
+
+
+Entering TestMyTwoVariablePdeSolver
+Passed
+Entering TestMyParaEllipticSetOfPdesSolver
+Passed
+OK!

@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestFibreReaderAbilityExtendedBidomainProblem.hpp *****
+
+
+Entering TestFibreAbilityNoFibreExtendedProblem
+Passed
+Entering TestOrthoFibreAbilityExtendedProblem
+Passed
+Entering Test3DAxiFibreAbilityExtendedProblem
+Passed
+OK!

@@ -1,0 +1,33 @@
+Running 10 tests
+
+ ***** TestPetscTools.hpp *****
+
+
+Entering TestMostOfPetscTools
+These should be ordered:
+  Process 0
+Passed
+Entering TestBarrier
+Passed
+Entering TestReplicateBool
+Passed
+Entering TestReplicateException
+Passed
+Entering TestProcessIsolation
+Passed
+Entering TestDumpPetscObjects
+Passed
+Entering TestReadWithNonDefaultParallelLayout
+Passed
+Entering TestUnevenCreation
+Passed
+Entering TestHasParMetis
+Testing to see if Petsc is configured with ParMetis support. 
+Passed
+Entering TestExceptionMacros
+No exception
+Passed
+OK!
+Chaste warning: in file global/src/parallel/PetscTools.cpp at line 279: Preallocation failure: requested number of nonzeros per row greater than number of columns
+Chaste warning: in file global/src/parallel/PetscTools.cpp at line 314: Ignoring MAT_IGNORE_OFF_PROC_ENTRIES flag because we might set non-zeroes later
+Chaste warning: in file global/src/parallel/PetscTools.cpp at line 279: Preallocation failure: requested number of nonzeros per row greater than number of columns

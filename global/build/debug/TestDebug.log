@@ -1,0 +1,75 @@
+Running 1 test
+
+ ***** TestDebug.hpp *****
+
+
+Entering TestDebugMacros
+DEBUG: Some trace
+DEBUG: my_var = 3141
+DEBUG: my_var = 3141, another_var = 2.81
+DEBUG: my_var = 3141, another_var = 2.81, cancer_curing_constant = 0.0534502
+DEBUG: my_var = 3141, another_var = 2.81, cancer_curing_constant = 0.0534502, heart_disease_ending_constant = -3e-141
+
+
+DEBUG: Num times here (inside for loop): 1
+DEBUG: Num times here (nested loop): 1
+DEBUG: Num times here (nested loop): 2
+DEBUG: Num times here (inside for loop): 2
+DEBUG: Num times here (nested loop): 3
+DEBUG: Num times here (nested loop): 4
+DEBUG: Num times here (inside for loop): 3
+DEBUG: Num times here (nested loop): 5
+DEBUG: Num times here (nested loop): 6
+DEBUG: Num times here (inside for loop): 4
+DEBUG: Num times here (nested loop): 7
+DEBUG: Num times here (nested loop): 8
+DEBUG: Num times here (inside for loop): 5
+DEBUG: Num times here (nested loop): 9
+DEBUG: Num times here (nested loop): 10
+DEBUG: Num times here (inside for loop): 6
+DEBUG: Num times here (nested loop): 11
+DEBUG: Num times here (nested loop): 12
+DEBUG: Num times here (inside for loop): 7
+DEBUG: Num times here (nested loop): 13
+DEBUG: Num times here (nested loop): 14
+DEBUG: Num times here (inside for loop): 8
+DEBUG: Num times here (nested loop): 15
+DEBUG: Num times here (nested loop): 16
+DEBUG: Num times here (inside for loop): 9
+DEBUG: Num times here (nested loop): 17
+DEBUG: Num times here (nested loop): 18
+DEBUG: Num times here (inside for loop): 10
+DEBUG: Num times here (nested loop): 19
+DEBUG: Num times here (nested loop): 20
+
+
+
+DEBUG: hello (visit 2)
+DEBUG: hello (visit 3)
+DEBUG: vec = {0,1,2.7,3.1}
+DEBUG: ./global/test/TestDebug.hpp at line 110
+DEBUG: ./global/test/TestDebug.hpp at line 111
+DEBUG: Processes are isolated.
+DEBUG: Stack information
+DEBUG: Level 0: /home/pablo/chaste-source/lib/libglobal.so(_Z13PrintTheStackv+0x8e) [0x7fbd057285aa]
+DEBUG: Level 1: global/build/debug/TestDebugRunner() [0x407929]
+DEBUG: Level 2: global/build/debug/TestDebugRunner() [0x40830b]
+DEBUG: Level 3: global/build/debug/TestDebugRunner() [0x408608]
+DEBUG: Level 4: global/build/debug/TestDebugRunner() [0x403769]
+DEBUG: Level 5: global/build/debug/TestDebugRunner() [0x405f2c]
+DEBUG: Level 6: global/build/debug/TestDebugRunner() [0x405e3b]
+DEBUG: Level 7: global/build/debug/TestDebugRunner() [0x405d0f]
+DEBUG: Level 8: global/build/debug/TestDebugRunner() [0x405c10]
+DEBUG: Level 9: global/build/debug/TestDebugRunner() [0x406146]
+DEBUG: Level 10: global/build/debug/TestDebugRunner() [0x4028de]
+DEBUG: Level 11: /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x7fbd03120ec5]
+DEBUG: Level 12: global/build/debug/TestDebugRunner() [0x4027c9]
+DEBUG: PRINT_MEMORY will now be relative to here
+DEBUG: Memory change from marker: 0 Mb
+DEBUG: PRINT_MEMORY will now be absolute footprint
+DEBUG: Total memory footprint: 18.2734 Mb
+DEBUG: PRINT_MEMORY will now be relative to here
+DEBUG: Memory change from marker: 2.05469 Mb
+DEBUG: Memory change from marker: 3.60156 Mb
+Passed
+OK!

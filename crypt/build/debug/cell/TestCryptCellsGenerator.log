@@ -1,0 +1,22 @@
+Running 8 tests
+
+ ***** TestCryptCellsGenerator.hpp *****
+
+
+Entering TestCryptCellsGeneratorWithFixedDurationGenerationBasedCellCycleModel
+Passed
+Entering TestCryptCellsGeneratorWithStochasticDurationGenerationBasedCellCycleModel
+Passed
+Entering TestCryptCellsGeneratorWithTysonNovakCellCycleModel
+Passed
+Entering TestCryptCellsGeneratorWithWntCellCycleModel
+Passed
+Entering TestCryptCellsGeneratorWithSimpleWntCellCycleModel
+Passed
+Entering TestCryptCellsGeneratorWithStochasticWntCellCycleModel
+Passed
+Entering TestCryptCellsGeneratorWithStochasticDurationGenerationBasedCellCycleModelAndVertexMesh
+Passed
+Entering TestCryptCellsGeneratorWithSimpleWntCellCycleModelAndVertexMesh
+Passed
+OK!

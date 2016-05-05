@@ -1,0 +1,14 @@
+Running 4 tests
+
+ ***** TestSolveLaplacianWithQuadratics.hpp *****
+
+
+Entering TestSolveLaplacianWithQuadratics1d
+Passed
+Entering TestSolveLaplacianWithQuadratics2d
+Passed
+Entering TestSolveLaplacianWithQuadratics2dReordered
+Passed
+Entering TestSolveLaplacianWithQuadratics3d
+Passed
+OK!

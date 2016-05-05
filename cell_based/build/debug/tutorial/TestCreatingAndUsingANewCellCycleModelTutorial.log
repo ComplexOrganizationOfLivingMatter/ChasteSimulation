@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestCreatingAndUsingANewCellCycleModelTutorial.hpp *****
+
+
+Entering TestMyCellCycleModel
+Passed
+Entering TestOffLatticeSimulationWithMyCellCycleModel
+Passed
+OK!

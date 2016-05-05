@@ -1,0 +1,13 @@
+Running 3 tests
+
+ ***** TestGoldbeter1991OdeSystem.hpp *****
+
+
+Entering TestGoldbeter1991Equation
+Passed
+Entering TestGoldbeter1991OSolver
+1. Solver Elapsed time = 0.023084
+Passed
+Entering TestArchiving
+Passed
+OK!

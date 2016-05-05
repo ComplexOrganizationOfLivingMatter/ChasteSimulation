@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestCommandLineArguments.hpp *****
+
+
+Entering TestCommandLineArgumentsSingleton
+Passed
+Entering TestCommandLineArgumentsMocker
+Passed
+Entering TestCommandLineArgumentsParrotting
+Passed
+OK!

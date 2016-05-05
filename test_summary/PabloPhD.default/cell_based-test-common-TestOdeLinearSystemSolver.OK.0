@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestOdeLinearSystemSolver.hpp *****
+
+
+Entering TestWithTrivial2dProblem
+Passed
+Entering TestWithSimple2dProblem
+Passed
+Entering TestWithSimple4dProblem
+Passed
+OK!

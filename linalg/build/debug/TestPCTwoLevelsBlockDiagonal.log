@@ -1,0 +1,13 @@
+Running 2 tests
+
+ ***** TestPCTwoLevelsBlockDiagonal.hpp *****
+
+
+Entering TestBasicFunctionality
+Passed
+Entering TestBetterThanNoPreconditioning
+No preconditioning time: 0.070133s
+Block diagonal preconditioner time: 0.177738s
+324 473
+Passed
+OK!

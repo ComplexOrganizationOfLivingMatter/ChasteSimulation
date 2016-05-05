@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestMockEulerIvpOdeSolver.hpp *****
+
+
+Entering TestMockEulerSolver
+Passed
+Entering TestArchivingMockEulerSolver
+Passed
+OK!

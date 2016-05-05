@@ -1,0 +1,71 @@
+Running 20 tests
+
+ ***** TestMeshBasedCellPopulation.hpp *****
+
+
+Entering TestSmallMeshBasedCellPopulation1d2d3d
+Passed
+Entering TestSmallMeshBasedCellPopulation2dIn3d
+Passed
+Entering TestGetCentroidOfCellPopulation
+Passed
+Entering TestValidateMeshBasedCellPopulation
+Passed
+Entering TestCreateCellPair
+Passed
+Entering TestGetDampingConstant
+Passed
+Entering TestAreaBasedDampingConstant
+Passed
+Entering TestSetNodeAndAddCell
+Passed
+Entering TestDivideLongSprings
+Passed
+Entering TestRemoveDeadCellsAndUpdate
+Passed
+Entering TestUpdateNodeLocations
+Passed
+Entering TestMeshBasedCellPopulationWriteResultsToFile
+Passed
+Entering TestWriteResultsToFileWithAlternativeAddWriterMethods
+Passed
+Entering TestCellPopulationWritersIn3d
+Warning: In /build/buildd/vtk-5.8.0/Filtering/vtkDataSet.cxx, line 446
+vtkUnstructuredGrid (0x101b290): Cell array Cell volumes with 1 components, has 5 tuples but there are only 1 cells
+
+Warning: In /build/buildd/vtk-5.8.0/Filtering/vtkDataSet.cxx, line 446
+vtkUnstructuredGrid (0x101b290): Cell array Ages with 1 components, has 5 tuples but there are only 1 cells
+
+Warning: In /build/buildd/vtk-5.8.0/Filtering/vtkDataSet.cxx, line 446
+vtkUnstructuredGrid (0x101b290): Cell array Cycle phases with 1 components, has 5 tuples but there are only 1 cells
+
+Warning: In /build/buildd/vtk-5.8.0/Filtering/vtkDataSet.cxx, line 446
+vtkUnstructuredGrid (0x101b290): Cell array Ancestors with 1 components, has 5 tuples but there are only 1 cells
+
+Warning: In /build/buildd/vtk-5.8.0/Filtering/vtkDataSet.cxx, line 446
+vtkUnstructuredGrid (0x101b290): Cell array Cell types with 1 components, has 5 tuples but there are only 1 cells
+
+Passed
+Entering TestGetLocationOfCellCentreAndGetNodeCorrespondingToCellAndGetWidth
+Passed
+Entering TestAddCellDataToPopulation
+Passed
+Entering TestArchivingMeshBasedCellPopulation
+Passed
+Entering TestSpringMarking
+Cell at node 0 addr 0x11fb130
+Cell at node 1 addr 0x11e3350
+Cell at node 2 addr 0x11eea00
+Cell at node 3 addr 0x11f6120
+Cell at node 1 addr 0x11e3350
+Cell at node 2 addr 0x11eea00
+Cell at node 0 addr 0x11fb130
+Cell at node 1 addr 0x11e3350
+Cell at node 2 addr 0x11eea00
+Cell at node 3 addr 0x11f6120
+Passed
+Entering TestSettingCellAncestors
+Passed
+Entering TestIsCellAssociatedWithADeletedLocation
+Passed
+OK!

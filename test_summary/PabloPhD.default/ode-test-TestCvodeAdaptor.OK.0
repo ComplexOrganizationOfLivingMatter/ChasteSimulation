@@ -1,0 +1,39 @@
+Running 9 tests
+
+ ***** TestCvodeAdaptor.hpp *****
+
+
+Entering TestBasics
+Passed
+Entering TestOnOde1
+Passed
+Entering TestGlobalError
+Passed
+Entering TestMultipleCalls
+Passed
+Entering TestGlobalErrorSystemOf2Equations
+Passed
+Entering TestWithStoppingEvent
+1st with Exception
+2nd Solve
+2nd with Exception
+Passed
+Entering TestWithRootFunction
+Passed
+Entering TestExceptions
+CVODE RHS Exception: 
+Chaste error: ./ode/test/TestCvodeAdaptor.hpp:95: I'm feeling nasty!
+*CVODE Error -8 in module CVODE function CVode: At t = 0, the right-hand side routine failed in an unrecoverable manner.
+CVODE failed to solve system: CV_RHSFUNC_FAIL
+*CVODE Error -1 in module CVODE function CVode: At t = 7.25834e-09, mxstep steps taken before reaching tout.
+CVODE failed to solve system: CV_TOO_MUCH_WORK
+*CVODE Error -1 in module CVODE function CVode: At t = 3.43413e-09, mxstep steps taken before reaching tout.
+CVODE failed to solve system: CV_TOO_MUCH_WORK
+CVODE Root Exception: 
+Chaste error: ./ode/test/TestCvodeAdaptor.hpp:101: I'm feeling nasty!
+*CVODE Error -12 in module CVODE function CVRcheck1: At t = 0, the rootfinding routine failed in an unrecoverable manner.
+CVODE failed to solve system: CV_RTFUNC_FAIL
+Passed
+Entering TestArchivingCvodeAdaptorSolver
+Passed
+OK!

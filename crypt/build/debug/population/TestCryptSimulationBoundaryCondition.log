@@ -1,0 +1,34 @@
+Running 14 tests
+
+ ***** TestCryptSimulationBoundaryCondition.hpp *****
+
+
+Entering TestSetAndGetUseJiggledBottomCells
+Passed
+Entering TestConstructorWithCellPopulation1d
+Passed
+Entering TestConstructorWithCellPopulation2d
+Passed
+Entering TestOutputParameters1d
+Passed
+Entering TestOutputParameters2d
+Passed
+Entering TestImposeBoundaryConditionWithNoWnt1d
+Passed
+Entering TestImposeBoundaryConditionWithNoWntOrJiggling2d
+Passed
+Entering TestImposeBoundaryConditionWithNoWntButWithJiggling
+Passed
+Entering TestImposeBoundaryConditionWithWnt1d
+Passed
+Entering TestImposeBoundaryConditionWithWntButNoJiggling
+Passed
+Entering TestVerifyBoundaryCondition1d
+Passed
+Entering TestVerifyBoundaryCondition2d
+Passed
+Entering TestArchiving1d
+Passed
+Entering TestArchiving2d
+Passed
+OK!

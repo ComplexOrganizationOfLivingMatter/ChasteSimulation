@@ -1,0 +1,20 @@
+Running 7 tests
+
+ ***** TestAbstractFeVolumeIntegralAssembler.hpp *****
+
+
+Entering TestBasicVectorAssemblers
+Passed
+Entering TestBasicMatrixAssemblers
+Passed
+Entering TestBasicVectorAndMatrixAssembler
+Passed
+Entering TestMassMatrixAssembler1d
+Passed
+Entering TestMassMatrixAssembler2dIncludingScaleFactor
+Passed
+Entering TestStiffnessMatrixAssembler1d
+Passed
+Entering TestInterpolationOfPositionAndCurrentSolution
+Passed
+OK!

@@ -1,0 +1,35 @@
+Running 6 tests
+
+ ***** TestMonodomainWithSvi.hpp *****
+
+
+Entering TestConductionVelocityConvergesFasterWithSvi1d
+Passed
+Entering TestConductionVelocityInCrossFibreDirection2d
+Passed
+Entering TestCoverage3d
+Passed
+Entering TestWithHeterogeneousCellModels
+Passed
+Entering TestArchiving
+Passed
+Entering TestMonodomainFailing
+Global node 42 had problems with ODE solve between t = 0.32 and 0.33ms.
+Voltage at this node before solve was -92.88649964533963mV
+(this SHOULD NOT necessarily be the same as the one in the state variables,
+which can be ignored and stay at the initial condition - the voltage is dictated by PDE instead of state variable.)
+Stimulus current (NB converted to micro-Amps per cm^3) applied here is equal to:
+	0 at t = 0.32ms,
+	0 at t = 0.33ms.
+Cell model: luo_rudy_1991
+All state variables are now:
+	membrane_voltage	:	-92.88649964533963
+	fast_sodium_current_m_gate__m	:	-0.0001277706701613254
+	fast_sodium_current_h_gate__h	:	0.9817069495647771
+	fast_sodium_current_j_gate__j	:	0.9878022478694283
+	slow_inward_current_d_gate__d	:	0.003135828831483119
+	slow_inward_current_f_gate__f	:	0.9943146349342162
+	time_dependent_potassium_current_X_gate__X	:	0.1662291710600827
+	cytosolic_calcium_concentration	:	0.0001996090986768835
+Passed
+OK!

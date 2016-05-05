@@ -1,0 +1,14 @@
+Running 4 tests
+
+ ***** TestRegions.hpp *****
+
+
+Entering TestCuboidCreationAndContained
+Passed
+Entering TestNodesList
+Passed
+Entering TestEllipsoidCreationAndContained
+Passed
+Entering TestArchivingRegions
+Passed
+OK!

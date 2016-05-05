@@ -1,0 +1,38 @@
+Running 16 tests
+
+ ***** TestCylindrical2dMesh.hpp *****
+
+
+Entering TestCreateMirrorCellsAndAlignmentTester
+Passed
+Entering TestReconstructCylindricalMesh
+Passed
+Entering TestCylindricalReMesh
+Passed
+Entering TestCylindricalReMeshAfterDelete
+Passed
+Entering TestCylindricalReMeshOnSmallMesh
+Passed
+Entering TestGetVectorBetweenCyclindricalPoints
+Passed
+Entering TestSetNodeLocationForCylindricalMesh
+Passed
+Entering TestAddNodeAndReMesh
+Passed
+Entering TestHaloNodeInsertionAndRemoval
+Passed
+Entering TestHaloNodeReMesh
+Passed
+Entering TestArchiving
+Passed
+Entering TestConstructFromNodeList
+Passed
+Entering TestGenerateVectorsOfElementsStraddlingPeriodicBoundaries
+Passed
+Entering TestCorrectNonPeriodicMeshMapLeftToRight
+Passed
+Entering TestCorrectNonPeriodicMeshes
+Passed
+Entering TestVoronoiTessellationUsesOverriddenMetric
+Passed
+OK!

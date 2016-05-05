@@ -1,0 +1,26 @@
+Running 4 tests
+
+ ***** TestNhsModelWithBackwardSolver.hpp *****
+
+
+Entering TestSolverSingleTimestep
+0.000136986 0.00014
+2.07242e-19 0
+-0.289133 -0.29
+1.36229 1.38
+1.21412 1.29
+Passed
+Entering TestSolverManyTimestepsCompareWithEuler
+0.0287541 0.0287536
+0.243162 0.243187
+-91.8518 -91.8561
+106.154 106.154
+20.64 20.64
+TIMES: 0.019484 0.003309
+
+Passed
+Entering TestRunDoesNotUpdate
+Passed
+Entering TestGetActiveTension
+Passed
+OK!

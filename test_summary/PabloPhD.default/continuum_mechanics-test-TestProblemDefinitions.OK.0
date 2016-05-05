@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestProblemDefinitions.hpp *****
+
+
+Entering TestContinuumMechanicsProblemDefinition
+Passed
+Entering TestSolidMechanicsProblemDefinition
+Passed
+Entering TestStokesFlowProblemDefinition
+Passed
+OK!

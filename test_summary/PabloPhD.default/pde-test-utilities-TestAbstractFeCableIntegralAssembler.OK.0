@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestAbstractFeCableIntegralAssembler.hpp *****
+
+
+Entering TestBasicCableAssemblers
+Passed
+Entering TestExceptionsAndSetCurrentSolution
+Passed
+OK!

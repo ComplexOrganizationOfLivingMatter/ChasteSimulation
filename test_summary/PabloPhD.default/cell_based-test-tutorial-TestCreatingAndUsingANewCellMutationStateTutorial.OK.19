@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestCreatingAndUsingANewCellMutationStateTutorial.hpp *****
+
+
+Entering TestP53GainOfFunctionCellMutationState
+Passed
+Entering TestOffLatticeSimulationWithP53GainOfFunctionCellMutationState
+Passed
+OK!

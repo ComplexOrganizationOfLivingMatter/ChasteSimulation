@@ -1,0 +1,29 @@
+Running 11 tests
+
+ ***** TestCryptSimulation1d.hpp *****
+
+
+Entering Test1dCryptWithNoBirthOrDeath
+Passed
+Entering Test1dCryptWithDeathButNoBirth
+Passed
+Entering Test1dCryptWithBirthButNoDeath
+Passed
+Entering TestCalculateCellDivisionVector
+Passed
+Entering Test1dCryptWithBirthAndDeath
+Passed
+Entering Test1DChainWithTysonNovakCellsAndNoDeath
+Passed
+Entering Test1dChainCorrectCellNumbers
+Passed
+Entering TestWntCellsCannotMoveAcrossYEqualsZero
+Passed
+Entering TestSave
+Passed
+Entering TestLoad
+The event associated with the counter for 'face write' had already begun when BeginEvent was called.
+Passed
+Entering TestCryptSimulation1DParameterOutput
+Passed
+OK!

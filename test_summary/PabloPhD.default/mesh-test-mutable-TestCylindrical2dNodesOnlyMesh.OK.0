@@ -1,0 +1,20 @@
+Running 7 tests
+
+ ***** TestCylindrical2dNodesOnlyMesh.hpp *****
+
+
+Entering TestMeshGetWidth
+Passed
+Entering TestExceptions
+Passed
+Entering TestGetVectorFromAtoB
+Passed
+Entering TestSetNodeLocationForCylindricalMesh
+Passed
+Entering TestAddNode
+Passed
+Entering TestConstuctingBoxCollection
+Passed
+Entering TestArchiving
+Passed
+OK!

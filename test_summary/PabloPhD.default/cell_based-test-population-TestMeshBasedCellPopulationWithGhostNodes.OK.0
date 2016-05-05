@@ -1,0 +1,34 @@
+Running 14 tests
+
+ ***** TestMeshBasedCellPopulationWithGhostNodes.hpp *****
+
+
+Entering TestValidateMeshBasedCellPopulationWithGhostNodes
+Passed
+Entering TestMeshBasedCellPopulationWithGhostNodesSetup
+Passed
+Entering TestCellPopulationIteratorWithNoCells
+Passed
+Entering TestAreaBasedVisocityOnAPeriodicMesh
+Passed
+Entering TestRemoveDeadCellsAndReMeshWithGhostNodes
+Passed
+Entering TestAddAndRemoveAndAddWithOutUpdate
+Passed
+Entering TestUpdateNodeLocations
+Passed
+Entering TestSpringIterator2d
+Passed
+Entering TestSpringIterator3d
+Passed
+Entering TestCellPopulationWritersIn3dWithGhostNodes
+Passed
+Entering TestVoronoiAreasAndPerimetersWithGhostNodes
+Passed
+Entering TestVoronoiGhostNodeLabelling2d
+Passed
+Entering TestVoronoiGhostNodeLabelling3d
+Passed
+Entering TestAddCellDataToPopulation
+Passed
+OK!

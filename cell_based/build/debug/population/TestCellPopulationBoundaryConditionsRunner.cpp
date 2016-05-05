@@ -1,0 +1,82 @@
+/* Generated file, do not edit */
+
+#ifndef CXXTEST_RUNNING
+#define CXXTEST_RUNNING
+#endif
+
+#define _CXXTEST_HAVE_STD
+#define _CXXTEST_HAVE_EH
+#include <cxxtest/TestListener.h>
+#include <cxxtest/TestTracker.h>
+#include <cxxtest/TestRunner.h>
+#include <cxxtest/RealDescriptions.h>
+#include <cxxtest/ErrorPrinter.h>
+
+#include "CommandLineArguments.hpp"
+int main( int argc, char *argv[] ) {
+ CommandLineArguments::Instance()->p_argc = &argc;
+ CommandLineArguments::Instance()->p_argv = &argv;
+ return CxxTest::ErrorPrinter().run();
+}
+#include "cell_based/test/population/TestCellPopulationBoundaryConditions.hpp"
+
+static TestCellPopulationBoundaryConditions suite_TestCellPopulationBoundaryConditions;
+
+static CxxTest::List Tests_TestCellPopulationBoundaryConditions = { 0, 0 };
+CxxTest::StaticSuiteDescription suiteDescription_TestCellPopulationBoundaryConditions( "cell_based/test/population/TestCellPopulationBoundaryConditions.hpp", 67, "TestCellPopulationBoundaryConditions", suite_TestCellPopulationBoundaryConditions, Tests_TestCellPopulationBoundaryConditions );
+
+static class TestDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionConstructor : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionConstructor() : CxxTest::RealTestDescription( Tests_TestCellPopulationBoundaryConditions, suiteDescription_TestCellPopulationBoundaryConditions, 71, "TestPlaneBoundaryConditionConstructor" ) {}
+ void runTest() { suite_TestCellPopulationBoundaryConditions.TestPlaneBoundaryConditionConstructor(); }
+} testDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionConstructor;
+
+static class TestDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionWithNodeBasedCellPopulation : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionWithNodeBasedCellPopulation() : CxxTest::RealTestDescription( Tests_TestCellPopulationBoundaryConditions, suiteDescription_TestCellPopulationBoundaryConditions, 107, "TestPlaneBoundaryConditionWithNodeBasedCellPopulation" ) {}
+ void runTest() { suite_TestCellPopulationBoundaryConditions.TestPlaneBoundaryConditionWithNodeBasedCellPopulation(); }
+} testDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionWithNodeBasedCellPopulation;
+
+static class TestDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionWithNodeBasedCellPopulationAndJiggledNodes : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionWithNodeBasedCellPopulationAndJiggledNodes() : CxxTest::RealTestDescription( Tests_TestCellPopulationBoundaryConditions, suiteDescription_TestCellPopulationBoundaryConditions, 176, "TestPlaneBoundaryConditionWithNodeBasedCellPopulationAndJiggledNodes" ) {}
+ void runTest() { suite_TestCellPopulationBoundaryConditions.TestPlaneBoundaryConditionWithNodeBasedCellPopulationAndJiggledNodes(); }
+} testDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionWithNodeBasedCellPopulationAndJiggledNodes;
+
+static class TestDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionWithVertexBasedCellPopulation : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionWithVertexBasedCellPopulation() : CxxTest::RealTestDescription( Tests_TestCellPopulationBoundaryConditions, suiteDescription_TestCellPopulationBoundaryConditions, 237, "TestPlaneBoundaryConditionWithVertexBasedCellPopulation" ) {}
+ void runTest() { suite_TestCellPopulationBoundaryConditions.TestPlaneBoundaryConditionWithVertexBasedCellPopulation(); }
+} testDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionWithVertexBasedCellPopulation;
+
+static class TestDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionExceptions : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionExceptions() : CxxTest::RealTestDescription( Tests_TestCellPopulationBoundaryConditions, suiteDescription_TestCellPopulationBoundaryConditions, 333, "TestPlaneBoundaryConditionExceptions" ) {}
+ void runTest() { suite_TestCellPopulationBoundaryConditions.TestPlaneBoundaryConditionExceptions(); }
+} testDescription_TestCellPopulationBoundaryConditions_TestPlaneBoundaryConditionExceptions;
+
+static class TestDescription_TestCellPopulationBoundaryConditions_TestSphereGeometryBoundaryCondition : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestCellPopulationBoundaryConditions_TestSphereGeometryBoundaryCondition() : CxxTest::RealTestDescription( Tests_TestCellPopulationBoundaryConditions, suiteDescription_TestCellPopulationBoundaryConditions, 360, "TestSphereGeometryBoundaryCondition" ) {}
+ void runTest() { suite_TestCellPopulationBoundaryConditions.TestSphereGeometryBoundaryCondition(); }
+} testDescription_TestCellPopulationBoundaryConditions_TestSphereGeometryBoundaryCondition;
+
+static class TestDescription_TestCellPopulationBoundaryConditions_TestArchivingOfPlaneBoundaryCondition : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestCellPopulationBoundaryConditions_TestArchivingOfPlaneBoundaryCondition() : CxxTest::RealTestDescription( Tests_TestCellPopulationBoundaryConditions, suiteDescription_TestCellPopulationBoundaryConditions, 465, "TestArchivingOfPlaneBoundaryCondition" ) {}
+ void runTest() { suite_TestCellPopulationBoundaryConditions.TestArchivingOfPlaneBoundaryCondition(); }
+} testDescription_TestCellPopulationBoundaryConditions_TestArchivingOfPlaneBoundaryCondition;
+
+static class TestDescription_TestCellPopulationBoundaryConditions_TestArchivingOfSphereGeometryBoundaryCondition : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestCellPopulationBoundaryConditions_TestArchivingOfSphereGeometryBoundaryCondition() : CxxTest::RealTestDescription( Tests_TestCellPopulationBoundaryConditions, suiteDescription_TestCellPopulationBoundaryConditions, 510, "TestArchivingOfSphereGeometryBoundaryCondition" ) {}
+ void runTest() { suite_TestCellPopulationBoundaryConditions.TestArchivingOfSphereGeometryBoundaryCondition(); }
+} testDescription_TestCellPopulationBoundaryConditions_TestArchivingOfSphereGeometryBoundaryCondition;
+
+static class TestDescription_TestCellPopulationBoundaryConditions_TestCellBoundaryConditionsOutputParameters : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestCellPopulationBoundaryConditions_TestCellBoundaryConditionsOutputParameters() : CxxTest::RealTestDescription( Tests_TestCellPopulationBoundaryConditions, suiteDescription_TestCellPopulationBoundaryConditions, 571, "TestCellBoundaryConditionsOutputParameters" ) {}
+ void runTest() { suite_TestCellPopulationBoundaryConditions.TestCellBoundaryConditionsOutputParameters(); }
+} testDescription_TestCellPopulationBoundaryConditions_TestCellBoundaryConditionsOutputParameters;
+
+#include <cxxtest/Root.cpp>

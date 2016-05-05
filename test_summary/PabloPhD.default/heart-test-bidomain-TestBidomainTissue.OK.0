@@ -1,0 +1,14 @@
+Running 4 tests
+
+ ***** TestBidomainTissue.hpp *****
+
+
+Entering TestBidomainTissueSolveCellSystems
+Passed
+Entering TestBidomainTissueWithHeterogeneousConductivitiesDistributed
+Passed
+Entering TestBidomainTissueWithHeterogeneousConductivitiesEllipsoid
+Passed
+Entering TestSaveAndLoadCardiacPDE
+Passed
+OK!

@@ -1,0 +1,20 @@
+Running 7 tests
+
+ ***** TestChastePoint.hpp *****
+
+
+Entering TestSetAndGetCoordinate
+Passed
+Entering TestGetLocation
+Passed
+Entering TestSameChastePoints
+Passed
+Entering TestZeroDimPoint
+Passed
+Entering TestCreateFromCvector
+Passed
+Entering TestCreateFromStdVector
+Passed
+Entering TestArchivingPoint
+Passed
+OK!

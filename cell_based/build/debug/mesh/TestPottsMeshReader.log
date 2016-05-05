@@ -1,0 +1,20 @@
+Running 7 tests
+
+ ***** TestPottsMeshReader.hpp *****
+
+
+Entering TestFilesOpen
+Passed
+Entering TestNodesDataRead
+Passed
+Entering TestElementsDataRead
+Passed
+Entering TestGetNextNode
+Passed
+Entering TestReadingElementAttributes
+Passed
+Entering TestPottsMeshReader3d
+Passed
+Entering TestOtherExceptions
+Passed
+OK!

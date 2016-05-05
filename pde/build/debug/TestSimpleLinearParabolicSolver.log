@@ -1,0 +1,27 @@
+Running 10 tests
+
+ ***** TestSimpleLinearParabolicSolver.hpp *****
+
+
+Entering TestSimpleLinearParabolicSolver1DZeroDirich
+Passed
+Entering TestSimpleLinearParabolicSolver1DZeroDirichWithSourceTerm
+Passed
+Entering TestSimpleLinearParabolicSolverNonzeroNeumannCondition
+Passed
+Entering TestSimpleLinearParabolicSolver2DZeroDirich
+Passed
+Entering TestSimpleLinearParabolicSolver2DNonzeroDirichWithSourceTerm
+Passed
+Entering TestSimpleLinearParabolicSolver2DMixedOnCoarseMesh
+Passed
+Entering TestSimpleLinearParabolicSolver2DMixed
+Passed
+Entering TestHeatEquationSolutionDoesntDrift2D
+Passed
+Entering TestHeatEquationSolutionDoesntDrift1D
+Passed
+Entering Test1DProblemUsingTimeAdaptivityController
+Passed
+OK!
+Chaste warning: in file pde/src/postprocessing/Hdf5ToVtkConverter.cpp at line 77: Can only write parallel VTK from a DistributedTetrahedralMesh - writing sequential VTK instead

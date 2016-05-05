@@ -1,0 +1,36 @@
+Running 3 tests
+
+ ***** TestSolvingOdesTutorial.hpp *****
+
+
+Entering TestSolvingOdes
+0 1
+0.1 1.11013
+0.2 1.24933
+0.3 1.4318
+0.4 1.6805
+0.5 2.03599
+0.6 2.57864
+0.7 3.49519
+0.8 5.34276
+0.9 10.8041
+1 90.7555
+Stopping event occurred at t=0.59
+Passed
+Entering TestOdeSolvingUsingStateVariable
+Solution at end time = 90.7555
+Passed
+Entering TestWith2dOde
+0 1 0
+0.1 1.0045 0.10024
+0.2 1.0191 0.202299
+0.3 1.04405 0.308282
+0.4 1.07987 0.420493
+0.5 1.12728 0.541558
+0.6 1.18731 0.674575
+0.7 1.26132 0.823311
+0.8 1.35107 0.992459
+0.9 1.45887 1.18799
+1 1.58768 1.41763
+Passed
+OK!

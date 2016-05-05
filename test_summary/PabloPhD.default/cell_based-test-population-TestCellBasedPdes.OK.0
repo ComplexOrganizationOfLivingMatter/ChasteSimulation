@@ -1,0 +1,22 @@
+Running 8 tests
+
+ ***** TestCellBasedPdes.hpp *****
+
+
+Entering TestSimpleUniformSourcePdeMethods
+Passed
+Entering TestSimpleUniformSourcePdeArchiving
+Passed
+Entering TestCellwiseSourcePdeMethods
+Passed
+Entering TestCellwiseSourcePdeArchiving
+Passed
+Entering TestAveragedSourcePdeMethods
+Passed
+Entering TestAveragedSourcePdeArchiving
+Passed
+Entering TestVolumeDependentAveragedSourcePdeMethods
+Passed
+Entering TestVolumeDependentAveragedSourcePdeArchiving
+Passed
+OK!

@@ -1,0 +1,24 @@
+Running 9 tests
+
+ ***** TestHeun2IvpOdeSolver.hpp *****
+
+
+Entering TestHeunSolver
+Passed
+Entering TestGlobalError
+Passed
+Entering TestGlobalErrorSystemOf2Equations
+Passed
+Entering TestGlobalErrorSystemOf3Equations
+Passed
+Entering TestGlobalError2
+Passed
+Entering TestOrderOnSimpleSystem
+Passed
+Entering TestOrderOnMediumSystem
+Passed
+Entering TestOrderOnHardSystem
+Passed
+Entering TestArchivingSolvers
+Passed
+OK!

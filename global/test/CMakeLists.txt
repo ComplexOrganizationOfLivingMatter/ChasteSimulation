@@ -1,0 +1,3 @@
+project(testglobal)
+
+chaste_do_test_component(global)

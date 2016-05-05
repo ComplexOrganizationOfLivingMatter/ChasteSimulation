@@ -1,0 +1,28 @@
+Running 11 tests
+
+ ***** TestFibreReader.hpp *****
+
+
+Entering TestOrthoReaderSetup
+Passed
+Entering TestOrthoReaderSkipping
+Passed
+Entering TestAxiReaderSetup
+Passed
+Entering TestAxiReaderSkipping
+Passed
+Entering TestFibreConvenienceMethodsForVtk
+Passed
+Entering TestFibretoVtk
+Passed
+Entering TestFibreReaderExceptions
+Passed
+Entering TestAxiBinaryFileReader
+Passed
+Entering TestAxiBinaryFileReaderWithSkipping
+Passed
+Entering TestOrthoBinaryFileReader
+Passed
+Entering TestOrthoBinaryFileReaderWithSkipping
+Passed
+OK!

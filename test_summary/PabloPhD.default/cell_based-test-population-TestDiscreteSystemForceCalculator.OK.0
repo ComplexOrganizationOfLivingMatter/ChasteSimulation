@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestDiscreteSystemForceCalculator.hpp *****
+
+
+Entering TestPrivateMethods
+Passed
+Entering TestCalculateExtremalNormalForces
+Passed
+Entering TestCalculateWriteResultsToFile
+Passed
+OK!

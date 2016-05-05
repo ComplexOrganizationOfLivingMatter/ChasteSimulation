@@ -1,0 +1,16 @@
+Running 5 tests
+
+ ***** TestCellProliferativeTypes.hpp *****
+
+
+Entering TestCellProliferativeTypeMethods
+Passed
+Entering TestArchiveStemCellProliferativeType
+Passed
+Entering TestArchiveTransitCellProliferativeType
+Passed
+Entering TestArchiveDifferentiatedCellProliferativeType
+Passed
+Entering TestArchiveDefaultCellProliferativeType
+Passed
+OK!

@@ -1,0 +1,11 @@
+Running 1 test
+
+ ***** TestTimer.hpp *****
+
+
+Entering TestTheTimer
+What time is it? time: 1.46243e+09s
+Cure cancer time: 1.90735e-06s
+Cure heart disease time: 9.53674e-07s
+Passed
+OK!

@@ -1,0 +1,103 @@
+Running 21 tests
+
+ ***** TestMonodomainProblem.hpp *****
+
+
+Entering TestMonodomainProblemSimplestMesh1D
+Passed
+Entering TestMonodomainProblem1D
+Passed
+Entering TestMonodomainProblem1DWithRelativeTolerance
+Passed
+Entering TestMonodomainProblem1Din3D
+Passed
+Entering TestMonodomainProblem1DWithAbsoluteTolerance
+Passed
+Entering TestMonodomainProblem2DWithEdgeStimulus
+Passed
+Entering TestMonodomainProblem2DWithPointStimulusInTheVeryCentreOfTheMesh
+Passed
+Entering TestMonodomainProblemPrintsOnlyAtRequestedTimes
+Solved to time 0.1
+ V = [-83.8533, -83.8368]
+Solved to time 0.2
+ V = [-83.8536, -83.8288]
+Solved to time 0.3
+ V = [-83.8539, -83.8228]
+Passed
+Entering TestMonodomainWithMeshInMemoryToMeshalyzer
+Passed
+Entering TestMonodomainProblemCreates1DGeometry
+Passed
+Entering TestMonodomainProblemCreates2DGeometry
+Passed
+Entering TestMonodomainProblemCreates3DGeometry
+Passed
+Entering TestMonodomainProblemPrintsMultipleVariables
+Passed
+Entering TestMonodomainProblemExceptions
+The event associated with the counter for 'InMesh' had already begun when BeginEvent was called.
+Passed
+Entering TestArchiving
+Passed
+Entering TestMonodomainProblem1dInTwoHalves
+Passed
+Entering TestMonodomain2dOriginalPermutationInParallel
+Passed
+Entering TestOutputDoesNotDependOnPrintTimestep
+Difference in printing time steps of 0.1 and 0.01 = 0.000348491 mV
+Passed
+Entering TestCvodeErrorHandling
+Don't worry about a few errors below here, we are testing that we can recover from them!
+*CVODE Error -3 in module CVODE function CVode: At t = 2 and h = 6.38066e-08, the error test failed repeatedly or with |h| = hmin.
+CVODE failed to solve system: CV_ERR_FAILURE
+Got to time 2
+
+State variables are now:
+	membrane_voltage	:	-83.853
+	fast_sodium_current_m_gate__m	:	0.767824
+	fast_sodium_current_h_gate__h	:	0.421241
+	fast_sodium_current_j_gate__j	:	0.862181
+	slow_inward_current_d_gate__d	:	0.010984
+	slow_inward_current_f_gate__f	:	0.992247
+	time_dependent_potassium_current_X_gate__X	:	0.166053
+	cytosolic_calcium_concentration	:	0.000201502
+
+*CVODE Error -3 in module CVODE function CVode: At t = 2 and h = 5.51642e-08, the error test failed repeatedly or with |h| = hmin.
+CVODE failed to solve system: CV_ERR_FAILURE
+Got to time 2
+
+State variables are now:
+	membrane_voltage	:	-83.853
+	fast_sodium_current_m_gate__m	:	0.562001
+	fast_sodium_current_h_gate__h	:	0.711987
+	fast_sodium_current_j_gate__j	:	0.904778
+	slow_inward_current_d_gate__d	:	0.00824311
+	slow_inward_current_f_gate__f	:	0.993653
+	time_dependent_potassium_current_X_gate__X	:	0.165881
+	cytosolic_calcium_concentration	:	0.000200033
+
+*CVODE Error -3 in module CVODE function CVode: At t = 2 and h = 6.0655e-07, the error test failed repeatedly or with |h| = hmin.
+CVODE failed to solve system: CV_ERR_FAILURE
+Got to time 2
+
+State variables are now:
+	membrane_voltage	:	-83.853
+	fast_sodium_current_m_gate__m	:	0.00177045
+	fast_sodium_current_h_gate__h	:	0.9808
+	fast_sodium_current_j_gate__j	:	0.987737
+	slow_inward_current_d_gate__d	:	0.00315217
+	slow_inward_current_f_gate__f	:	0.994489
+	time_dependent_potassium_current_X_gate__X	:	0.165081
+	cytosolic_calcium_concentration	:	0.000197639
+
+Passed
+Entering TestArchivingOfSingleTraceOutputModifier
+Passed
+Entering TestMonodomainProblem2DWithArchiving
+The event associated with the counter for 'face write' had already begun when BeginEvent was called.
+Passed
+OK!
+Chaste warning: in file heart/src/tissue/AbstractCardiacTissue.cpp at line 521: Global node 0 had an ODE solving problem in t = [2, 3] ms. This was fixed by a reset of CVODE, but may suggest PDE time step should be reduced, or CVODE tolerances relaxed.
+Chaste warning: in file heart/src/tissue/AbstractCardiacTissue.cpp at line 521: Global node 2 had an ODE solving problem in t = [2, 3] ms. This was fixed by a reset of CVODE, but may suggest PDE time step should be reduced, or CVODE tolerances relaxed.
+Chaste warning: in file heart/src/tissue/AbstractCardiacTissue.cpp at line 521: Global node 4 had an ODE solving problem in t = [2, 3] ms. This was fixed by a reset of CVODE, but may suggest PDE time step should be reduced, or CVODE tolerances relaxed.

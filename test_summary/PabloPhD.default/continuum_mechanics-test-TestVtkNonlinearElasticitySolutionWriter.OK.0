@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestVtkNonlinearElasticitySolutionWriter.hpp *****
+
+
+Entering TestException
+Passed
+Entering TestVtuFile
+Passed
+OK!

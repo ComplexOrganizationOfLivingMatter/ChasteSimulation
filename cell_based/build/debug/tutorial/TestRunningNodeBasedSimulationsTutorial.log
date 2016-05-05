@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestRunningNodeBasedSimulationsTutorial.hpp *****
+
+
+Entering TestMonolayer
+Passed
+Entering TestSpheroid
+Passed
+Entering TestOnSurfaceOfSphere
+Passed
+OK!

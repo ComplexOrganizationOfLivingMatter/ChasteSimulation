@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestOutputFileHandler.hpp *****
+
+
+Entering TestHandler
+Passed
+Entering TestWeCanOnlyDeleteFoldersWeHaveMadeOurselves
+Passed
+OK!

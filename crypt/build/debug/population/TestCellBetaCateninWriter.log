@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestCellBetaCateninWriter.hpp *****
+
+
+Entering TestWriter
+Passed
+Entering TestCellBetaCateninWriterArchiving
+Passed
+Entering TestUseInPopulationWriteResultsToFile
+Passed
+OK!

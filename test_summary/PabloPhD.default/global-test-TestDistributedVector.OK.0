@@ -1,0 +1,22 @@
+Running 8 tests
+
+ ***** TestDistributedVector.hpp *****
+
+
+Entering TestDistributedVectorFactory
+Passed
+Entering TestFactorySetFromFactory
+Passed
+Entering TestRead
+Passed
+Entering TestWrite
+Passed
+Entering TestException
+Passed
+Entering TestUnevenDistribution
+Passed
+Entering TestReadOnlyDistributedVector
+Passed
+Entering TestArchiving
+Passed
+OK!

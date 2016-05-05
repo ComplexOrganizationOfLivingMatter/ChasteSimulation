@@ -1,0 +1,41 @@
+Running 16 tests
+
+ ***** TestBidomainWithBathProblem.hpp *****
+
+
+Entering TestLabellingNodes
+Passed
+Entering TestFailsIfNoBathElements
+Passed
+Entering TestCheckForBathElementsNoDeadlock
+The event associated with the counter for 'Init' had already begun when BeginEvent was called.
+Passed
+Entering TestBathIntracellularStimulation
+Passed
+Entering Test1dProblemOnlyBathGroundedOneSide
+Passed
+Entering Test2dBathIntracellularStimulation
+Passed
+Entering Test2dBathInputFluxEqualsOutputFlux
+Passed
+Entering Test2dBathMultipleBathConductivities
+Passed
+Entering TestProblemChecksUsingBathWithMultipleBathConductivities
+Passed
+Entering Test2dBathGroundedElectrodeStimulusSwitchesOnOff
+Passed
+Entering TestMatrixBasedAssembledBath
+2D Matrix based time: 0.780637s
+2D non matrix based time: 0.781741s
+Passed
+Entering TestArchivingBidomainProblemWithElectrodes
+Passed
+Entering TestSettingElectrodesOnResumedSimulation
+Passed
+Entering TestArchivingMeshFileWithAttributes
+Passed
+Entering TestSwitchesOffAtCorrectTime
+Passed
+Entering TestBidomainWithBathCanOutputVariables
+Passed
+OK!

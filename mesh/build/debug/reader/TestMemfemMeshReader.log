@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestMemfemMeshReaders.hpp *****
+
+
+Entering TestFilesOpen
+Passed
+Entering TestGenericReader
+Passed
+Entering TestExceptions
+Passed
+OK!

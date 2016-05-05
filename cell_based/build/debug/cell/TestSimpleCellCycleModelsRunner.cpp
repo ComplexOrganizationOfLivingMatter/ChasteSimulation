@@ -1,0 +1,130 @@
+/* Generated file, do not edit */
+
+#ifndef CXXTEST_RUNNING
+#define CXXTEST_RUNNING
+#endif
+
+#define _CXXTEST_HAVE_STD
+#define _CXXTEST_HAVE_EH
+#include <cxxtest/TestListener.h>
+#include <cxxtest/TestTracker.h>
+#include <cxxtest/TestRunner.h>
+#include <cxxtest/RealDescriptions.h>
+#include <cxxtest/ErrorPrinter.h>
+
+#include "CommandLineArguments.hpp"
+int main( int argc, char *argv[] ) {
+ CommandLineArguments::Instance()->p_argc = &argc;
+ CommandLineArguments::Instance()->p_argv = &argv;
+ return CxxTest::ErrorPrinter().run();
+}
+#include "cell_based/test/cell/TestSimpleCellCycleModels.hpp"
+
+static TestSimpleCellCycleModels suite_TestSimpleCellCycleModels;
+
+static CxxTest::List Tests_TestSimpleCellCycleModels = { 0, 0 };
+CxxTest::StaticSuiteDescription suiteDescription_TestSimpleCellCycleModels( "cell_based/test/cell/TestSimpleCellCycleModels.hpp", 71, "TestSimpleCellCycleModels", suite_TestSimpleCellCycleModels, Tests_TestSimpleCellCycleModels );
+
+static class TestDescription_TestSimpleCellCycleModels_TestFixedDurationGenerationBasedCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestFixedDurationGenerationBasedCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 75, "TestFixedDurationGenerationBasedCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestFixedDurationGenerationBasedCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestFixedDurationGenerationBasedCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestStochasticDurationGenerationBasedCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestStochasticDurationGenerationBasedCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 183, "TestStochasticDurationGenerationBasedCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestStochasticDurationGenerationBasedCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestStochasticDurationGenerationBasedCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestStochasticDurationCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestStochasticDurationCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 248, "TestStochasticDurationCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestStochasticDurationCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestStochasticDurationCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestGammaDistributedStochasticDurationCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestGammaDistributedStochasticDurationCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 309, "TestGammaDistributedStochasticDurationCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestGammaDistributedStochasticDurationCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestGammaDistributedStochasticDurationCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 368, "TestExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestSimpleOxygenBasedCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestSimpleOxygenBasedCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 456, "TestSimpleOxygenBasedCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestSimpleOxygenBasedCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestSimpleOxygenBasedCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestContactInhibitionCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestContactInhibitionCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 593, "TestContactInhibitionCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestContactInhibitionCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestContactInhibitionCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestStochasticOxygenBasedCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestStochasticOxygenBasedCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 705, "TestStochasticOxygenBasedCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestStochasticOxygenBasedCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestStochasticOxygenBasedCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestArchiveFixedDurationGenerationBasedCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestArchiveFixedDurationGenerationBasedCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 866, "TestArchiveFixedDurationGenerationBasedCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestArchiveFixedDurationGenerationBasedCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestArchiveFixedDurationGenerationBasedCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestArchiveStochasticDurationGenerationBasedCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestArchiveStochasticDurationGenerationBasedCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 912, "TestArchiveStochasticDurationGenerationBasedCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestArchiveStochasticDurationGenerationBasedCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestArchiveStochasticDurationGenerationBasedCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestArchiveStochasticDurationCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestArchiveStochasticDurationCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 959, "TestArchiveStochasticDurationCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestArchiveStochasticDurationCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestArchiveStochasticDurationCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestArchiveGammaDistributedStochasticDurationCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestArchiveGammaDistributedStochasticDurationCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 1005, "TestArchiveGammaDistributedStochasticDurationCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestArchiveGammaDistributedStochasticDurationCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestArchiveGammaDistributedStochasticDurationCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestArchiveExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestArchiveExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 1056, "TestArchiveExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestArchiveExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestArchiveExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestArchiveSimpleOxygenBasedCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestArchiveSimpleOxygenBasedCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 1106, "TestArchiveSimpleOxygenBasedCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestArchiveSimpleOxygenBasedCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestArchiveSimpleOxygenBasedCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestArchiveStochasticOxygenBasedCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestArchiveStochasticOxygenBasedCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 1154, "TestArchiveStochasticOxygenBasedCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestArchiveStochasticOxygenBasedCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestArchiveStochasticOxygenBasedCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestArchiveContactInhibitionCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestArchiveContactInhibitionCellCycleModel() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 1215, "TestArchiveContactInhibitionCellCycleModel" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestArchiveContactInhibitionCellCycleModel(); }
+} testDescription_TestSimpleCellCycleModels_TestArchiveContactInhibitionCellCycleModel;
+
+static class TestDescription_TestSimpleCellCycleModels_TestCellCycleModelOutputParameters : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestSimpleCellCycleModels_TestCellCycleModelOutputParameters() : CxxTest::RealTestDescription( Tests_TestSimpleCellCycleModels, suiteDescription_TestSimpleCellCycleModels, 1266, "TestCellCycleModelOutputParameters" ) {}
+ void runTest() { suite_TestSimpleCellCycleModels.TestCellCycleModelOutputParameters(); }
+} testDescription_TestSimpleCellCycleModels_TestCellCycleModelOutputParameters;
+
+#include <cxxtest/Root.cpp>

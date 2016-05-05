@@ -1,0 +1,32 @@
+Running 13 tests
+
+ ***** TestMaterialLaws.hpp *****
+
+
+Entering TestMooneyRivlinLaw
+Passed
+Entering TestExponentialLaw
+Passed
+Entering TestPolynomialMaterialLawAgainstMooneyRivlin
+Passed
+Entering TestQuadraticPolynomialLaw
+Passed
+Entering TestPoleZeroMaterialLaw
+Passed
+Entering TestPoleZeroMaterialLaw3d
+Passed
+Entering TestNashHunterPoleZeroLaw3d
+Passed
+Entering TestNashHunterPoleZeroLaw2d
+Passed
+Entering TestSchmidCostaExponentialLaw
+Passed
+Entering TestCompressibleLawsUsingToyCompressibleMaterialLaw
+Passed
+Entering TestCompressibleMooneyRivlinLaw
+Passed
+Entering TestCompressibleExponentialLaw
+Passed
+Entering TestCompressibleExponentialLaw3d
+Passed
+OK!

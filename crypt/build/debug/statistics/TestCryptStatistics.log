@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestCryptStatistics.hpp *****
+
+
+Entering TestGetSection
+Passed
+Entering TestMakeMeinekeGraphs
+Passed
+Entering TestMultipleCryptSimulations
+Passed
+OK!

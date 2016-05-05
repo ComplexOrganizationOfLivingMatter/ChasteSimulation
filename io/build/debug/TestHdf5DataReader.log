@@ -1,0 +1,21 @@
+Running 7 tests
+
+ ***** TestHdf5DataReader.hpp *****
+
+
+Entering TestSimpleReadDirectlyWithHdf5
+Passed
+Entering TestMultiStepReader
+Passed
+Entering TestNonMultiStepExceptions
+Passed
+Entering TestMultiStepExceptions
+Passed
+Entering TestIncompleteData
+Passed
+Entering TestReadingExtraData
+Passed
+Entering TestListingDatasetsInAnHdf5File
+HDF5 1.8.x or above detected.
+Passed
+OK!

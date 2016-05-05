@@ -1,0 +1,75 @@
+Running 34 tests
+
+ ***** TestMutableVertexMeshReMesh.hpp *****
+
+
+Entering TestPerformNodeMerge
+Passed
+Entering TestPerformNodeMergeWhenLowIndexNodeMustBeAddedToElement
+Passed
+Entering TestPerformT1SwapAndIdentifySwapType
+Passed
+Entering TestPerformT1SwapOnBoundary
+Passed
+Entering TestPerformT1SwapOnBoundary2
+Passed
+Entering TestPerformT1SwapWhenVoidForms
+Passed
+Entering TestPerformT1SwapExceptions
+Passed
+Entering TestPerformT1SwapWithAddingEdgeToTriangularElement
+Passed
+Entering TestDoNotPerforT1SwapWithRemovingEdgeFromTriangularElement
+Passed
+Entering TestExceptionForVoidRemovalWithRemovingEdgeFromTriangularElement
+Passed
+Entering TestPerformT2Swap
+Passed
+Entering TestPerformT2SwapWithBoundaryNodes
+Passed
+Entering TestT2SwapsDontOccurWithTriangularNeighbours
+Passed
+Entering TestPerformT2SwapWithRosettes
+Passed
+Entering TestReMeshForT1Swaps
+Passed
+Entering TestReMeshExceptionWhenNonBoundaryNodesAreContainedOnlyInTwoElements
+Passed
+Entering TestIdentifySwapTypeExceptionWhenBoundaryNodeIsContainedInThreeElements
+Passed
+Entering TestReMeshExceptionWhenNonBoundaryNodeIsContainedOnlyInTwoElements
+Passed
+Entering TestAnotherReMeshExceptionWhenNonBoundaryNodesAreContainedOnlyInTwoElements
+Passed
+Entering TestPerformT3Swap
+Passed
+Entering TestPerformT3SwapException
+Passed
+Entering TestPerformT3SwapAnotherException
+Passed
+Entering TestT3SwapOnSmallEdge
+Passed
+Entering TestConsecutiveT3SwapsForSmallEdges
+Passed
+Entering TestT3SwapForNeighbouringElements
+Passed
+Entering TestResolveTriangularOverlapAfterConsecutiveT3Swaps
+Passed
+Entering TestT3SwapForNeighbouringElementsWithTwoCommonNodes
+Passed
+Entering TestReMeshForT3Swaps
+Passed
+Entering TestReMeshForRemovingVoids
+Passed
+Entering TestReMeshForRemovingVoidsException
+Passed
+Entering TestT3SwapForRemovingVoids
+Passed
+Entering TestT3SwapWithConcaveElements
+Passed
+Entering TestPerformIntersectionSwap
+Passed
+Entering TestPerformIntersectionSwapOtherWayRound
+Passed
+OK!
+Chaste warning: in file mesh/src/vertex/MutableVertexMesh.cpp at line 3124: Trying to merge a node onto an edge which is too small.

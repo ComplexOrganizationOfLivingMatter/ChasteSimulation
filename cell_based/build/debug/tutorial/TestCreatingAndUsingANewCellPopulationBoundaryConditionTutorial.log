@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestCreatingAndUsingANewCellPopulationBoundaryConditionTutorial.hpp *****
+
+
+Entering TestMyBoundaryCondition
+Passed
+Entering TestOffLatticeSimulationWithMyBoundaryCondition
+Passed
+OK!

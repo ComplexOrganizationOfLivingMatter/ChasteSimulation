@@ -1,0 +1,36 @@
+Running 15 tests
+
+ ***** TestVertexBasedCellPopulation.hpp *****
+
+
+Entering TestCreateSmallVertexBasedCellPopulationAndGetWidth
+Passed
+Entering TestValidate
+Passed
+Entering TestGetDampingConstant
+Passed
+Entering TestGetDampingConstantException
+Passed
+Entering TestUpdateWithoutBirthOrDeath
+Passed
+Entering TestAddCellWithSimpleMesh
+Passed
+Entering TestAddCellWithGivenDivisionVector
+Passed
+Entering TestAddCellWithHoneycombMesh
+Passed
+Entering TestIsCellAssociatedWithADeletedLocation
+Passed
+Entering TestRemoveDeadCellsAndUpdate
+Passed
+Entering TestVertexBasedCellPopulationWriteResultsToFile
+Passed
+Entering TestArchiving2dVertexBasedCellPopulation
+Passed
+Entering TestArchiving3dVertexBasedCellPopulation
+Passed
+Entering TestUpdateNodeLocations
+Passed
+Entering TestGetTetrahedralMeshUsingVertexMesh
+Passed
+OK!

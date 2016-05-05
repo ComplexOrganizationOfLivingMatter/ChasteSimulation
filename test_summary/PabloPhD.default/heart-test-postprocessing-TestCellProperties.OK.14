@@ -1,0 +1,16 @@
+Running 5 tests
+
+ ***** TestCellProperties.hpp *****
+
+
+Entering TestExceptionalBehaviour
+Passed
+Entering TestCellPhysiologicalPropertiesForRegularLr91
+Passed
+Entering TestTrickyActionPotential
+Passed
+Entering TestEadDetection
+Passed
+Entering TestActionPotentialCalculations
+Passed
+OK!

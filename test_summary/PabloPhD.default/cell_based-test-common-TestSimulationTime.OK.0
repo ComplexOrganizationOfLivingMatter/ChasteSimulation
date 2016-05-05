@@ -1,0 +1,16 @@
+Running 5 tests
+
+ ***** TestSimulationTime.hpp *****
+
+
+Entering TestTime
+Passed
+Entering TestSimulationTestDoesNotRunOver
+Passed
+Entering TestResetTime
+Passed
+Entering TestLoopedStepping
+Passed
+Entering TestArchiveSimulationTime
+Passed
+OK!

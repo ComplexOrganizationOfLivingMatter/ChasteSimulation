@@ -1,0 +1,10 @@
+Running 1 test
+
+ ***** TestCellBasedEventHandler.hpp *****
+
+
+Entering TestEvents
+          Setup            Death            Birth       Update_Pop       Update_Sim       Tessellate            Force         Position           Output              Pde            Total  
+   0.010 (  2%)     0.020 (  4%)     0.030 (  7%)     0.040 (  9%)     0.000 (  0%)     0.050 ( 11%)     0.060 ( 13%)     0.070 ( 16%)     0.080 ( 18%)     0.090 ( 20%)     0.450 (100%)  (seconds) 
+Passed
+OK!

@@ -1,0 +1,34 @@
+Running 13 tests
+
+ ***** TestSimpleLinearEllipticSolver.hpp *****
+
+
+Entering TestWithPoissonsEquationAndMeshReader
+Passed
+Entering TestWithHeatEquation2
+Passed
+Entering TestWithHeatEquationNonzeroNeumannCondition
+Passed
+Entering Test2dHeatEquationOnUnitSquare
+Passed
+Entering TestHeatEquationWithNeumannOnUnitDisc
+Passed
+Entering TestVaryingPdeAndMeshReader1D
+Passed
+Entering Test3dEllipticEquationDirichletCondition
+Passed
+Entering Test3dEllipticEquationNeumannCondition
+Passed
+Entering TestWithLinearSourceTerm
+Passed
+Entering TestWithLinearSourceTerm2d
+Passed
+Entering TestOrdering
+Passed
+Entering TestWithPoissonsEquation1dMeshIn2dSpace
+Passed
+Entering TestCylinderAxisymmetricWithConstantSourceTerm
+Space step	Max error	Total error
+0.025	9.38075e-08	8.90454e-05
+Passed
+OK!

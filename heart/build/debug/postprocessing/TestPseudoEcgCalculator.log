@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestPseudoEcgCalculator.hpp *****
+
+
+Entering TestCalculator1DLinearGradient
+Passed
+Entering TestCalculator1DParabolic
+Passed
+Entering TestBathEcgCalculations
+Passed
+OK!

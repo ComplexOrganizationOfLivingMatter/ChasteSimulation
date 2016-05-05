@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestPapillaryFibreCalculator.hpp *****
+
+
+Entering TestGetSingleRadiusVector
+Passed
+Entering TestGetRadiusVectorsAndConstructStructureTensors
+Passed
+Entering TestGetFibreOrientationsOnSimpleCube
+Passed
+OK!

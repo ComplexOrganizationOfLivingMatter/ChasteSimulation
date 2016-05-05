@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestPdesForOffLatticeSimulations.hpp *****
+
+
+Entering TestSimpleUniformSourcePde
+Passed
+Entering TestCellwiseSourcePde
+Passed
+Entering TestAveragedSourcePde
+Passed
+OK!

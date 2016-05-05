@@ -1,0 +1,18 @@
+Running 3 tests
+
+ ***** TestCheckpointing.hpp *****
+
+
+Entering TestMultipleCallsToProblemSolve
+Passed
+Entering TestCheckpointingGeneratesMultipleDirectories
+         InMesh             Init           AssSys              Ode            Comms           AssRhs           NeuBCs           DirBCs              Ksp           Output   DataConversion         PostProc            User1            User2            User3            Total  
+   0.403 (  7%)     0.605 ( 10%)     4.508 ( 75%)     0.104 (  2%)     0.006 (  0%)     0.011 (  0%)     0.000 (  0%)     0.000 (  0%)     0.161 (  3%)     0.021 (  0%)     0.007 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     6.030 (100%)  (seconds) 
+Passed
+Entering TestCheckpointingGeneratesSameResults
+         InMesh             Init           AssSys              Ode            Comms           AssRhs           NeuBCs           DirBCs              Ksp           Output   DataConversion         PostProc            User1            User2            User3            Total  
+   0.001 (  6%)     0.000 (  1%)     0.003 ( 16%)     0.000 (  1%)     0.001 (  6%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.001 (  8%)     0.001 (  8%)     0.006 ( 40%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.016 (100%)  (seconds) 
+         InMesh             Init           AssSys              Ode            Comms           AssRhs           NeuBCs           DirBCs              Ksp           Output   DataConversion         PostProc            User1            User2            User3            Total  
+   0.001 (  6%)     0.000 (  2%)     0.003 ( 17%)     0.000 (  1%)     0.001 (  6%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.002 ( 14%)     0.001 (  7%)     0.006 ( 38%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.017 (100%)  (seconds) 
+Passed
+OK!

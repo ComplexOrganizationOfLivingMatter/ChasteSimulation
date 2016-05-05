@@ -1,0 +1,10 @@
+bidomain/TestBidomainHeart.hpp
+convergence/TestConvergenceWeekly.hpp
+ionicmodels/TestPyCmlLong.hpp
+monodomain/TestMonodomainHeart.hpp
+monodomain/TestMonodomainMassLumpingLong.hpp
+monodomain/TestMonodomainSlabLong.hpp
+monodomain/TestNiederer2011BenchmarkSimulation.hpp
+mechanics/TestCardiacElectroMechanicsOnEllipsoid.hpp
+performance/Test3dPerformance.hpp
+postprocessing/TestPseudoEcgCalculatorNightly.hpp

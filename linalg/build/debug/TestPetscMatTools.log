@@ -1,0 +1,14 @@
+Running 4 tests
+
+ ***** TestPetscMatTools.hpp *****
+
+
+Entering TestEqualityCheck
+Passed
+Entering TestSymmetryCheck
+Passed
+Entering TestZeroRowsAndColumnsWithValueOnDiagonal
+Passed
+Entering TestTurnOffVariableAllocationError
+Passed
+OK!

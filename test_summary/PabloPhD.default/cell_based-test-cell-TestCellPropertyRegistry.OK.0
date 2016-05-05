@@ -1,0 +1,16 @@
+Running 5 tests
+
+ ***** TestCellLabel.hpp *****
+
+
+Entering TestCellLabelMethods
+Passed
+Entering TestCellPropertyRegistry
+Passed
+Entering TestCellPropertyOrdering
+Passed
+Entering TestArchiveCellLabel
+Passed
+Entering TestArchiveCellPropertyRegistry
+Passed
+OK!

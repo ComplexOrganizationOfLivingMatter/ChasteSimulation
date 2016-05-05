@@ -1,0 +1,14 @@
+Running 4 tests
+
+ ***** TestCombinedOdeSystem.hpp *****
+
+
+Entering TestSimpleCombinedOdeSystem
+Passed
+Entering TestSimpleSystemWithOrderSwapped
+Passed
+Entering TestWithThreeVariables
+Passed
+Entering TestWithThreeVariablesTwoSystems
+Passed
+OK!

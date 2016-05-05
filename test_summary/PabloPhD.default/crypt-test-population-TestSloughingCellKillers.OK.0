@@ -1,0 +1,22 @@
+Running 8 tests
+
+ ***** TestSloughingCellKillers.hpp *****
+
+
+Entering TestSloughingCellKillerTopAndSides
+Passed
+Entering TestSloughingCellKillerTopOnly
+Passed
+Entering TestSloughingCellKillerIn1d
+Passed
+Entering TestSloughingCellKillerIn3d
+Passed
+Entering TestArchivingOfSloughingCellKiller
+Passed
+Entering TestRadialSloughingCellKillerMethods
+Passed
+Entering TestArchivingOfRadialSloughingCellKiller
+Passed
+Entering TestCellKillersOutputParameters
+Passed
+OK!

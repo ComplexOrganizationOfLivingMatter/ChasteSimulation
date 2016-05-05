@@ -1,0 +1,14 @@
+Running 4 tests
+
+ ***** TestHoneycombVertexMeshGenerator.hpp *****
+
+
+Entering TestSimpleMesh
+Passed
+Entering TestBoundaryNodes
+Passed
+Entering TestLargeMesh
+Passed
+Entering TestElementArea
+Passed
+OK!

@@ -1,0 +1,42 @@
+Running 18 tests
+
+ ***** TestNodeBasedCellPopulation.hpp *****
+
+
+Entering TestNodeBasedCellPopulation1d2d3d
+Passed
+Entering TestOtherNodeBasedCellPopulationConstructor
+Passed
+Entering TestValidateNodeBasedCellPopulation
+Passed
+Entering TestUpdatingCellLocationMapOnDelete
+Passed
+Entering TestAddCell
+Passed
+Entering TestSetNodeAndAddCell
+Passed
+Entering TestRemoveDeadCellsAndUpdate
+Passed
+Entering TestAddAndRemoveAndAddWithOutRemovingDeletedNodesSmallCutOff
+Passed
+Entering TestAddAndRemoveAndAddWithOutRemovingDeletedNodes
+Passed
+Entering TestGetNeighbouringNodeIndices
+Passed
+Entering TestGetNodesWithinNeighbourhoodRadius
+Passed
+Entering TestSettingCellAncestors
+Passed
+Entering TestGetLocationOfCellCentreAndGetWidth
+Passed
+Entering TestNodeBasedCellPopulationOutputWriters2d
+Passed
+Entering TestNodeBasedCellPopulationOutputWriters3d
+Passed
+Entering TestWritingCellCyclePhases
+Passed
+Entering TestArchivingCellPopulation
+Passed
+Entering TestAddAndRemoveMovedCell
+Passed
+OK!

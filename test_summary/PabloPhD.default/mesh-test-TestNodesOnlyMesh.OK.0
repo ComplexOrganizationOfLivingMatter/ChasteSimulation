@@ -1,0 +1,48 @@
+Running 21 tests
+
+ ***** TestNodesOnlyMesh.hpp *****
+
+
+Entering TestConstructNodesWithoutMesh
+Passed
+Entering TestCalculateBoundingBox
+Passed
+Entering TestSetInitialBoxCollection
+Passed
+Entering TestConstuctingAndEnlargingInitialBoxCollection
+Passed
+Entering TestBoxCollectionSizeAndSwelling
+Passed
+Entering TestMovingNodesInBoxCollection
+Passed
+Entering TestClearingNodesOnlyMesh
+Passed
+Entering TestConstructNodesWithoutMeshUsingMesh
+Passed
+Entering TestGetNextAvailableIndex
+Passed
+Entering TestWriteNodesWithoutMeshUsingVtk
+Passed
+Entering TestWriteNodesWithoutMesh
+Passed
+Entering TestGetSetRadiusMethods
+Passed
+Entering TestAddNode
+Passed
+Entering TestDeleteNodesAndRemesh
+Passed
+Entering TestCleanDeleteAndAddNode
+Passed
+Entering TestHaloNodes
+Passed
+Entering TestGetNodesOutsideLocalDomain
+Passed
+Entering TestAddAndGetHaloNodes
+Passed
+Entering TestArchiving
+Passed
+Entering TestArchiveNodesOnlyMeshWithNodeAttributes
+Passed
+Entering TestLoadBalanceMesh
+Passed
+OK!

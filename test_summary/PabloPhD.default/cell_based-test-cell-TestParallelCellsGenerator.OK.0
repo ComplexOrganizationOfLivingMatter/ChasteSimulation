@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestParallelCellsGenerator.hpp *****
+
+
+Entering TestConstruct1dParallelPopulation
+Passed
+Entering TestConstruct2dParallelPopulation
+Passed
+Entering TestConstruct3dParallelPopulation
+Passed
+OK!

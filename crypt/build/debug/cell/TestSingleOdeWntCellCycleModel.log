@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestSingleOdeWntCellCycleModel.hpp *****
+
+
+Entering TestCorrectBehaviour
+Passed
+Entering TestArchiving
+Passed
+Entering TestCellCycleModelOutputParameters
+Passed
+OK!

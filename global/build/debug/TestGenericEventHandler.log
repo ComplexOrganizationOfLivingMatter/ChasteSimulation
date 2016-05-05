@@ -1,0 +1,30 @@
+Running 7 tests
+
+ ***** TestGenericEventHandler.hpp *****
+
+
+Entering TestEvents
+          Test1            Test2            Test3  
+   0.020 (100%)     0.010 ( 50%)     0.020 (100%)  (seconds) 
+Passed
+Entering TestEventExceptions
+The event associated with the counter for 'Test1' had already begun when BeginEvent was called.
+Passed
+Entering TestReset
+Passed
+Entering TestDisable
+Passed
+Entering TestElapsedTime
+Printing variable to slow test down!: dummy = 2000000001
+Passed
+Entering TestSilentlyCloseEvent
+          Test1            Test2            Test3  
+   0.012 (100%)     0.000 (  0%)     0.012 (100%)  (seconds) 
+Passed
+Entering TestReportPrecision
+          Test1            Test2            Test3  
+   0.000 (  0%)     0.000 (  0%)  1000.000 (100%)  (seconds) 
+     0.0 (  0%)       0.0 (  0%)  100000.0 (100%)  (seconds) 
+       0 (  0%)         0 (  0%)  10000000 (100%)  (seconds) 
+Passed
+OK!

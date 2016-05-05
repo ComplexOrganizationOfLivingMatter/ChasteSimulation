@@ -1,0 +1,66 @@
+Running 30 tests
+
+ ***** TestTrianglesMeshReader.hpp *****
+
+
+Entering TestFilesOpen
+Passed
+Entering TestNodesDataRead
+Passed
+Entering TestElementsDataRead
+Passed
+Entering TestFacesDataRead
+Passed
+Entering TestFacesDataReadWithAttributes
+Passed
+Entering Test3dDataRead
+Passed
+Entering TestPermutedNodesFail
+Passed
+Entering TestOrder2ElementsFail
+Passed
+Entering TestGetNextNode
+Passed
+Entering TestGetNextNodeWithNodeAttributes
+Passed
+Entering TestGetNextElementData
+Passed
+Entering TestGetNextEdgeData
+Passed
+Entering Test1DMeshRead
+Passed
+Entering Test0DMeshIn1DSpaceFails
+Passed
+Entering Test1DMeshIn2DSpace
+Passed
+Entering Test1DMeshIn3DSpace
+Passed
+Entering Test2DMeshIn3DSpace
+Passed
+Entering TestOtherExceptions
+Passed
+Entering TestReadingQuadraticMesh1d
+Passed
+Entering TestReadingQuadraticMesh2d
+Passed
+Entering TestReadingQuadraticMesh3d
+Passed
+Entering TestReadingElementAttributes
+Passed
+Entering TestReadingContainingElementsOfBoundaryElements
+Passed
+Entering TestReadingBinary1D
+Passed
+Entering TestReadingBinary
+Passed
+Entering TestReadingHexMesh
+Passed
+Entering TestReadingWithGenericReader
+Passed
+Entering TestReadingNclInformation
+Passed
+Entering TestReading3dMeshWithPermutation
+Passed
+Entering TestReadingMissingAttributes
+Passed
+OK!

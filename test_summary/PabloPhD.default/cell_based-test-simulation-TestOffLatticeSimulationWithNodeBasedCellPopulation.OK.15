@@ -1,0 +1,40 @@
+Running 11 tests
+
+ ***** TestOffLatticeSimulationWithNodeBasedCellPopulation.hpp *****
+
+
+Entering TestSimpleMonolayer
+Test elapsed time: 0.393938s
+Passed
+Entering TestSimplePeriodicMonolayer
+Test elapsed time: 7.7828s
+Passed
+Entering TestSimpleMonolayerWithDifferentRadii
+Test elapsed time: 1.04716s
+Passed
+Entering TestSimpleMonolayerWithVariableRadii
+Test elapsed time: 1.11813s
+Passed
+Entering TestSimulationWithBoxes
+Test elapsed time: 0.746161s
+Passed
+Entering TestCellDeath
+Test elapsed time: 0.371555s
+Passed
+Entering TestStandardResultForArchivingTestsBelow
+Test elapsed time: 1.93674s
+Passed
+Entering TestSave
+Test elapsed time: 0.130847s
+Passed
+Entering TestLoad
+Test elapsed time: 1.98394s
+Passed
+Entering TestMovementThreshold
+Test elapsed time: 0.0137889s
+Passed
+Entering TestUpdateCellLocationsAndTopologyWithNoForce
+The event associated with the counter for 'Position' had already begun when BeginEvent was called.
+Test elapsed time: 0.000598907s
+Passed
+OK!

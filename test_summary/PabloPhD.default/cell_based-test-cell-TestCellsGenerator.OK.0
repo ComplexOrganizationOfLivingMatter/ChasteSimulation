@@ -1,0 +1,18 @@
+Running 6 tests
+
+ ***** TestCellsGenerator.hpp *****
+
+
+Entering TestGenerateBasicWithFixedDurationGenerationBasedCellCycleModel
+Passed
+Entering TestGenerateGivenLocationIndicesWithFixedDurationGenerationBasedCellCycleModel
+Passed
+Entering TestGenerateGivenLocationIndicesWithSpecifiedCellProliferativeType
+Passed
+Entering TestGenerateBasicRandomWithNoSpecifiedProliferativeCellType
+Passed
+Entering TestGenerateBasicRandomWithFixedDurationGenerationBasedCellCycleModel
+Passed
+Entering TestGenerateBasicRandomWithFixedDurationGenerationBasedCellCycleModelandVertexCells
+Passed
+OK!

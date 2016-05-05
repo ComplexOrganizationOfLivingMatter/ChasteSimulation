@@ -1,0 +1,51 @@
+Running 15 tests
+
+ ***** TestCellBasedPdeHandler.hpp *****
+
+
+Entering TestConstructor
+Test elapsed time: 0.00548601s
+Passed
+Entering TestSetMethods
+Test elapsed time: 0.00389099s
+Passed
+Entering TestCellBasedPdeHandlerOutputParameters
+Test elapsed time: 0.040019s
+Passed
+Entering TestArchiving
+Test elapsed time: 0.015794s
+Passed
+Entering TestArchivingOfPdeHandlerOnCuboid
+Test elapsed time: 0.0102232s
+Passed
+Entering TestUseCoarsePdeMesh
+Test elapsed time: 0.0157702s
+Passed
+Entering TestUseCoarsePdeMeshNotCentredOnPopulation
+Test elapsed time: 0.00547004s
+Passed
+Entering TestInitialiseCellPdeElementMapAndFindCoarseElementContainingCell
+Test elapsed time: 0.006881s
+Passed
+Entering TestWritingToFile
+Test elapsed time: 0.011869s
+Passed
+Entering TestWriteAverageRadialPdeSolution
+Test elapsed time: 0.0107019s
+Passed
+Entering TestSolvePdeAndWriteResultsToFileAndGetPDESolutionAtPointWithoutCoarsePdeMeshDirichlet
+Test elapsed time: 0.589187s
+Passed
+Entering TestSolvePdeAndWriteResultsToFileWithoutCoarsePdeMeshNeumann
+Test elapsed time: 0.162014s
+Passed
+Entering TestSolvePdeAndWriteResultsToFileCoarsePdeMeshDirichlet
+Test elapsed time: 0.104928s
+Passed
+Entering TestSolvePdeAndWriteResultsToFileCoarsePdeMeshNeumann
+Test elapsed time: 0.10116s
+Passed
+Entering TestSolvePdeAndWriteResultsToFileWithCoarsePdeMesh
+Test elapsed time: 0.0581548s
+Passed
+OK!

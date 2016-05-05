@@ -1,0 +1,10 @@
+Running 1 test
+
+ ***** TestCellSrn.hpp *****
+
+
+Entering TestGoldbeter1991OdeSteadyState
+Finished ODE - mSimulatedToTime : 100, current_time : 100
+Finished ODE - C : 0.547062, M : 0.293696, X : 0.00678842
+Passed
+OK!

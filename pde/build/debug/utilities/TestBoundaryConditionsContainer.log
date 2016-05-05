@@ -1,0 +1,32 @@
+Running 13 tests
+
+ ***** TestBoundaryConditionsContainer.hpp *****
+
+
+Entering TestSetGet
+Passed
+Entering TestApplyToLinearSystem
+Passed
+Entering TestApplyToSymmetricLinearSystem
+Passed
+Entering TestApplyToNonlinearSystem
+Passed
+Entering TestDefineZeroDirichletOnMeshBoundary
+Passed
+Entering TestAnyNonZeroNeumannConditionsAndApplyNeumannToMeshBoundary
+Passed
+Entering TestValidate
+Passed
+Entering TestAddNeumannBoundaryConditions
+Passed
+Entering TestApplyToLinearSystem2Unknowns
+Passed
+Entering TestApplyToLinearSystem3Unknowns
+Passed
+Entering TestApplyToNonlinearSystem3Unknowns
+Passed
+Entering TestPerdiodicBoundaryConditions
+Passed
+Entering TestArchiving
+Passed
+OK!

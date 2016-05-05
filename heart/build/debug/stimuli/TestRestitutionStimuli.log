@@ -1,0 +1,22 @@
+Running 4 tests
+
+ ***** TestRestitutionStimuli.hpp *****
+
+
+Entering TestS1S2StimulusSetup
+Experiment = 0
+Experiment = 1
+Experiment = 2
+Experiment = 3
+Passed
+Entering TestSteadyStateRestitutionCellStimulusSetup
+Passed
+Entering TestArchivingS1S2Stimulus
+Experiment = 0
+Experiment = 1
+Experiment = 2
+Experiment = 3
+Passed
+Entering TestArchivingSteadyStateStimulus
+Passed
+OK!

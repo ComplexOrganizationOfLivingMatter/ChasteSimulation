@@ -1,0 +1,26 @@
+Running 8 tests
+
+ ***** TestMonodomainTissue.hpp *****
+
+
+Entering TestMonodomainTissueBasic
+Passed
+Entering TestMonodomainTissueGetCardiacCell
+Passed
+Entering TestSolveCellSystemsInclUpdateVoltage
+Passed
+Entering TestNodeExchange
+Passed
+Entering TestSolveCellSystemsInclUpdateVoltageWithNodeExchange
+Passed
+Entering TestSaveAndLoadCardiacTissue
+Passed
+Entering TestMonodomainTissueUsingPurkinjeCellFactory
+The event associated with the counter for 'face write' had already begun when BeginEvent was called.
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+Passed
+Entering TestArchiveMigration
+Passed
+OK!
+Chaste warning: in file heart/src/problem/cell_factories/AbstractPurkinjeCellFactory.cpp at line 72: No Purkinje-Ventricular junction (.pvj) file found. Junctions must be specified manually.
+Chaste warning: in file heart/src/problem/cell_factories/AbstractPurkinjeCellFactory.cpp at line 72: No Purkinje-Ventricular junction (.pvj) file found. Junctions must be specified manually.

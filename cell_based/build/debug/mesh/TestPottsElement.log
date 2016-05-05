@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestPottsElement.hpp *****
+
+
+Entering Test1dPottsElement
+Passed
+Entering Test2dPottsElement
+Passed
+Entering Test3dPottsElement
+Passed
+OK!

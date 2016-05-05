@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestNeumannStimulus.hpp *****
+
+
+Entering TestMonodomainConstantStimulus
+Passed
+Entering TestMonodomainSquareWaveStimulus
+Passed
+OK!

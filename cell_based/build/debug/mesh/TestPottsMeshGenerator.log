@@ -1,0 +1,16 @@
+Running 5 tests
+
+ ***** TestPottsMeshGenerator.hpp *****
+
+
+Entering TestPottsMeshGeneratorIn2dFromBottomLeft
+Passed
+Entering TestPottsMeshGenerator2dInCentre
+Passed
+Entering TestPottsMeshGenerator3dFromBottomLeft
+Passed
+Entering TestPottsMeshGenerator3dInCentre
+Passed
+Entering TestGenerator3dLarge
+Passed
+OK!

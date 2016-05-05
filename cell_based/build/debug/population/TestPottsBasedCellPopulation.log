@@ -1,0 +1,32 @@
+Running 13 tests
+
+ ***** TestPottsBasedCellPopulation.hpp *****
+
+
+Entering TestConstructor
+Passed
+Entering TestIsCellAssociatedWithADeletedLocation
+Passed
+Entering TestValidate
+Passed
+Entering TestRemoveDeadCellsAndUpdate
+Passed
+Entering TestAddCell
+Passed
+Entering TestUpdateCellLocations
+Passed
+Entering TestUpdateCellLocationsRandomly
+Passed
+Entering TestWriteResultsToFileAndOutputCellPopulationParameters
+Passed
+Entering TestNodeAndMeshMethods
+Passed
+Entering TestGetLocationOfCellCentre
+Passed
+Entering TestAddingUpdateRules
+Passed
+Entering TestArchiving
+Passed
+Entering TestMakeMutableMeshForPdes
+Passed
+OK!

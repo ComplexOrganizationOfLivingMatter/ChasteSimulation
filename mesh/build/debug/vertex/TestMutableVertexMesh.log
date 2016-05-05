@@ -1,0 +1,59 @@
+Running 26 tests
+
+ ***** TestMutableVertexMesh.hpp *****
+
+
+Entering TestMutableVertexElementIterator
+Passed
+Entering TestBasic2dMutableVertexMesh
+Passed
+Entering TestBasic3dMutableVertexMesh
+Passed
+Entering TestMeshConstructionFromMeshReader
+Passed
+Entering TestSetNode
+Passed
+Entering TestAddNodeAndReMesh
+Passed
+Entering TestAddElement
+Passed
+Entering TestDeletingNodes
+Passed
+Entering TestDivideVertexElementGivenNodes
+Passed
+Entering TestDivideVertexElementGivenNodesForCoverage
+Passed
+Entering TestDivideVertexElementAbove
+Passed
+Entering TestDivideVertexElementGivenAxisOfDivision
+Passed
+Entering TestDivideVertexElementWithBoundaryNodes
+Passed
+Entering TestDeleteElementWithBoundaryNodes
+Passed
+Entering TestDivideVertexElementGivenAxisOfDivisionFailsForBadElement
+Passed
+Entering TestDivideVertexElementAlongShortAxis
+Passed
+Entering TestDivideVertexElementWithNonRegularElement
+Passed
+Entering TestDivideVertexElementWhereNewNodesAreCloseToOldNodes1
+Passed
+Entering TestDivideVertexElementWhereNewNodesAreCloseToOldNodes2
+Passed
+Entering TestDivideVertexElementGivenAxisOfDivisionWithShortEdge
+Passed
+Entering TestArchive2dMutableVertexMesh
+Passed
+Entering TestArchive3dMutableVertexMesh
+Passed
+Entering TestDivideEdge
+Passed
+Entering TestElementIncludesPointAndGetLocalIndexForElementEdgeClosestToPoint
+Passed
+Entering TestGetLocalIndexForElementEdgeClosestToPointWithinDoubleEpsilon
+Passed
+Entering TestHandleHighOrderJunctions
+Passed
+OK!
+Chaste warning: in file mesh/src/vertex/MutableVertexMesh.cpp at line 420: Edge is too small for normal division; putting node in the middle of a and b. There may be T1 swaps straight away.

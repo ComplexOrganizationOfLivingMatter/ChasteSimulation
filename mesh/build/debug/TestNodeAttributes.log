@@ -1,0 +1,22 @@
+Running 8 tests
+
+ ***** TestNodeAttributes.hpp *****
+
+
+Entering TestConstructor1d2d3d
+Passed
+Entering TestAttributesContainer
+Passed
+Entering TestRegion
+Passed
+Entering TestAppliedForce
+Passed
+Entering TestIsParticle
+Passed
+Entering TestRadius
+Passed
+Entering TestArchiving
+Passed
+Entering TestArchivingNullPointer
+Passed
+OK!

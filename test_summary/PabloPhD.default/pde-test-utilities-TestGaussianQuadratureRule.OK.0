@@ -1,0 +1,14 @@
+Running 4 tests
+
+ ***** TestGaussianQuadratureRule.hpp *****
+
+
+Entering TestTheGaussianQuadratureRule
+Passed
+Entering TestGaussianQuadratureRuleIntegralOneD
+Passed
+Entering TestGaussianQuadratureRuleIntegralTwoD
+Passed
+Entering TestGaussianQuadratureRuleIntegralThreeD
+Passed
+OK!

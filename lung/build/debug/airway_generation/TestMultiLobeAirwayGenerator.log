@@ -1,0 +1,16 @@
+Running 5 tests
+
+ ***** TestMultiLobeAirwayGenerator.hpp *****
+
+
+Entering TestAddLobes
+Passed
+Entering TestAssignGrowthApicesAndDistributePoints
+Passed
+Entering TestDistributePointsByVolume
+Passed
+Entering TestGenerate
+Passed
+Entering TestDummyClassCoverage
+Passed
+OK!

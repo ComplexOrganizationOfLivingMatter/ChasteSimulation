@@ -1,0 +1,53 @@
+Running 23 tests
+
+ ***** TestQuadraticMesh.hpp *****
+
+
+Entering TestQuadraticMesh1d
+Passed
+Entering TestQuadraticMesh1dAutomaticallyGenerated
+Passed
+Entering TestQuadraticMesh2d
+Passed
+Entering TestQuadraticMesh3d
+Passed
+Entering TestAutomaticallyGenerated2dMesh1
+Passed
+Entering TestAutomaticallyGenerated2dMesh2
+Passed
+Entering TestAutomaticallyGenerated3dMeshSimple
+Passed
+Entering TestAutomaticallyGenerated3dMesh
+Passed
+Entering TestWritingReadingBoundaryElementsWithContainingElementInfo
+Passed
+Entering TestArchiving
+Passed
+Entering TestConstructRegularSlabMesh_Directly_1d
+Passed
+Entering TestConstructRegularSlabMesh_Directly_2d
+The event associated with the counter for 'face write' had already begun when BeginEvent was called.
+Passed
+Entering TestConstructRegularSlabMesh_Directly_3d
+Passed
+Entering TestConstructionConversionVersusConstruction2dNoStagger
+Passed
+Entering TestConstructionConversionVersusConstruction2dWithStagger
+Passed
+Entering TestConstructionConversionVersusConstruction3d
+Passed
+Entering TestLinearToQuadraticMeshConversion2d
+Passed
+Entering TestLinearToQuadraticMeshConversion2dNonconvex
+Passed
+Entering TestLinearToQuadraticMeshConversion3d
+Passed
+Entering TestLinearToQuadraticMeshConversion3dNonconvex
+Passed
+Entering TestQuadraticMesh2dReordered
+Passed
+Entering TestBuildQuadraticMeshFromVtkMeshReader
+Passed
+Entering TestElementsContainedByNodes3d
+Passed
+OK!

@@ -1,0 +1,14 @@
+Running 4 tests
+
+ ***** TestSimpleImpedanceProblem.hpp *****
+
+
+Entering TestAcinarImpedance
+Passed
+Entering TestElementReactanceAndInertance
+Passed
+Entering TestSolveTreeImpedance
+Passed
+Entering TestMultipleFrequencies
+Passed
+OK!

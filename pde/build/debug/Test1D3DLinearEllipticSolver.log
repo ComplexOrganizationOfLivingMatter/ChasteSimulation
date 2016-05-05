@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** Test1D3DLinearEllipticSolver.hpp *****
+
+
+Entering TestWithPoissonsEquation1dMeshIn2dSpace
+Passed
+Entering TestWithPoissonsEquation1dMeshIn3dSpace
+Passed
+Entering TestBranchedPoissonsEquation1dMeshIn3dSpace
+Passed
+OK!

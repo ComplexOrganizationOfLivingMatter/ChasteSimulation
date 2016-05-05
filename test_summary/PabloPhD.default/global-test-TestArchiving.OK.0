@@ -1,0 +1,20 @@
+Running 7 tests
+
+ ***** TestArchiving.hpp *****
+
+
+Entering TestArchiveSimpleVars
+Passed
+Entering TestArchivingLinkedChildAndParent
+Passed
+Entering TestArchivingSetOfSetOfPointers
+Passed
+Entering TestArchivingBoostSharedPtrToChild
+Passed
+Entering TestArchivingBoostSharedPtrToChildUsingBaseClass
+Passed
+Entering TestArchivingSubChild
+Passed
+Entering TestUsingABinaryArchive
+Passed
+OK!

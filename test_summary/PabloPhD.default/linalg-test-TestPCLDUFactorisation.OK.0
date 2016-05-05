@@ -1,0 +1,13 @@
+Running 2 tests
+
+ ***** TestPCLDUFactorisation.hpp *****
+
+
+Entering TestBasicFunctionality
+Passed
+Entering TestBetterThanNoPreconditioning
+No preconditioning time: 0.0846059s
+LDU factorisation preconditioner time: 0.0806298s
+38 160
+Passed
+OK!

@@ -1,0 +1,20 @@
+Running 7 tests
+
+ ***** TestT2SwapCellKiller.hpp *****
+
+
+Entering TestKillerForT2Swap
+Passed
+Entering TestKillerForT2SwapInSimulation
+Passed
+Entering TestKillerForMultipleT2Swaps
+Passed
+Entering TestKillerForMultipleT2SwapInSimulation
+Passed
+Entering TestPrepareForT2Swap
+Passed
+Entering TestT2SwapCellKillerException
+Passed
+Entering TestArchivingOfT2SwapCellKiller
+Passed
+OK!

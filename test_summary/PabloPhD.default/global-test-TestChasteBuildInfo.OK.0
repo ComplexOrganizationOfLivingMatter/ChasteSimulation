@@ -1,0 +1,41 @@
+Running 1 test
+
+ ***** TestChasteBuildInfo.hpp *****
+
+
+Entering TestShowInfo
+<ChasteBuildInfo>
+	<ProvenanceInfo>
+		<VersionString>3.4.26039</VersionString> <!-- build specific -->
+		<IsWorkingCopyModified>0</IsWorkingCopyModified>
+		<BuildInformation>default, shared libraries</BuildInformation>
+		<BuildTime>Thu, 05 May 2016 07:26:34 +0000</BuildTime>
+		<CurrentTime>Thu, 05 May 2016 07:27:20 +0000</CurrentTime>
+		<BuilderUnameInfo>Linux PabloPhD 4.2.0-35-generic #40~14.04.1-Ubuntu SMP Fri Mar 18 16:37:35 UTC 2016 x86_64</BuilderUnameInfo>
+		<Projects>
+			<Name>example</Name><Version>Unversioned directory</Version>
+		</Projects>
+	</ProvenanceInfo>
+	<Compiler>
+		<NameAndVersion>gcc, version 4.8</NameAndVersion>
+		<Flags>-Wall -Werror -Wnon-virtual-dtor -Woverloaded-virtual -Wextra -Wno-unused-parameter -Wvla -g</Flags>
+	</Compiler>
+	<Libraries>
+		<CompiledIn>
+			<PETSc>3.4.2</PETSc>
+			<Boost>1.54.0</Boost>
+			<HDF5>1.8.11</HDF5>
+			<Parmetis>3.1</Parmetis>
+		</CompiledIn>
+		<Binaries>
+			<XSD>3.3.0</XSD>
+		</Binaries>
+		<Optional>
+			<SUNDIALS>2.5.0</SUNDIALS> <!-- includes Cvode of a different version number --> 
+			<VTK>5.8</VTK>
+			<Xerces>3.1.1</Xerces>
+		</Optional>
+	</Libraries>
+</ChasteBuildInfo>
+Passed
+OK!

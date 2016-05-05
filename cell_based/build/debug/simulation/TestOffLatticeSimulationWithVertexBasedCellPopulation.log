@@ -1,0 +1,36 @@
+Running 10 tests
+
+ ***** TestOffLatticeSimulationWithVertexBasedCellPopulation.hpp *****
+
+
+Entering TestSingleCellRelaxationNagaiHonda
+Test elapsed time: 1.41824s
+Passed
+Entering TestSingleCellRelaxationWelikyOster
+Test elapsed time: 1.1054s
+Passed
+Entering TestSingleCellDividing
+Test elapsed time: 1.23525s
+Passed
+Entering TestVertexMonolayerWithCellBirth
+Test elapsed time: 1.84436s
+Passed
+Entering TestVertexMonolayerWithVoid
+Test elapsed time: 3.07641s
+Passed
+Entering TestVertexMonolayerWithCellDeath
+Test elapsed time: 5.82891s
+Passed
+Entering TestVertexMonolayerWithTwoMutationTypes
+Test elapsed time: 2.28024s
+Passed
+Entering TestVertexMonolayerWithDifferentialAdhesion
+Test elapsed time: 1.81945s
+Passed
+Entering TestSingleCellRelaxationAndApoptosis
+Test elapsed time: 3.3763s
+Passed
+Entering TestArchiving
+Test elapsed time: 5.60363s
+Passed
+OK!

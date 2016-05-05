@@ -1,0 +1,18 @@
+Running 6 tests
+
+ ***** TestLinearBasisFunction.hpp *****
+
+
+Entering TestLinearBasisFunction0d
+Passed
+Entering TestLinearBasisFunction1d
+Passed
+Entering TestLinearBasisFunction2d
+Passed
+Entering TestLinearBasisFunction3d
+Passed
+Entering TestComputeTransformedBasisFunctionDerivatives
+Passed
+Entering TestComputeTransformedBasisFunction2
+Passed
+OK!

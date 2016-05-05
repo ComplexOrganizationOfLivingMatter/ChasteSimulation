@@ -1,0 +1,12 @@
+Running 2 tests
+
+ ***** TestChebyshevIteration.hpp *****
+
+
+Entering TestChebyshevVsCG
+CG time: 0.0293319s
+Chebyshev time: 0.041991s
+Passed
+Entering TestChebyshevAdaptiveVsNoAdaptive
+Passed
+OK!

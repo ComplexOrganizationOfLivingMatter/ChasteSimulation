@@ -1,0 +1,26 @@
+Running 10 tests
+
+ ***** TestStimulus.hpp *****
+
+
+Entering TestSimpleStimulus
+Passed
+Entering TestDelayedSimpleStimulus
+Passed
+Entering TestRegularStimulus
+Passed
+Entering TestRegularStimulusStopping
+Passed
+Entering TestRegularStimulusZeroNetCharge
+Passed
+Entering TestSumStimulus
+Passed
+Entering TestZeroStimulus
+Passed
+Entering TestMultiStimulus
+Passed
+Entering TestComplicatedStimulus
+Passed
+Entering TestArchivingStimuli
+Passed
+OK!

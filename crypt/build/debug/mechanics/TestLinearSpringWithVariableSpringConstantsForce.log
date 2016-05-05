@@ -1,0 +1,27 @@
+Running 10 tests
+
+ ***** TestLinearSpringWithVariableSpringConstantsForce.hpp *****
+
+
+Entering TestGeneralisedLinearSpringForceWithSpringConstantsForIngeBCatCellsSimulationNoGhostsFails
+Passed
+Entering TestGeneralisedLinearSpringForceWithSpringConstantsForIngeBCatCellsSimulationWithGhosts
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+Passed
+Entering TestGeneralisedLinearSpringForceWithSpringConstantsForIngeBCatCells
+Passed
+Entering TestGeneralisedLinearSpringForceWithEdgeLengthBasedSpring
+Passed
+Entering TestGeneralisedLinearSpringForceWithEdgeBasedSpringsOnPeriodicMesh
+Passed
+Entering TestGeneralisedLinearSpringForceWithSpringConstantsForMutantCells
+Passed
+Entering TestGeneralisedLinearSpringForceWithSpringConstantsForApoptoticCells
+Passed
+Entering TestForceOutputParameters
+Passed
+Entering TestLinearSpringWithVariableSpringConstantsForceArchiving
+Passed
+Entering TestLinearSpringWithVariableSpringConstantsForceWithNodeBasedCellPopulation
+Passed
+OK!

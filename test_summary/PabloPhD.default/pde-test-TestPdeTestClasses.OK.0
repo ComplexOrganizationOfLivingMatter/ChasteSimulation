@@ -1,0 +1,22 @@
+Running 8 tests
+
+ ***** TestPdeTestClasses.hpp *****
+
+
+Entering TestSimplePoissonEquation
+Passed
+Entering TestNonlinearEquationPde
+Passed
+Entering TestHeatEquation
+Passed
+Entering TestHeatEquationWithElementDependentSourceTerm
+Passed
+Entering TestVaryingPde1D
+Passed
+Entering TestVaryingPde2D
+Passed
+Entering TestSimpleUniformSourceParabolicPdeMethods
+Passed
+Entering TestSimpleUniformSourceParabolicPdeArchiving
+Passed
+OK!

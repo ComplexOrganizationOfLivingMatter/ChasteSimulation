@@ -1,0 +1,20 @@
+Running 7 tests
+
+ ***** TestQuadraticBasisFunction.hpp *****
+
+
+Entering TestQuadraticBasisFunction0d
+Passed
+Entering TestQuadraticBasisFunction1d
+Passed
+Entering TestQuadraticBasisFunction2d
+Passed
+Entering TestQuadraticBasisFunction3d
+Passed
+Entering TestComputeTransformedQuadraticBasisFunctionDerivatives1d
+Passed
+Entering TestComputeTransformedQuadraticBasisFunction2d
+Passed
+Entering TestComputeTransformedQuadraticBasisFunction3d
+Passed
+OK!

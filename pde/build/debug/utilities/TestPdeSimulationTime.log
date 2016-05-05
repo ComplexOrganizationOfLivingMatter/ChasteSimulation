@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestPdeSimulationTime.hpp *****
+
+
+Entering TestTime
+Passed
+Entering TestAssertionWithNonRationalTimeStep
+Passed
+OK!

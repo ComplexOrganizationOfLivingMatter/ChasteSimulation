@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestAirwayWallModels.hpp *****
+
+
+Entering TestLambertAirwayWallAndFactory
+Passed
+Entering TestLaPradAirwayWallAndFactory
+Passed
+OK!

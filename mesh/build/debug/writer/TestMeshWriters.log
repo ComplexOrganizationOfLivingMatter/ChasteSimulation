@@ -1,0 +1,70 @@
+Running 31 tests
+
+ ***** TestMeshWriters.hpp *****
+
+
+Entering TestMemfemToTetgen
+Passed
+Entering TestFemlabToTriangles
+Passed
+Entering TestTrianglesToMeshalyzer1d
+Passed
+Entering TestTrianglesToMeshalyzer2d
+Passed
+Entering TestTrianglesToMeshalyzer3d
+Passed
+Entering TestTrianglesToMeshalyzer1dIn3d
+Passed
+Entering TestTrianglesToCoolGraphics
+Passed
+Entering TestFemlabtoTrianglesViaMesh
+Passed
+Entering TestTrianglesToMeshalyzerViaMesh1d
+Passed
+Entering TestTrianglesToMeshalyzerViaMesh2d
+Passed
+Entering TestTrianglesToMeshalyzerViaMesh3d
+Passed
+Entering TestTrianglesToCoolGraphicsViaMesh
+Passed
+Entering TestTriangles1DClosedMeshIn2DSpace
+/tmp/pablo/testoutput/TestMeshWriters/1dClosedMeshIn2dSpace
+Passed
+Entering TestTriangles1DMeshIn2DSpaceBinary
+The event associated with the counter for 'ele write' had already begun when BeginEvent was called.
+Passed
+Entering TestTriangles1DMeshIn2DSpaceWithDeletedNode
+Passed
+Entering Test2DClosedMeshIn3DSpace
+Passed
+Entering Test2DMeshIn3DSpaceBinary
+Passed
+Entering TestQuadratic1D
+Passed
+Entering TestQuadratic2D
+Passed
+Entering TestQuadratic3D
+Passed
+Entering TestCmguiMeshWriter3D
+Passed
+Entering TestCmguiMeshWriter2D
+Passed
+Entering TestCmguiMeshWriter1D
+Passed
+Entering TestCmguiDeformedSolutionsWriter2dLinearViz
+Passed
+Entering TestCmguiDeformedSolutionsWriter2dQuadraticViz
+Passed
+Entering TestCmguiDeformedSolutionsWriter3dQuadraticViz
+Passed
+Entering TestCmguiDeformedSolutionsWriterConvertOutput
+Passed
+Entering TestCmguiDeformedSolutionsMeshType
+Passed
+Entering TestWritingElementAttributesInTrianglesFormat
+Passed
+Entering TestWritingAttributesInTrianglesFormat
+Passed
+Entering TestWritingBinaryFormat
+Passed
+OK!

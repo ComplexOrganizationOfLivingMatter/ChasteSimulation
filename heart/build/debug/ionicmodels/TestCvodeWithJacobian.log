@@ -1,0 +1,48 @@
+Running 1 test
+
+ ***** TestCvodeWithJacobian.hpp *****
+
+
+Entering TestTimingsWithAndWithoutJacobian
+fox_model_2002: 13 ODEs.
+ 1. CVODE adaptor (numeric Jacobian) time: 0.0869901s
+ 2. CVODE native with Numeric Jacobian time: 0.071743s
+ 3. CVODE native with Analytic Jacobian time: 0.058722s
+shannon_2004: 39 ODEs.
+ 1. CVODE adaptor (numeric Jacobian) time: 0.313432s
+ 2. CVODE native with Numeric Jacobian time: 0.274078s
+ 3. CVODE native with Analytic Jacobian time: 0.290987s
+hodgkin_huxley_squid_axon_model_1952_modified: 4 ODEs.
+ 1. CVODE adaptor (numeric Jacobian) time: 0.023571s
+ 2. CVODE native with Numeric Jacobian time: 0.0175099s
+ 3. CVODE native with Analytic Jacobian time: 0.017066s
+luo_rudy_1991: 8 ODEs.
+ 1. CVODE adaptor (numeric Jacobian) time: 0.049829s
+ 2. CVODE native with Numeric Jacobian time: 0.042135s
+ 3. CVODE native with Analytic Jacobian time: 0.040704s
+mahajan_shiferaw_model_2008: 26 ODEs.
+ 1. CVODE adaptor (numeric Jacobian) time: 0.180889s
+ 2. CVODE native with Numeric Jacobian time: 0.149878s
+ 3. CVODE native with Analytic Jacobian time: 0.126628s
+Maleckar2008: 30 ODEs.
+ 1. CVODE adaptor (numeric Jacobian) time: 0.131827s
+ 2. CVODE native with Numeric Jacobian time: 0.104612s
+ 3. CVODE native with Analytic Jacobian time: 0.093576s
+LR_Dynamic_model_2000: 25 ODEs.
+ 1. CVODE adaptor (numeric Jacobian) time: 0.255645s
+ 2. CVODE native with Numeric Jacobian time: 0.212064s
+ 3. CVODE native with Analytic Jacobian time: 0.174565s
+difrancesco_noble_model_1985: 16 ODEs.
+ 1. CVODE adaptor (numeric Jacobian) time: 0.079246s
+ 2. CVODE native with Numeric Jacobian time: 0.063586s
+ 3. CVODE native with Analytic Jacobian time: 0.0491731s
+noble_varghese_kohl_noble_1998_basic: 22 ODEs.
+ 1. CVODE adaptor (numeric Jacobian) time: 0.117319s
+ 2. CVODE native with Numeric Jacobian time: 0.105745s
+ 3. CVODE native with Analytic Jacobian time: 0.08792s
+tentusscher_model_2006_epi: 19 ODEs.
+ 1. CVODE adaptor (numeric Jacobian) time: 0.105869s
+ 2. CVODE native with Numeric Jacobian time: 0.083477s
+ 3. CVODE native with Analytic Jacobian time: 0.0921199s
+Passed
+OK!

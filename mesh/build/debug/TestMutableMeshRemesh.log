@@ -1,0 +1,32 @@
+Running 13 tests
+
+ ***** TestMutableMeshRemesh.hpp *****
+
+
+Entering TestRemesh3dMoveNodes
+Passed
+Entering TestRemeshWithMethod1D
+Passed
+Entering TestRemeshWithMethod2D
+Passed
+Entering TestRemeshWithMethod3D
+Passed
+Entering TestNodeMap
+Passed
+Entering Test1DReMeshFailsAfterEnoughDeletions
+Passed
+Entering Test2DReMeshFailsAfterEnoughDeletions
+Passed
+Entering TestRawTriangleLibraryCall
+Passed
+Entering TestRawTetgenLibraryCall
+Passed
+Entering TestRemeshWithLibraryMethodSimple
+Passed
+Entering TestRemeshWithLibraryMethod2D
+Passed
+Entering TestRemeshWithLibraryMethod3D
+Passed
+Entering TestSplitLongEdges
+Passed
+OK!

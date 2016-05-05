@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestAbstractFeSurfaceIntegralAssembler.hpp *****
+
+
+Entering TestSurfaceElementContributions
+Passed
+Entering TestSurfaceElementContributions2d
+Passed
+OK!

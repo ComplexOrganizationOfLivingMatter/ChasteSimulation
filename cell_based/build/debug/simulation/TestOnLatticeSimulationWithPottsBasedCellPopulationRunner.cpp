@@ -1,0 +1,118 @@
+/* Generated file, do not edit */
+
+#ifndef CXXTEST_RUNNING
+#define CXXTEST_RUNNING
+#endif
+
+#define _CXXTEST_HAVE_STD
+#define _CXXTEST_HAVE_EH
+#include <cxxtest/TestListener.h>
+#include <cxxtest/TestTracker.h>
+#include <cxxtest/TestRunner.h>
+#include <cxxtest/RealDescriptions.h>
+#include <cxxtest/ErrorPrinter.h>
+
+#include "CommandLineArguments.hpp"
+int main( int argc, char *argv[] ) {
+ CommandLineArguments::Instance()->p_argc = &argc;
+ CommandLineArguments::Instance()->p_argv = &argv;
+ return CxxTest::ErrorPrinter().run();
+}
+#include "cell_based/test/simulation/TestOnLatticeSimulationWithPottsBasedCellPopulation.hpp"
+
+static TestOnLatticeSimulationWithPottsBasedCellPopulation suite_TestOnLatticeSimulationWithPottsBasedCellPopulation;
+
+static CxxTest::List Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation = { 0, 0 };
+CxxTest::StaticSuiteDescription suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation( "cell_based/test/simulation/TestOnLatticeSimulationWithPottsBasedCellPopulation.hpp", 68, "TestOnLatticeSimulationWithPottsBasedCellPopulation", suite_TestOnLatticeSimulationWithPottsBasedCellPopulation, Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation );
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestOnLatticeSimulationExceptions : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestOnLatticeSimulationExceptions() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 84, "TestOnLatticeSimulationExceptions" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestOnLatticeSimulationExceptions(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestOnLatticeSimulationExceptions;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestMoreOnLatticeSimulationExceptions : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestMoreOnLatticeSimulationExceptions() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 108, "TestMoreOnLatticeSimulationExceptions" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestMoreOnLatticeSimulationExceptions(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestMoreOnLatticeSimulationExceptions;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithNoBirthOrDeath : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithNoBirthOrDeath() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 128, "TestPottsMonolayerWithNoBirthOrDeath" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestPottsMonolayerWithNoBirthOrDeath(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithNoBirthOrDeath;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithNonRandomSweep : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithNonRandomSweep() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 175, "TestPottsMonolayerWithNonRandomSweep" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestPottsMonolayerWithNonRandomSweep(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithNonRandomSweep;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithDeath : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithDeath() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 208, "TestPottsMonolayerWithDeath" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestPottsMonolayerWithDeath(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithDeath;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithBirth : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithBirth() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 256, "TestPottsMonolayerWithBirth" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestPottsMonolayerWithBirth(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerWithBirth;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerCellSorting : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerCellSorting() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 297, "TestPottsMonolayerCellSorting" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestPottsMonolayerCellSorting(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerCellSorting;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerCellSortingPeriodic : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerCellSortingPeriodic() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 367, "TestPottsMonolayerCellSortingPeriodic" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestPottsMonolayerCellSortingPeriodic(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsMonolayerCellSortingPeriodic;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsSpheroidWithNoBirthOrDeath : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsSpheroidWithNoBirthOrDeath() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 436, "TestPottsSpheroidWithNoBirthOrDeath" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestPottsSpheroidWithNoBirthOrDeath(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsSpheroidWithNoBirthOrDeath;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsChemotaxis : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsChemotaxis() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 476, "TestPottsChemotaxis" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestPottsChemotaxis(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsChemotaxis;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestRandomIterationOverUpdateRules : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestRandomIterationOverUpdateRules() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 519, "TestRandomIterationOverUpdateRules" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestRandomIterationOverUpdateRules(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestRandomIterationOverUpdateRules;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsSpheroidCellSorting : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsSpheroidCellSorting() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 561, "TestPottsSpheroidCellSorting" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestPottsSpheroidCellSorting(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestPottsSpheroidCellSorting;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestStandardResultForArchivingTestsBelow : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestStandardResultForArchivingTestsBelow() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 650, "TestStandardResultForArchivingTestsBelow" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestStandardResultForArchivingTestsBelow(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestStandardResultForArchivingTestsBelow;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestSave : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestSave() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 703, "TestSave" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestSave(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestSave;
+
+static class TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestLoad : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestLoad() : CxxTest::RealTestDescription( Tests_TestOnLatticeSimulationWithPottsBasedCellPopulation, suiteDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation, 740, "TestLoad" ) {}
+ void runTest() { suite_TestOnLatticeSimulationWithPottsBasedCellPopulation.TestLoad(); }
+} testDescription_TestOnLatticeSimulationWithPottsBasedCellPopulation_TestLoad;
+
+#include <cxxtest/Root.cpp>

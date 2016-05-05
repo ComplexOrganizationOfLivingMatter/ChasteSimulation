@@ -1,0 +1,46 @@
+Running 20 tests
+
+ ***** TestDistributedBoxCollection.hpp *****
+
+
+Entering TestBox
+Passed
+Entering TestBoxGeneration1d
+Passed
+Entering TestAddElement
+Passed
+Entering TestSetupAllLocalBoxes2d
+Passed
+Entering TestSetupAllLocalBoxes2dPeriodic
+Passed
+Entering TestSetupAllLocalBoxes3d
+Passed
+Entering TestSetupHaloBoxes1d2d3d
+Passed
+Entering TestUpdateHaloBoxes1d2d3d
+Passed
+Entering TestPairsReturned1d
+Passed
+Entering TestBoxGeneration2d
+Passed
+Entering TestLargeBoxCollection2d
+Passed
+Entering TestPairsReturned2d
+Passed
+Entering TestPairsReturned3d
+Passed
+Entering TestSplitNeighbourCalculation
+Passed
+Entering TestPairsReturned2dPeriodic
+Passed
+Entering TestBoxGeneration3d
+Passed
+Entering TestArchivingDistributedBoxCollection
+Passed
+Entering TestLoadBalanceFunction
+Passed
+Entering TestLoadBalanceMaintainsMinimumLocalRegion
+Passed
+Entering TestGetDistributionOfNodes
+Passed
+OK!

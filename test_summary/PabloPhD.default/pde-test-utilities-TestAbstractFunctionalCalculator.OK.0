@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestAbstractFunctionalCalculator.hpp *****
+
+
+Entering TestWithVolumeCalculator
+Passed
+Entering TestWithExampleFunctionals
+Passed
+Entering TestWithExampleFunctionalsNonDistributed
+Passed
+OK!

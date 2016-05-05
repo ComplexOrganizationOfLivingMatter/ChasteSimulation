@@ -1,0 +1,22 @@
+Error: input and output files should be different.
+Usage: python/utils/ConvertBinaryElementAttributes.py <input_mesh_file> <output_mesh_file>
+This utility is only needed on .ele .cable .edge and .face files (which are in binary format)
+This utility is only needed on binary mesh files (.ele .cable .edge and .face extensions)
+This file looks like it has already been converted
+Converted mesh file successfully!
+Entering TestAddingVtuAnnotationsAirway (TestUtilsFunctionality.TestUtilsFunctionality)
+Passed
+Entering TestAddingVtuAnnotationsBidomain (TestUtilsFunctionality.TestUtilsFunctionality)
+Passed
+Entering TestAddingVtuAnnotationsBidomainWithApdMap_Fails (TestUtilsFunctionality.TestUtilsFunctionality)
+Passed
+Entering TestAddingVtuAnnotationsMonodomain2d (TestUtilsFunctionality.TestUtilsFunctionality)
+Passed
+Entering TestAddingVtuAnnotationsParallelPieces (TestUtilsFunctionality.TestUtilsFunctionality)
+Passed
+Entering TestConvertBinaryAttributesForChaste_3_2 (TestUtilsFunctionality.TestUtilsFunctionality)
+Passed
+
+Ran 6 tests in 0.385s
+
+OK!

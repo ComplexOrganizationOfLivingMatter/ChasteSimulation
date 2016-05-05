@@ -1,0 +1,107 @@
+Running 20 tests
+
+ ***** TestOffLatticeSimulationWithPdes.hpp *****
+
+
+Entering TestUpdateAtEndOfTimeStep
+Test elapsed time: 0.505061s
+Passed
+Entering TestWithOxygen
+Test elapsed time: 1.25187s
+Passed
+Entering TestVisualizerOutput
+Test elapsed time: 0.0775311s
+Passed
+Entering TestWithPointwiseSource
+Test elapsed time: 1.15931s
+Passed
+Entering TestWithPointwiseTwoSource
+Test elapsed time: 1.86737s
+Passed
+Entering TestSpheroidStatistics
+Test elapsed time: 0.105286s
+Passed
+Entering TestCoarseSourceMesh
+Test elapsed time: 0.3229s
+Passed
+Entering TestCoarseSourceMeshWithGhostNodes
+Test elapsed time: 0.205172s
+Passed
+Entering TestArchivingWithSimplePde
+Test elapsed time: 0.969101s
+Passed
+Entering TestArchivingWithCellwisePde
+Test elapsed time: 0.448368s
+Passed
+Entering Test3DOffLatticeSimulationWithPdes
+Test elapsed time: 1.8271s
+Passed
+Entering TestWithBoundaryConditionVaryingInTime
+Test elapsed time: 6.64002s
+Passed
+Entering TestOffLatticeSimulationWithPdesParameterOutputMethods
+Test elapsed time: 0.06495s
+Passed
+Entering TestNodeBasedWithoutCoarseMeshThrowsException
+Test elapsed time: 0.0428901s
+Passed
+Entering TestNodeBasedWithCoarseMesh
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+Test elapsed time: 0.277027s
+Passed
+Entering TestVertexBasedWithCoarseMesh
+Test elapsed time: 0.221418s
+Passed
+Entering TestVolumeDependentAveragedPde
+Test elapsed time: 0.0886109s
+Passed
+Entering TestCoarsePdeSolutionOnNodeBased1d
+Test elapsed time: 0.0165908s
+Passed
+Entering TestCoarsePdeSolutionOnNodeBased2d
+The event associated with the counter for 'face write' had already begun when BeginEvent was called.
+Test elapsed time: 0.106766s
+Passed
+Entering TestCoarsePdeSolutionOnNodeBased3d
+Test elapsed time: 1.11883s
+Passed
+OK!
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 903: Triangle has produced a zero area (collinear) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 907: Tetgen has produced a zero volume (coplanar) element
+Chaste warning: in file mesh/src/common/TetrahedralMesh.cpp at line 907: Tetgen has produced a zero volume (coplanar) element
+Chaste warning: in file cell_based/src/population/VertexBasedCellPopulation.cpp at line 285: Vertices are moving more than half the CellRearrangementThreshold. This could cause elements to become inverted so the motion has been restricted. Use a smaller timestep to avoid these warnings.

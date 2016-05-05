@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestRunningMeshBasedSimulationsTutorial.hpp *****
+
+
+Entering TestMonolayer
+Passed
+Entering TestMonolayerWithGhostNodes
+Passed
+OK!

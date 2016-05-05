@@ -1,0 +1,32 @@
+Running 13 tests
+
+ ***** TestToroidal2dVertexMesh.hpp *****
+
+
+Entering TestEachNodeIsContainedInAtLeastOneElement
+Passed
+Entering TestMeshGetWidth
+Passed
+Entering TestGetVectorFromAtoB
+Passed
+Entering TestSetNodeLocationForToroidalMesh
+Passed
+Entering TestAddNodeAndReMesh
+Passed
+Entering TestElementAreaPerimeterCentroidAndMoments
+Passed
+Entering TestDivideElementAlongGivenAxis
+Passed
+Entering TestArchiving
+Passed
+Entering TestToroidalReMesh
+Passed
+Entering TestToroidalReMeshAfterDelete
+Passed
+Entering TestToroidalElementIncludesPointAndGetLocalIndexForElementEdgeClosestToPoint
+Passed
+Entering TestGetMeshForVtk
+Passed
+Entering TestConstructFromMeshReader
+Passed
+OK!

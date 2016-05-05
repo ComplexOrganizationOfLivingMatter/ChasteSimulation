@@ -1,0 +1,45 @@
+Running 17 tests
+
+ ***** TestVentilationProblem.hpp *****
+
+
+Entering TestOnBranch
+Passed
+Entering TestOnBranchCylindrical
+Passed
+Entering TestThreeBifurcationsWithRadiusOnEdgeFile
+Passed
+Entering TestThreeBifurcations
+Passed
+Entering TestThreeBifurcationsSnes
+Passed
+Entering TestThreeBifurcationsExtraLinksDirect
+Passed
+Entering TestThreeBifurcationsExtraLinks
+Passed
+Entering TestThreeBifurcationsFluxBoundaries
+Passed
+Entering TestThreeBifurcationsWithDynamicResistance
+Passed
+Entering TestThreeBifurcationsExtraLinksWithDynamicResistance
+Passed
+Entering TestTimeVaryingThreeBifurcations
+Passed
+Entering TestSineThreeBifurcations
+Passed
+Entering TestGravitationalVaryingThreeBifurcations
+Passed
+Entering TestSolveProblemDefinedInFile
+Passed
+Entering TestTopOfAirwaysPatientData
+Passed
+Entering TestPatientData
+Passed
+Entering TestExceptions
+Passed
+OK!
+Chaste warning: in file lung/src/ventilation/VentilationProblem.cpp at line 80: Nodes in this mesh do not appear in graph order.  Some solvers may be inefficient.
+Chaste warning: in file lung/src/ventilation/VentilationProblem.cpp at line 80: Nodes in this mesh do not appear in graph order.  Some solvers may be inefficient.
+Chaste warning: in file lung/src/ventilation/VentilationProblem.cpp at line 80: Nodes in this mesh do not appear in graph order.  Some solvers may be inefficient.
+Chaste warning: in file lung/src/ventilation/AbstractVentilationProblem.cpp at line 313: The key #RHO_BLOOD is not recognised yet
+Chaste warning: in file lung/src/ventilation/AbstractVentilationProblem.cpp at line 313: The key #MU_BLOOD is not recognised yet

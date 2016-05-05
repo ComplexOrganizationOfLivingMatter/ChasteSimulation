@@ -1,0 +1,54 @@
+Running 24 tests
+
+ ***** TestCellPopulationWriters.hpp *****
+
+
+Entering TestBoundaryNodeWriter
+Passed
+Entering TestBoundaryNodeWriterArchiving
+Passed
+Entering TestCellPopulationAdjacencyMatrixWriter
+Passed
+Entering TestCellPopulationAdjacencyMatrixWriterArchiving
+Passed
+Entering TestCellPopulationAreaWriter
+Passed
+Entering TestCellPopulationAreaWriterArchiving
+Passed
+Entering TestCellPopulationElementWriter
+Passed
+Entering TestCellPopulationElementWriterArchiving
+Passed
+Entering TestHeterotypicBoundaryLengthWriter
+Passed
+Entering TestHeterotypicBoundaryLengthWriterArchiving
+Passed
+Entering TestNodeLocationWriter
+Passed
+Entering TestNodeLocationWriterArchiving
+Passed
+Entering TestNodeVelocityWriterWithMeshBasedCellPopulation
+Passed
+Entering TestNodeVelocityWriterWithNodeBasedCellPopulation
+Passed
+Entering TestNodeVelocityWriterWithVertexBasedCellPopulation
+Passed
+Entering TestNodeVelocityWriterArchiving
+Passed
+Entering TestVertexT1SwapLocationsWriter
+Passed
+Entering TestVertexT1SwapLocationsWriterArchiving
+Passed
+Entering TestVertexT2SwapLocationsWriter
+Passed
+Entering TestVertexT2SwapLocationsWriterArchiving
+Passed
+Entering TestVertexT3SwapLocationsWriter
+Passed
+Entering TestVertexT3SwapLocationsWriterArchiving
+Passed
+Entering TestVoronoiDataWriter
+Passed
+Entering TestVoronoiDataWriterArchiving
+Passed
+OK!

@@ -1,0 +1,12 @@
+Running 3 tests
+
+ ***** TestQuadraturePointsGroup.hpp *****
+
+
+Entering TestGetQuadPointLocations1d
+Passed
+Entering TestGetQuadPointLocations2d
+Passed
+Entering TestGetQuadPointLocations2dDistributed
+Passed
+OK!

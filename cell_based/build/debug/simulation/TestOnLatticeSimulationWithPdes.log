@@ -1,0 +1,40 @@
+Running 11 tests
+
+ ***** TestOnLatticeSimulationWithPdes.hpp *****
+
+
+Entering TestPottsBasedWithoutCoarseMeshThrowsException
+Test elapsed time: 0.00403595s
+Passed
+Entering TestPottsBasedWithCoarseMesh
+The event associated with the counter for 'Total' had already begun when BeginEvent was called.
+Test elapsed time: 0.100514s
+Passed
+Entering TestCaBasedWithoutCoarseMesh
+Test elapsed time: 1.23265s
+Passed
+Entering TestCaBasedWithCellwiseSourcePde
+Test elapsed time: 0.606321s
+Passed
+Entering TestCaBasedWithCellwiseSourcePdeWithTightBoundaries
+Test elapsed time: 0.604992s
+Passed
+Entering TestCaBasedWithoutCoarseMeshUsingPdeHandlerOnCuboid
+Test elapsed time: 0.593444s
+Passed
+Entering TestCaBasedCellsOutsideMesh
+Test elapsed time: 0.00925708s
+Passed
+Entering TestCaBasedWithCoarseMesh
+Test elapsed time: 0.057343s
+Passed
+Entering TestPottsBasedWithCoarseMeshTwoEquations
+Test elapsed time: 0.122417s
+Passed
+Entering TestOnLatticeSpheroidWithNutrient
+Test elapsed time: 3.08566s
+Passed
+Entering TestPdeOutput
+Test elapsed time: 0.0104311s
+Passed
+OK!

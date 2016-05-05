@@ -1,0 +1,40 @@
+Running 17 tests
+
+ ***** TestSimpleCellCycleModels.hpp *****
+
+
+Entering TestFixedDurationGenerationBasedCellCycleModel
+Passed
+Entering TestStochasticDurationGenerationBasedCellCycleModel
+Passed
+Entering TestStochasticDurationCellCycleModel
+Passed
+Entering TestGammaDistributedStochasticDurationCellCycleModel
+Passed
+Entering TestExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel
+Passed
+Entering TestSimpleOxygenBasedCellCycleModel
+Passed
+Entering TestContactInhibitionCellCycleModel
+Passed
+Entering TestStochasticOxygenBasedCellCycleModel
+Passed
+Entering TestArchiveFixedDurationGenerationBasedCellCycleModel
+Passed
+Entering TestArchiveStochasticDurationGenerationBasedCellCycleModel
+Passed
+Entering TestArchiveStochasticDurationCellCycleModel
+Passed
+Entering TestArchiveGammaDistributedStochasticDurationCellCycleModel
+Passed
+Entering TestArchiveExponentiallyDistributedStochasticDurationGenerationBasedCellCycleModel
+Passed
+Entering TestArchiveSimpleOxygenBasedCellCycleModel
+Passed
+Entering TestArchiveStochasticOxygenBasedCellCycleModel
+Passed
+Entering TestArchiveContactInhibitionCellCycleModel
+Passed
+Entering TestCellCycleModelOutputParameters
+Passed
+OK!

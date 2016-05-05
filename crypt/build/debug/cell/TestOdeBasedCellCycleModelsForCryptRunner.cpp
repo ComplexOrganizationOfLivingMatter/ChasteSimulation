@@ -1,0 +1,106 @@
+/* Generated file, do not edit */
+
+#ifndef CXXTEST_RUNNING
+#define CXXTEST_RUNNING
+#endif
+
+#define _CXXTEST_HAVE_STD
+#define _CXXTEST_HAVE_EH
+#include <cxxtest/TestListener.h>
+#include <cxxtest/TestTracker.h>
+#include <cxxtest/TestRunner.h>
+#include <cxxtest/RealDescriptions.h>
+#include <cxxtest/ErrorPrinter.h>
+
+#include "CommandLineArguments.hpp"
+int main( int argc, char *argv[] ) {
+ CommandLineArguments::Instance()->p_argc = &argc;
+ CommandLineArguments::Instance()->p_argv = &argv;
+ return CxxTest::ErrorPrinter().run();
+}
+#include "crypt/test/cell/TestOdeBasedCellCycleModelsForCrypt.hpp"
+
+static TestOdeBasedCellCycleModelsForCrypt suite_TestOdeBasedCellCycleModelsForCrypt;
+
+static CxxTest::List Tests_TestOdeBasedCellCycleModelsForCrypt = { 0, 0 };
+CxxTest::StaticSuiteDescription suiteDescription_TestOdeBasedCellCycleModelsForCrypt( "crypt/test/cell/TestOdeBasedCellCycleModelsForCrypt.hpp", 70, "TestOdeBasedCellCycleModelsForCrypt", suite_TestOdeBasedCellCycleModelsForCrypt, Tests_TestOdeBasedCellCycleModelsForCrypt );
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForVaryingWntStimulus : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForVaryingWntStimulus() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 81, "TestWntCellCycleModelForVaryingWntStimulus" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestWntCellCycleModelForVaryingWntStimulus(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForVaryingWntStimulus;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestVanLeeuwen2009WntSwatCellCycleModelHypothesisOne : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestVanLeeuwen2009WntSwatCellCycleModelHypothesisOne() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 215, "TestVanLeeuwen2009WntSwatCellCycleModelHypothesisOne" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestVanLeeuwen2009WntSwatCellCycleModelHypothesisOne(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestVanLeeuwen2009WntSwatCellCycleModelHypothesisOne;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestVanLeeuwen2009WntSwatCellCycleModelHypothesisTwo : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestVanLeeuwen2009WntSwatCellCycleModelHypothesisTwo() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 449, "TestVanLeeuwen2009WntSwatCellCycleModelHypothesisTwo" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestVanLeeuwen2009WntSwatCellCycleModelHypothesisTwo(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestVanLeeuwen2009WntSwatCellCycleModelHypothesisTwo;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForAPCSingleHit : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForAPCSingleHit() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 518, "TestWntCellCycleModelForAPCSingleHit" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestWntCellCycleModelForAPCSingleHit(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForAPCSingleHit;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForBetaCatSingleHit : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForBetaCatSingleHit() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 586, "TestWntCellCycleModelForBetaCatSingleHit" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestWntCellCycleModelForBetaCatSingleHit(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForBetaCatSingleHit;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForAPCDoubleHit : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForAPCDoubleHit() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 650, "TestWntCellCycleModelForAPCDoubleHit" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestWntCellCycleModelForAPCDoubleHit(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForAPCDoubleHit;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForConstantWntStimulusHealthyCell : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForConstantWntStimulusHealthyCell() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 715, "TestWntCellCycleModelForConstantWntStimulusHealthyCell" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestWntCellCycleModelForConstantWntStimulusHealthyCell(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestWntCellCycleModelForConstantWntStimulusHealthyCell;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestStochasticWntCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestStochasticWntCellCycleModel() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 779, "TestStochasticWntCellCycleModel" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestStochasticWntCellCycleModel(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestStochasticWntCellCycleModel;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveWntCellCycleModel : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveWntCellCycleModel() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 843, "TestArchiveWntCellCycleModel" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestArchiveWntCellCycleModel(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveWntCellCycleModel;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveVanLeeuwen2009WntSwatCellCycleModelHypothesisOne : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveVanLeeuwen2009WntSwatCellCycleModelHypothesisOne() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 919, "TestArchiveVanLeeuwen2009WntSwatCellCycleModelHypothesisOne" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestArchiveVanLeeuwen2009WntSwatCellCycleModelHypothesisOne(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveVanLeeuwen2009WntSwatCellCycleModelHypothesisOne;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveVanLeeuwen2009WntSwatCellCycleModelHypothesisTwo : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveVanLeeuwen2009WntSwatCellCycleModelHypothesisTwo() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 990, "TestArchiveVanLeeuwen2009WntSwatCellCycleModelHypothesisTwo" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestArchiveVanLeeuwen2009WntSwatCellCycleModelHypothesisTwo(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveVanLeeuwen2009WntSwatCellCycleModelHypothesisTwo;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveStochasticWntCellCycleModels : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveStochasticWntCellCycleModels() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 1061, "TestArchiveStochasticWntCellCycleModels" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestArchiveStochasticWntCellCycleModels(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestArchiveStochasticWntCellCycleModels;
+
+static class TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestCellCycleModelOutputParameters : public CxxTest::RealTestDescription {
+public:
+ TestDescription_TestOdeBasedCellCycleModelsForCrypt_TestCellCycleModelOutputParameters() : CxxTest::RealTestDescription( Tests_TestOdeBasedCellCycleModelsForCrypt, suiteDescription_TestOdeBasedCellCycleModelsForCrypt, 1183, "TestCellCycleModelOutputParameters" ) {}
+ void runTest() { suite_TestOdeBasedCellCycleModelsForCrypt.TestCellCycleModelOutputParameters(); }
+} testDescription_TestOdeBasedCellCycleModelsForCrypt_TestCellCycleModelOutputParameters;
+
+#include <cxxtest/Root.cpp>

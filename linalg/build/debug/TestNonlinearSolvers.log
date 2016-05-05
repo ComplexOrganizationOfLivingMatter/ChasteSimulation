@@ -1,0 +1,25 @@
+Running 3 tests
+
+ ***** TestNonlinearSolvers.hpp *****
+
+
+Entering TestNonlinearProblemException
+Passed
+Entering TestOn2dNonlinearProblem
+Passed
+Entering TestOn3dNonlinearProblem
+Newton's method:
+  Initial ||residual||/N = 0.666667
+  Attempting to solve to tolerance 1e-10..
+    Best damping factor = 1.2
+    Iteration 1: ||residual||/N = 0.0266667
+    Best damping factor = 1
+    Iteration 2: ||residual||/N = 0.000493827
+    Best damping factor = 1
+    Iteration 3: ||residual||/N = 1.82628e-07
+    Best damping factor = 1
+    Iteration 4: ||residual||/N = 2.4943e-14
+  ..solved!
+
+Passed
+OK!

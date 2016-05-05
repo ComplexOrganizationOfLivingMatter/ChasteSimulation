@@ -1,0 +1,16 @@
+Running 5 tests
+
+ ***** TestAirwayBranch.hpp *****
+
+
+Entering TestMakeBranch
+Passed
+Entering TestAngleCalculations
+Passed
+Entering TestBranchIndexing
+Passed
+Entering TestGetProximalAndDistalNodes
+Passed
+Entering TestBranchProperties
+Passed
+OK!

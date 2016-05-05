@@ -1,0 +1,10 @@
+Running 2 tests
+
+ ***** TestOutputDirectoryFifoQueue.hpp *****
+
+
+Entering TestQueueCreatesDirectories
+Passed
+Entering TestQueueRemovesAndCreatesDirectories
+Passed
+OK!

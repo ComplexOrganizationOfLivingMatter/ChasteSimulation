@@ -1,0 +1,14 @@
+Running 2 tests
+
+ ***** TestArchivingExtendedBidomain.hpp *****
+
+
+Entering TestArchivingProblemIntraStim
+         InMesh             Init           AssSys              Ode            Comms           AssRhs           NeuBCs           DirBCs              Ksp           Output   DataConversion         PostProc            User1            User2            User3            Total  
+   0.021 (  0%)     0.005 (  0%)     0.255 (  5%)     0.743 ( 13%)     0.046 (  1%)     0.069 (  1%)     0.000 (  0%)     0.001 (  0%)     4.341 ( 78%)     0.029 (  1%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     5.537 (100%)  (seconds) 
+Passed
+Entering TestArchivingProblemExtraStim
+         InMesh             Init           AssSys              Ode            Comms           AssRhs           NeuBCs           DirBCs              Ksp           Output   DataConversion         PostProc            User1            User2            User3            Total  
+   0.020 (  1%)     0.005 (  0%)     0.252 ( 10%)     0.724 ( 30%)     0.041 (  2%)     0.068 (  3%)     0.000 (  0%)     0.001 (  0%)     1.276 ( 52%)     0.024 (  1%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     0.000 (  0%)     2.436 (100%)  (seconds) 
+Passed
+OK!

@@ -1,0 +1,14 @@
+Running 4 tests
+
+ ***** TestIonicModelsWithSacs.hpp *****
+
+
+Entering TestN98WithSacAt300msShort
+Passed
+Entering TestN98WithSacAt300msLong
+Passed
+Entering TestN98WithSacAt200msShort
+Passed
+Entering TestN98WithSacAt800msLong
+Passed
+OK!

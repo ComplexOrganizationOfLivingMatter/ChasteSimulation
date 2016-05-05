@@ -1,0 +1,24 @@
+Running 9 tests
+
+ ***** TestFourthOrderTensor.hpp *****
+
+
+Entering TestFourthOrderTensorAllSameDimensions
+Passed
+Entering TestSetAsContractionOnFirstDimensionSameDimensions
+Passed
+Entering TestSetAsContractionOnSecondDimensionSameDimensions
+Passed
+Entering TestSetAsContractionOnThirdDimensionSameDimensions
+Passed
+Entering TestSetAsContractionOnFourthDimensionSameDimensions
+Passed
+Entering TestFourthOrderTensorDifferentDimensions1
+Passed
+Entering TestFourthOrderTensorDifferentDimensions2
+Passed
+Entering TestFourthOrderTensorDifferentDimensions3
+Passed
+Entering TestFourthOrderTensorDifferentDimensions4
+Passed
+OK!
