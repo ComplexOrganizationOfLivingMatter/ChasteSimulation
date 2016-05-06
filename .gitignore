@@ -31,7 +31,6 @@
 #SCons
 .sconsign.dblite
 
-*/build/*
 test_summary/*
-
+*/build/*
 *~
