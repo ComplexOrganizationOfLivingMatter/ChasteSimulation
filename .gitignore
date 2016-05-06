@@ -3,6 +3,7 @@
 *.lo
 *.o
 *.obj
+*.class
 
 # Precompiled Headers
 *.gch
@@ -30,6 +31,5 @@
 #SCons
 .sconsign.dblite
 
-global/build/*
-heart/build/*
+*/build/*
 test_summary
