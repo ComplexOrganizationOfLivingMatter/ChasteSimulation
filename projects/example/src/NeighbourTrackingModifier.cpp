@@ -53,7 +53,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //#include <QDebug>
 //#include<unordered_map>
 
-const unsigned diffusion = 1;
+const unsigned diffusion = 5;
 
 template<unsigned DIM>//,//>
 //unsigned ELEMENT_DIM, unsigned SPACE_DIM>
@@ -194,7 +194,6 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(AbstractCellPopulation<DIM,D
 
 	//change here to increase diffusion
 	//unsigned diffusion = 3;
-
 	unsigned diffusion_neighbours = num_neighbours;
 	std::set<unsigned> diffusion_neighbour_indices = neighbour_indices;
 

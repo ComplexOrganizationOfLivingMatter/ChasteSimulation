@@ -1,4 +1,1 @@
-TestSimulation.hpp
-TestNodesSimulation.hpp
-TestVertex.hpp
 TestVoronoiSimulationWithGameTheory.hpp

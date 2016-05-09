@@ -39,13 +39,15 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "TransitCellProliferativeType.hpp"
 #include "DifferentiatedCellProliferativeType.hpp"
 
+const unsigned cStepsTillDivision = 100.0;
+
 GameTheoryCellCycleModel::GameTheoryCellCycleModel()
 : AbstractCellCycleModel(),
   // for some reason when steps are 200 causes error to ReadyToDivide
   // as it does not update, meaning that occasionally mStepTillDivision is
   // negative when it reaches ReadyToDivide. Tried to check why, could not
   // find the reason.
-  mStepsTillDivision(2000.0)
+  mStepsTillDivision(cStepsTillDivision)
 {
 }
 
@@ -78,7 +80,7 @@ AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel()
     p_model->SetSDuration(mSDuration);
     p_model->SetG2Duration(mG2Duration);
     p_model->SetMDuration(mMDuration);
-    p_model->SetStepsTillDivision(2000.0);
+    p_model->SetStepsTillDivision(cStepsTillDivision);
     
     return p_model;
 }
@@ -115,7 +117,7 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 	mpCell->GetCellData()->SetItem("StepsTillDivision",mStepsTillDivision);
 	if ( mStepsTillDivision < 0 ) {
 	    mReadyToDivide = true;
-	    std::cout << "we are ready to divide!\n";
+	    //std::cout << "we are ready to divide!\n";
 	}
     }
     return mReadyToDivide;
@@ -126,7 +128,7 @@ void GameTheoryCellCycleModel::ResetForDivision() {
     assert(mStepsTillDivision<0);
 
     AbstractCellCycleModel::ResetForDivision();
-    mStepsTillDivision = 2000.0;
+    mStepsTillDivision = cStepsTillDivision;
 }
 
 void GameTheoryCellCycleModel::OutputCellCycleModelParameters(out_stream& rParamsFile) {
