@@ -53,7 +53,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //#include <QDebug>
 //#include<unordered_map>
 
-const unsigned diffusion = 5;
+const unsigned diffusion = 1;
 
 template<unsigned DIM>//,//>
 //unsigned ELEMENT_DIM, unsigned SPACE_DIM>
@@ -116,7 +116,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(AbstractCellPopulation<DIM,D
     unsigned population_size = 0;
 
     //max population
-    unsigned max_population = 300;
+    unsigned max_population = 1000;
 
     // Iterate over cell population
     for (typename AbstractCellPopulation<DIM>::Iterator cell_iter = rCellPopulation.Begin();

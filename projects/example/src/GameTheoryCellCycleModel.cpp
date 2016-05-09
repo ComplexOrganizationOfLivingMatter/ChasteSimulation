@@ -39,7 +39,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "TransitCellProliferativeType.hpp"
 #include "DifferentiatedCellProliferativeType.hpp"
 
-const unsigned cStepsTillDivision = 100.0;
+const unsigned cStepsTillDivision = 2000.0;
 
 GameTheoryCellCycleModel::GameTheoryCellCycleModel()
 : AbstractCellCycleModel(),
@@ -117,7 +117,7 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 	mpCell->GetCellData()->SetItem("StepsTillDivision",mStepsTillDivision);
 	if ( mStepsTillDivision < 0 ) {
 	    mReadyToDivide = true;
-	    //std::cout << "we are ready to divide!\n";
+	    std::cout << "we are ready to divide ueeeee!\n";
 	}
     }
     return mReadyToDivide;
