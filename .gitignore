@@ -5,6 +5,8 @@
 *.obj
 *.class
 
+*.log
+
 # Precompiled Headers
 *.gch
 *.pch
@@ -34,3 +36,4 @@
 test_summary/*
 */build/*
 *~
+projects/example/build/*
