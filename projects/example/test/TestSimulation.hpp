@@ -152,6 +152,38 @@ public:
 		TS_ASSERT_EQUALS(cell_population.GetNumRealCells(), 8u);
 		TS_ASSERT_DELTA(SimulationTime::Instance()->GetTime(), 10.0, 1e-10);
 	}
+
+	void TestMonolayerWithGhostNodes() throw(Exception)
+	{
+		//The third argument specifies the number of layers of ghost nodes to make.
+		HoneycombMeshGenerator generator(2, 2, 2);
+		MutableMesh<2,2>* p_mesh = generator.GetMesh();
+
+		std::vector<unsigned> location_indices = generator.GetCellLocationIndices();
+
+		std::vector<CellPtr> cells;
+		MAKE_PTR(TransitCellProliferativeType, p_transit_type);
+		CellsGenerator<StochasticDurationCellCycleModel, 2> cells_generator;
+		cells_generator.GenerateBasicRandom(cells, location_indices.size(), p_transit_type);
+
+		MeshBasedCellPopulationWithGhostNodes<2> cell_population(*p_mesh, cells, location_indices); //**Changed**//
+
+		cell_population.AddPopulationWriter<VoronoiDataWriter>();
+		OffLatticeSimulation<2> simulator(cell_population);
+		simulator.SetOutputDirectory("TestSimulationWithGhost");
+		simulator.SetSamplingTimestepMultiple(12);
+		simulator.SetEndTime(10.0);
+
+		MAKE_PTR(GeneralisedLinearSpringForce<2>, p_force);
+		simulator.AddForce(p_force);
+
+		//Run simulation
+		simulator.Solve();
+
+		//Test
+		TS_ASSERT_EQUALS(cell_population.GetNumRealCells(), 8u);
+		TS_ASSERT_DELTA(SimulationTime::Instance()->GetTime(), 10.0, 1e-10);
+	}
 };
 
 #endif // TEST_TESTSIMULATION_HPP_
