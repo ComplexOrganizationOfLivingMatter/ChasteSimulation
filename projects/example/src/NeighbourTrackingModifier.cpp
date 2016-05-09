@@ -276,7 +276,10 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(AbstractCellPopulation<DIM,D
     for (typename AbstractCellPopulation<DIM>::Iterator cell_iter = rCellPopulation.Begin();
 	 cell_iter != rCellPopulation.End();
 	 ++cell_iter) {
-	double cost = 0.2;
+	 /*
+	 * The public good cost of production
+	 */
+	double cost = 0.6;
 
 	cell_iter->GetCellData()->SetItem("Fitness", 0.0);
 
@@ -294,7 +297,9 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(AbstractCellPopulation<DIM,D
 	//double num_cheaters_total = p_cell->GetCellData()->GetItem("DiffNumCheaters");
 
 	//constract a sigmoid fitness based on the neighbours
-	double sigmoid = 1;
+	
+	double sigmoid = 30;
+	//2 in k = n/2
 	double effect = 2;
 
 	//General Benefit equation 1/[1 + exp(-s*(j-k)/n]
