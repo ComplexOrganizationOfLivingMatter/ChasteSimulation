@@ -99,9 +99,9 @@ public:
             cells.push_back(p_cell);
         }
 
-
-        VertexBasedCellPopulation<2> cell_population(*p_mesh, cells);
-
+        std::cout<<"Pedro puta"<<endl
+        VertexBasedCellPopulation<2> cell_population(*p_mesh, cells); //casca
+        std::cout<<"Pasa!"<<endl;
 	//check equivalent for nodes
         //cell_population.SetWriteVtkAsPoints(true);
         //cell_population.SetOutputMeshInVtk(true);
