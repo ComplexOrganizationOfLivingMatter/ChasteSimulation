@@ -11,6 +11,10 @@
 *.gch
 *.pch
 
+# Test files
+*.png
+*.mpeg
+
 # Compiled Dynamic libraries
 *.so
 *.dylib
@@ -33,7 +37,14 @@
 #SCons
 .sconsign.dblite
 
+#Test output
 test_summary/*
+
+# Debug files
 */build/*
-*~
 projects/example/build/*
+
+# Modified files
+*~
+
+
