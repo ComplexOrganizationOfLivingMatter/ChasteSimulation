@@ -12,8 +12,8 @@
 
 #include "CheckpointArchiveTypes.hpp"
 #include "OffLatticeSimulation.hpp"
-#include "HoneycombMeshGenerator.hpp"
-#include "CylindricalHoneycombMeshGenerator.hpp"
+#include "HoneycombVertexMeshGenerator.hpp"
+#include "CylindricalHoneycombVertexMeshGenerator.hpp"
 
 
 
@@ -73,10 +73,10 @@ public:
         int num_cells_depth = 3;
         int num_cells_width = 3;
 
-//        HoneycombVertexMeshGenerator generator = HoneycombVertexMeshGenerator::HoneycombVertexMeshGenerator(num_cells_width,num_cells_depth,true,0.85,1.3,1.0);
-//        MutableVertexMesh<2,2>* p_mesh = generator.GetMesh();
-        HoneycombMeshGenerator generator(num_cells_width, num_cells_depth,0);
-        MutableMesh<2,2>* p_mesh = generator.GetMesh();
+        HoneycombVertexMeshGenerator generator(num_cells_width,num_cells_depth,true,0.85,1.3,1.0);
+        MutableVertexMesh<2,2>* p_mesh = generator.GetMesh();
+        //HoneycombMeshGenerator generator(num_cells_width, num_cells_depth,0);
+        //MutableMesh<2,2>* p_mesh = generator.GetMesh();
 
         std::vector<CellPtr> cells;
         MAKE_PTR(WildTypeCellMutationState, p_state);
@@ -100,11 +100,11 @@ public:
         }
 
 
-        MeshBasedCellPopulation<2> cell_population(*p_mesh, cells);
+        VertexBasedCellPopulation<2> cell_population(*p_mesh, cells);
 
 	//check equivalent for nodes
-        cell_population.SetWriteVtkAsPoints(true);
-        cell_population.SetOutputMeshInVtk(true);
+        //cell_population.SetWriteVtkAsPoints(true);
+        //cell_population.SetOutputMeshInVtk(true);
 	
 	cell_population.AddCellWriter<CellMutationStatesWriter>();
 	cell_population.AddCellWriter<CellProliferativeTypesWriter>();
