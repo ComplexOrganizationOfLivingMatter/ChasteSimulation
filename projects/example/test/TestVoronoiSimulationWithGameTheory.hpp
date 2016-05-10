@@ -145,7 +145,7 @@ public:
         MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc_2, (&cell_population, point, normal));
 	simulator.AddCellPopulationBoundaryCondition(p_bc_2);
 
-        simulator.SetEndTime(200.0);
+        simulator.SetEndTime(100.0);
 
         simulator.Solve();
     }

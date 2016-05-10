@@ -39,7 +39,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "TransitCellProliferativeType.hpp"
 #include "DifferentiatedCellProliferativeType.hpp"
 
-const unsigned cStepsTillDivision = 2000.0;
+const unsigned cStepsTillDivision = 100.0;
 
 GameTheoryCellCycleModel::GameTheoryCellCycleModel()
 : AbstractCellCycleModel(),
