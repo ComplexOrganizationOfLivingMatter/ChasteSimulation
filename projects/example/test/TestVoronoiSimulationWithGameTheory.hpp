@@ -38,8 +38,13 @@
 #include "CellMutationStatesWriter.hpp"
 #include "CellProliferativeTypesWriter.hpp"
 #include "CellIdWriter.hpp"
+#include "CheckpointArchiveTypes.hpp"
+#include "AbstractCellBasedTestSuite.hpp"
 
-#include "PetscSetupAndFinalize.hpp"
+#include "StochasticDurationCellCycleModel.hpp"
+#include "VertexBasedCellPopulation.hpp"
+
+#include "FakePetscSetup.hpp"
 
 class TestVoronoiSimulationWithGameTheory: public AbstractCellBasedTestSuite {
 private:
@@ -59,23 +64,27 @@ private:
 public:
 
 	void TestGameTheoryDemo() throw (Exception) {
-		EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
+		//EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
 
 		// Create a simple 2D MeshBasedCellPopulation
 		int num_cells_depth = 2;
 		int num_cells_width = 2;
 
-		HoneycombVertexMeshGenerator generator(2, 2);// Parameters are: cells across, cells up
+		HoneycombVertexMeshGenerator generator(num_cells_width, num_cells_depth);// Parameters are: cells across, cells up
 		MutableVertexMesh<2,2>* p_mesh = generator.GetMesh();
 		//HoneycombMeshGenerator generator(num_cells_width, num_cells_depth,0);
 		//MutableMesh<2,2>* p_mesh = generator.GetMesh();
 
 		std::vector<CellPtr> cells;
-		MAKE_PTR(WildTypeCellMutationState, p_state);
+		cells.clear();
+
+		cells.reserve(p_mesh->GetNumNodes());
+
+		boost::shared_ptr<AbstractCellProperty> p_state(CellPropertyRegistry::Instance()->Get<WildTypeCellMutationState>());
 		MAKE_PTR(DifferentiatedCellProliferativeType, p_differentiated_type);
 		MAKE_PTR(CellLabel, p_label);
-
 		for (unsigned i=0; i<p_mesh->GetNumNodes(); i++) {
+			//The problem should be here at the
 			GameTheoryCellCycleModel* p_model = new GameTheoryCellCycleModel();
 			p_model->SetDimension(2);
 
@@ -90,7 +99,7 @@ public:
 			cells.push_back(p_cell);
 		}
 
-		std::cout<<"Pedro puta"<<endl
+		std::cout<<"Pedro puta"<<endl;
 		VertexBasedCellPopulation<2> cell_population(*p_mesh, cells); //casca
 		std::cout<<"Pasa!"<<endl;
 		//check equivalent for nodes
