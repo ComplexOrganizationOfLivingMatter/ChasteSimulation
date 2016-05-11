@@ -305,7 +305,7 @@ void VertexBasedCellPopulation<DIM>::UpdateNodeLocations(double dt)
 template<unsigned DIM>
 bool VertexBasedCellPopulation<DIM>::IsCellAssociatedWithADeletedLocation(CellPtr pCell)
 {
-    return GetElementCorrespondingToCell(pCell)->IsDeleted();;
+    return GetElementCorrespondingToCell(pCell)->IsDeleted();
 }
 
 template<unsigned DIM>
