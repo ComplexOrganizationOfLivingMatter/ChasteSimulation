@@ -141,6 +141,28 @@ void GameTheoryCellCycleModel::SetStepsTillDivision(double stepsTillDivision) {
     //std::cout << " \nGameTheoryCellCycleModel::SetStepsTillDivision" << mStepsTillDivision;
 }
 
+void GameTheoryCellCycleModel::SetG1Duration()
+{
+    RandomNumberGenerator* p_gen = RandomNumberGenerator::Instance();
+
+    if (mpCell->GetCellProliferativeType()->IsType<StemCellProliferativeType>())
+    {
+        mG1Duration = GetStemCellG1Duration() + 2*p_gen->ranf(); // U[0,2]
+    }
+    else if (mpCell->GetCellProliferativeType()->IsType<TransitCellProliferativeType>())
+    {
+        mG1Duration = GetTransitCellG1Duration() + 2*p_gen->ranf(); // U[0,2]
+    }
+    else if (mpCell->GetCellProliferativeType()->IsType<DifferentiatedCellProliferativeType>())
+    {
+        mG1Duration = DBL_MAX;
+    }
+    else
+    {
+        NEVER_REACHED;
+    }
+}
+
 // Serialization for Boost >= 1.36
 #include "SerializationExportWrapperForCpp.hpp"
 CHASTE_CLASS_EXPORT(GameTheoryCellCycleModel)
