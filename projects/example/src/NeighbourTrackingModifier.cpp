@@ -112,7 +112,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(AbstractCellPopulation<DIM,D
     rCellPopulation.Update();
 
     // Only works for Mesh based at the moment
-    assert(dynamic_cast<MeshBasedCellPopulation<DIM>*>(&rCellPopulation));
+    //assert(dynamic_cast<MeshBasedCellPopulation<DIM>*>(&rCellPopulation));
     unsigned population_size = 0;
 
     //max population
