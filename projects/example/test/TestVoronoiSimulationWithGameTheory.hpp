@@ -70,7 +70,7 @@ public:
 		int num_cells_depth = 2;
 		int num_cells_width = 2;
 
-		HoneycombVertexMeshGenerator generator(num_cells_width, num_cells_depth);// Parameters are: cells across, cells up
+		HoneycombVertexMeshGenerator generator(num_cells_width, num_cells_depth, 0);// Parameters are: cells across, cells up
 		MutableVertexMesh<2,2>* p_mesh = generator.GetMesh();
 		//HoneycombMeshGenerator generator(num_cells_width, num_cells_depth,0);
 		//MutableMesh<2,2>* p_mesh = generator.GetMesh();
@@ -83,8 +83,7 @@ public:
 		boost::shared_ptr<AbstractCellProperty> p_state(CellPropertyRegistry::Instance()->Get<WildTypeCellMutationState>());
 		MAKE_PTR(DifferentiatedCellProliferativeType, p_differentiated_type);
 		MAKE_PTR(CellLabel, p_label);
-		for (unsigned i=0; i<p_mesh->GetNumNodes(); i++) {
-			//The problem should be here at the
+		for (unsigned i=0; i<p_mesh->GetNumElements(); i++) {
 			GameTheoryCellCycleModel* p_model = new GameTheoryCellCycleModel();
 			p_model->SetDimension(2);
 
