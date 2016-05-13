@@ -39,7 +39,7 @@
 #include "TransitCellProliferativeType.hpp"
 #include "DifferentiatedCellProliferativeType.hpp"
 
-const unsigned cStepsTillDivision = 100.0;
+const unsigned cStepsTillDivision = 2000.0;
 
 GameTheoryCellCycleModel::GameTheoryCellCycleModel() :
 		AbstractCellCycleModel(),

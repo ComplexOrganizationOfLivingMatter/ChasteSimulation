@@ -149,11 +149,9 @@ public:
 				(&cell_population, point, normal));
 		simulator.AddCellPopulationBoundaryCondition(p_bc_2);
 
-		simulator.SetEndTime(100.0);
-		std::cout<<"hola que tal3"<<endl;
+		simulator.SetEndTime(1.0);
 
 		simulator.Solve();
-		std::cout<<"hola que tal4"<<endl;
 	}
 };
 
