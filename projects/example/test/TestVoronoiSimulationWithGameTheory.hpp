@@ -70,8 +70,9 @@ public:
 		int num_cells_depth = 2;
 		int num_cells_width = 2;
 
-		HoneycombVertexMeshGenerator generator(num_cells_width, num_cells_depth, 0);// Parameters are: cells across, cells up
-		MutableVertexMesh<2,2>* p_mesh = generator.GetMesh();
+		HoneycombVertexMeshGenerator generator(num_cells_width, num_cells_depth,
+				0); // Parameters are: cells across, cells up
+		MutableVertexMesh<2, 2>* p_mesh = generator.GetMesh();
 		//HoneycombMeshGenerator generator(num_cells_width, num_cells_depth,0);
 		//MutableMesh<2,2>* p_mesh = generator.GetMesh();
 
@@ -80,16 +81,18 @@ public:
 
 		cells.reserve(p_mesh->GetNumNodes());
 
-		boost::shared_ptr<AbstractCellProperty> p_state(CellPropertyRegistry::Instance()->Get<WildTypeCellMutationState>());
+		boost::shared_ptr<AbstractCellProperty> p_state(
+				CellPropertyRegistry::Instance()->Get<WildTypeCellMutationState>());
 		MAKE_PTR(DifferentiatedCellProliferativeType, p_differentiated_type);
 		MAKE_PTR(CellLabel, p_label);
-		for (unsigned i=0; i<p_mesh->GetNumElements(); i++) {
+		for (unsigned i = 0; i < p_mesh->GetNumElements(); i++) {
 			GameTheoryCellCycleModel* p_model = new GameTheoryCellCycleModel();
 			p_model->SetDimension(2);
 
 			CellPtr p_cell(new Cell(p_state, p_model));
 			p_cell->SetCellProliferativeType(p_differentiated_type);
-			double birth_time = -RandomNumberGenerator::Instance()->ranf()*18.0;
+			double birth_time = -RandomNumberGenerator::Instance()->ranf()
+					* 18.0;
 			p_cell->SetBirthTime(birth_time);
 
 			// uncomment this for all cells to become cheaters
@@ -134,13 +137,15 @@ public:
 		//normal(1) = -1.0;
 		point(1) = 9.0;
 		normal(1) = 9.0;
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc, (&cell_population, point, normal));
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc,
+				(&cell_population, point, normal));
 		simulator.AddCellPopulationBoundaryCondition(p_bc);
 
 		point(1) = -9.0;
 		normal(1) = -9.0;
 
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc_2, (&cell_population, point, normal));
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc_2,
+				(&cell_population, point, normal));
 		simulator.AddCellPopulationBoundaryCondition(p_bc_2);
 
 		simulator.SetEndTime(100.0);

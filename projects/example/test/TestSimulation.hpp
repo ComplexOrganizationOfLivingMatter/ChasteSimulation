@@ -99,7 +99,7 @@ public:
 	void TestMonolayer() throw (Exception) {
 		HoneycombMeshGenerator generator(2, 2);
 		// Parameters are: cells across, cells up
-		MutableMesh < 2, 2 > *p_mesh = generator.GetMesh();
+		MutableMesh<2, 2> *p_mesh = generator.GetMesh();
 
 		/*
 		 * We create an empty vector of cells and pass this
@@ -109,9 +109,9 @@ public:
 		 * the third argument specifies the proliferative
 		 * type of the cell.
 		 */
-		std::vector < CellPtr > cells;
+		std::vector<CellPtr> cells;
 		MAKE_PTR(TransitCellProliferativeType, p_transit_type);
-		CellsGenerator < StochasticDurationCellCycleModel, 2 > cells_generator;
+		CellsGenerator<StochasticDurationCellCycleModel, 2> cells_generator;
 		cells_generator.GenerateBasicRandom(cells, p_mesh->GetNumNodes(),
 				p_transit_type);
 
@@ -153,20 +153,22 @@ public:
 		TS_ASSERT_DELTA(SimulationTime::Instance()->GetTime(), 10.0, 1e-10);
 	}
 
-	void TestMonolayerWithGhostNodes() throw(Exception)
-	{
+	void TestMonolayerWithGhostNodes() throw (Exception) {
 		//The third argument specifies the number of layers of ghost nodes to make.
 		HoneycombMeshGenerator generator(2, 2, 2);
-		MutableMesh<2,2>* p_mesh = generator.GetMesh();
+		MutableMesh<2, 2>* p_mesh = generator.GetMesh();
 
-		std::vector<unsigned> location_indices = generator.GetCellLocationIndices();
+		std::vector<unsigned> location_indices =
+				generator.GetCellLocationIndices();
 
 		std::vector<CellPtr> cells;
 		MAKE_PTR(TransitCellProliferativeType, p_transit_type);
 		CellsGenerator<StochasticDurationCellCycleModel, 2> cells_generator;
-		cells_generator.GenerateBasicRandom(cells, location_indices.size(), p_transit_type);
+		cells_generator.GenerateBasicRandom(cells, location_indices.size(),
+				p_transit_type);
 
-		MeshBasedCellPopulationWithGhostNodes<2> cell_population(*p_mesh, cells, location_indices); //**Changed**//
+		MeshBasedCellPopulationWithGhostNodes<2> cell_population(*p_mesh, cells,
+				location_indices); //**Changed**//
 
 		cell_population.AddPopulationWriter<VoronoiDataWriter>();
 		OffLatticeSimulation<2> simulator(cell_population);
