@@ -53,9 +53,19 @@
 //#include <QtCore/QcoreApplication>
 //#include <QMap>
 //#include <QDebug>
-//#include<unordered_map>
+//#include <unordered_map>
 
-const unsigned diffusion = 5;
+const unsigned diffusion = 3;
+const unsigned max_population = 100; //CRASH IF THE POPULATION GOES BEYOND THIS NUMBER //have to fix it
+/*
+ * The public good cost of production
+ */
+const double good_cost = 0.6;
+
+//constract a sigmoid fitness based on the neighbours
+const double sigmoid = 1;
+//2 in k = n/2
+const double effect = 2;
 
 template<unsigned DIM> //,//>
 //unsigned ELEMENT_DIM, unsigned SPACE_DIM>
@@ -117,17 +127,14 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 	unsigned population_size = 0;
 
 	//max population
-	unsigned max_population = 10000; //CRASH IF THE POPULATION GOES BEYOND THIS NUMBER
 
 	// Iterate over cell population
 	for (typename AbstractCellPopulation<DIM>::Iterator cell_iter =
 			rCellPopulation.Begin(); cell_iter != rCellPopulation.End();
-			++cell_iter)
-	{
+			++cell_iter) {
 		//cout<<"Member "<<cell_iter->GetCellData()->GetItem("Id")<<endl;
 		//Get size of cell population. Is it used?
 		population_size++;
-
 
 		// Get the location index corresponding to this cell
 		unsigned index = rCellPopulation.GetLocationIndexUsingCell(*cell_iter);
@@ -136,9 +143,8 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 		//bool boundary = GameNode<*boundary_index>::IsBoundaryNode();
 
-		std::set<unsigned> neighbour_indices = rCellPopulation.GetNeighbouringLocationIndices(*cell_iter);
-
-
+		std::set<unsigned> neighbour_indices =
+				rCellPopulation.GetNeighbouringLocationIndices(*cell_iter);
 
 		unsigned num_neighbours = neighbour_indices.size();
 		//cout<<"Num_neighbours: "<<num_neighbours<<endl;
@@ -223,7 +229,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			std::set<unsigned> set_difference;
 			std::set<unsigned> difference;
 
-			for (unsigned i = 0; i < diffusion-1; i++) {
+			for (unsigned i = 0; i < diffusion - 1; i++) {
 				difference.clear();
 				set_difference.clear();
 				//it iterator;
@@ -235,7 +241,10 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 					// get cell data using the index
 
-					diffusion_neighbour_indices_new = rCellPopulation.GetNeighbouringLocationIndices(rCellPopulation.GetCellUsingLocationIndex(*it));
+					diffusion_neighbour_indices_new =
+							rCellPopulation.GetNeighbouringLocationIndices(
+									rCellPopulation.GetCellUsingLocationIndex(
+											*it));
 					//}
 					//std::cout<<*it<<endl;
 					//std::copy(diffusion_neighbour_indices_new.begin(), diffusion_neighbour_indices_new.end(), std::ostream_iterator<unsigned>(std::cout, " "));
@@ -290,9 +299,8 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 				// get cell data using the index
 				//std::cout<<*it_diffusion<<endl;
 				CellPtr p_cell_Diffusion =
-						rCellPopulation.GetCellUsingLocationIndex(*it_diffusion);
-
-
+						rCellPopulation.GetCellUsingLocationIndex(
+								*it_diffusion);
 
 				//std::cout<<"culo1"<<endl;
 				//if the cell is a cheater this is true
@@ -324,10 +332,6 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 	for (typename AbstractCellPopulation<DIM>::Iterator cell_iter =
 			rCellPopulation.Begin(); cell_iter != rCellPopulation.End();
 			++cell_iter) {
-		/*
-		 * The public good cost of production
-		 */
-		double cost = 0.6;
 
 		cell_iter->GetCellData()->SetItem("Fitness", 0.0);
 
@@ -345,12 +349,6 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 		//** uncomment below for a reverse prisoner's dilemma
 		//double num_cheaters_total = p_cell->GetCellData()->GetItem("DiffNumCheaters");
-
-		//constract a sigmoid fitness based on the neighbours
-
-		double sigmoid = 30;
-		//2 in k = n/2
-		double effect = 2;
 
 		//General Benefit equation 1/[1 + exp(-s*(j-k)/n]
 		//V(j)
@@ -432,7 +430,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			// if cell is a producer give payoff - cost
 		} else {
 			//** unshade below for Prisoners Dilemma
-			cell_fitness = (benefitSpecific - cost);
+			cell_fitness = (benefitSpecific - good_cost);
 			//** unshade below for Reverse Prisoners Dilemma
 			//cell_fitness = (benefitSpecific + benefitSpecificCheater) - (cost);
 		}
@@ -464,7 +462,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			unsigned index = rCellPopulation.GetLocationIndexUsingCell(
 					*cell_iter);
 			//CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index);
-			double cell_fitness = cell_iter->GetCellData()->GetItem("Fitness");//
+			double cell_fitness = cell_iter->GetCellData()->GetItem("Fitness");	//
 			double cell_fitness_death = 1 / cell_fitness;
 
 			// make sure all data can go sequentially on the abstract line
@@ -567,7 +565,8 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			for (it = boundary_nodes.begin(); it != boundary_nodes.end();
 					it++) {
 				// get cell data using the index
-				boundary_nodes_new = rCellPopulation.GetNeighbouringNodeIndices(*it);
+				boundary_nodes_new = rCellPopulation.GetNeighbouringNodeIndices(
+						*it);
 				//}
 				// sort sets
 				// according to http://www.cplusplus.com/reference/stl/set/
@@ -666,8 +665,10 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		double diff_number_neighbours = cell_iter->GetCellData()->GetItem(
 				"NumNeighbours");
 
-		double individual_fitness = cell_iter->GetCellData()->GetItem("Fitness");
-		signed individual_boundary = cell_iter->GetCellData()->GetItem("Boundary");
+		double individual_fitness = cell_iter->GetCellData()->GetItem(
+				"Fitness");
+		signed individual_boundary = cell_iter->GetCellData()->GetItem(
+				"Boundary");
 
 		// if cells are not boundary nodes
 		if (individual_boundary == -5) {

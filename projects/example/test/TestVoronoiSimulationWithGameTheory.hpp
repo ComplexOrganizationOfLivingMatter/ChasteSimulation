@@ -135,21 +135,21 @@ public:
 		c_vector<double, 2> point = zero_vector<double>(2);
 		c_vector<double, 2> normal = zero_vector<double>(2);
 		//normal(1) = -1.0;
-		point(1) = 9.0;
-		normal(1) = 9.0;
+		point(1) = 3.0;
+		normal(1) = 1.0;
 
 		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc,
 				(&cell_population, point, normal));
 		simulator.AddCellPopulationBoundaryCondition(p_bc);
 
-		point(1) = -9.0;
-		normal(1) = -9.0;
+		point(1) = -3.0;
+		normal(1) = -1.0;
 
 		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc_2,
 				(&cell_population, point, normal));
 		simulator.AddCellPopulationBoundaryCondition(p_bc_2);
 
-		simulator.SetEndTime(1.0);
+		simulator.SetEndTime(10.0);
 
 		simulator.Solve();
 	}
