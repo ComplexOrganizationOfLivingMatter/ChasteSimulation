@@ -122,10 +122,11 @@ public:
 		simulator.AddSimulationModifier(p_modifier);
 
 		// Create a force law and pass it to the simulation
-		MAKE_PTR(GeneralisedLinearSpringForce<2>, p_force);
-
-		p_force->SetCutOffLength(1.5);
+		MAKE_PTR(NagaiHondaForce<2>, p_force);
 		simulator.AddForce(p_force);
+
+		MAKE_PTR(SimpleTargetAreaModifier<2>, p_growth_modifier);
+		simulator.AddSimulationModifier(p_growth_modifier);
 
 		//add a new random seed
 		srand(time(NULL));
@@ -136,6 +137,7 @@ public:
 		//normal(1) = -1.0;
 		point(1) = 9.0;
 		normal(1) = 9.0;
+
 		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc,
 				(&cell_population, point, normal));
 		simulator.AddCellPopulationBoundaryCondition(p_bc);
@@ -148,8 +150,10 @@ public:
 		simulator.AddCellPopulationBoundaryCondition(p_bc_2);
 
 		simulator.SetEndTime(100.0);
+		std::cout<<"hola que tal3"<<endl;
 
 		simulator.Solve();
+		std::cout<<"hola que tal4"<<endl;
 	}
 };
 

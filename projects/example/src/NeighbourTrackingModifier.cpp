@@ -141,7 +141,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 
 		unsigned num_neighbours = neighbour_indices.size();
-		cout<<"Num_neighbours: "<<num_neighbours<<endl;
+		//cout<<"Num_neighbours: "<<num_neighbours<<endl;
 
 		// Store the number of neighbours
 		cell_iter->GetCellData()->SetItem("NumNeighbours", num_neighbours);
@@ -213,8 +213,8 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 		//in case diffusion is bigger than 1
 
-		std::copy(neighbour_indices.begin(), neighbour_indices.end(), std::ostream_iterator<unsigned>(std::cout, " "));
-		std::cout << endl;
+		//std::copy(neighbour_indices.begin(), neighbour_indices.end(), std::ostream_iterator<unsigned>(std::cout, " "));
+		//std::cout << endl;
 
 		if (diffusion > 1) {
 			std::set<unsigned>::iterator it;
@@ -238,9 +238,8 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 					diffusion_neighbour_indices_new = rCellPopulation.GetNeighbouringLocationIndices(rCellPopulation.GetCellUsingLocationIndex(*it));
 					//}
 					//std::cout<<*it<<endl;
-					std::copy(diffusion_neighbour_indices_new.begin(), diffusion_neighbour_indices_new.end(), std::ostream_iterator<unsigned>(std::cout, " "));
-
-					cout<<endl;
+					//std::copy(diffusion_neighbour_indices_new.begin(), diffusion_neighbour_indices_new.end(), std::ostream_iterator<unsigned>(std::cout, " "));
+					//cout<<endl;
 					// sort sets
 					// according to http://www.cplusplus.com/reference/stl/set/
 					// The elements in the container follow a strict order at all times. All inserted elements are given a position in this order.
@@ -253,9 +252,8 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 							diffusion_neighbour_indices.end(),
 							std::inserter(difference, difference.begin()));
 				}
-				std::copy(difference.begin(), difference.end(), std::ostream_iterator<unsigned>(std::cout, " "));
-
-				cout<<endl;
+				//std::copy(difference.begin(), difference.end(), std::ostream_iterator<unsigned>(std::cout, " "));
+				//cout<<endl;
 
 				//add the neighbours to the diffusion_neighbour_indices
 				diffusion_neighbour_indices.insert(difference.begin(),
@@ -279,11 +277,10 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 			//it iterator;
 
-			int highest=*diffusion_neighbour_indices.rbegin();
-
-			cout << highest <<endl;
-			std::list<CellPtr> lCells = rCellPopulation.rGetCells();
-			cout<< lCells.size()<<endl;
+			//int highest=*diffusion_neighbour_indices.rbegin();
+			//cout << highest <<endl;
+			//std::list<CellPtr> lCells = rCellPopulation.rGetCells();
+			//cout<< lCells.size()<<endl;
 
 			//iterate over neighbours to find their nature
 			for (it_diffusion = diffusion_neighbour_indices.begin();
@@ -297,7 +294,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 
 
-				std::cout<<"culo1"<<endl;
+				//std::cout<<"culo1"<<endl;
 				//if the cell is a cheater this is true
 				bool cell_Diffusion_cheater =
 						p_cell_Diffusion->template HasCellProperty<CellLabel>();
@@ -311,7 +308,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			diffusion_num_cheaters = cheaters_diffusion;
 			diffusion_num_cooperators = cooperators_diffusion;
 		}
-		std::cout<<"pasa"<<endl;
+		//std::cout<<"pasa"<<endl;
 
 		// Store the number of diffusion cheaters/producers
 		cell_iter->GetCellData()->SetItem("DiffNumCheaters",
@@ -323,7 +320,6 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 				diffusion_neighbours);
 	}
 
-	std::cout<<"pasa1"<<endl;
 	// Iterate over cell population and clear fitness
 	for (typename AbstractCellPopulation<DIM>::Iterator cell_iter =
 			rCellPopulation.Begin(); cell_iter != rCellPopulation.End();
@@ -863,7 +859,6 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		cell_iter->GetCellData()->SetItem("Writer", writer);
 		writer = 1;
 	}
-	std::cout<<"pasa"<<endl;
 }
 
 /////////////////////////////////////////////////////////////////////////////
