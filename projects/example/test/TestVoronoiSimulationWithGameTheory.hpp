@@ -67,11 +67,10 @@ public:
 		//EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
 
 		// Create a simple 2D MeshBasedCellPopulation
-		int num_cells_depth = 2;
-		int num_cells_width = 2;
+		int num_cells_depth = 3;
+		int num_cells_width = 3;
 
-		HoneycombVertexMeshGenerator generator(num_cells_width, num_cells_depth,
-				0); // Parameters are: cells across, cells up
+		HoneycombVertexMeshGenerator generator(num_cells_width, num_cells_depth); // Parameters are: cells across, cells up
 		MutableVertexMesh<2, 2>* p_mesh = generator.GetMesh();
 		//HoneycombMeshGenerator generator(num_cells_width, num_cells_depth,0);
 		//MutableMesh<2,2>* p_mesh = generator.GetMesh();
@@ -79,7 +78,7 @@ public:
 		std::vector<CellPtr> cells;
 		cells.clear();
 
-		cells.reserve(p_mesh->GetNumNodes());
+		cells.reserve(p_mesh->GetNumElements());
 
 		boost::shared_ptr<AbstractCellProperty> p_state(
 				CellPropertyRegistry::Instance()->Get<WildTypeCellMutationState>());

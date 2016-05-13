@@ -124,6 +124,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		//Get size of cell population
 		population_size++;
 
+
 		// Get the location index corresponding to this cell
 		unsigned index = rCellPopulation.GetLocationIndexUsingCell(*cell_iter);
 
@@ -131,8 +132,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 		//bool boundary = GameNode<*boundary_index>::IsBoundaryNode();
 
-		std::set<unsigned> neighbour_indices =
-				rCellPopulation.GetNeighbouringNodeIndices(index);
+		std::set<unsigned> neighbour_indices = rCellPopulation.GetNeighbouringNodeIndices(index);
 		unsigned num_neighbours = neighbour_indices.size();
 
 		// Store the number of neighbours
@@ -142,9 +142,10 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		// default is cooperator (-1)
 		signed int cell_type = -1;
 		//get cell data using index
-		CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index); //casca aqui
+		//std::cout<<rCellPopulation[index]<<endl;
+		//CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index); //casca aqui
 		//if it is a cheater this is true
-		bool cell_cheater = p_cell->template HasCellProperty<CellLabel>();
+		bool cell_cheater = cell_iter->template HasCellProperty<CellLabel>();
 
 		// cheater labeled -2, cooperator -1
 		if (cell_cheater) {
@@ -154,7 +155,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			MAKE_PTR(DifferentiatedCellProliferativeType,
 					p_differentiated_type);
 			cell_type = -1;
-			p_cell->SetCellProliferativeType(p_differentiated_type);
+			cell_iter->SetCellProliferativeType(p_differentiated_type);
 		}
 
 		// Store the cell type
@@ -173,7 +174,6 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 				it++) {
 			// get cell data using the index
 			CellPtr p_cell_A = rCellPopulation.GetCellUsingLocationIndex(*it);
-
 			//if the cell is a cheater this is true
 			bool cell_A_cheater =
 					p_cell_A->template HasCellProperty<CellLabel>();
@@ -211,7 +211,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			std::set<unsigned> set_difference;
 			std::set<unsigned> difference;
 
-			for (unsigned i = 0; i < diffusion - 1; i++) {
+			for (unsigned i = 0; i < diffusion; i++) {
 				//it iterator;
 				//iterate over neighbours to find the subsequent wave of neighbours
 				for (it = diffusion_neighbour_indices.begin();
@@ -257,12 +257,13 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			//iterate over neighbours to find their nature
 			for (it_diffusion = diffusion_neighbour_indices.begin();
 					it_diffusion != diffusion_neighbour_indices.end();
-					it_diffusion++) {
+					++it_diffusion) {
 				// get cell data using the index
-				CellPtr p_cell_Diffusion =
-						rCellPopulation.GetCellUsingLocationIndex(
-								*it_diffusion);
+				std::cout<<*it_diffusion.GetCellData()<<endl;
 
+				CellPtr p_cell_Diffusion =
+						rCellPopulation.GetCellUsingLocationIndex(*it_diffusion);
+				std::cout<<"culo1"<<endl;
 				//if the cell is a cheater this is true
 				bool cell_Diffusion_cheater =
 						p_cell_Diffusion->template HasCellProperty<CellLabel>();
@@ -299,15 +300,15 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		cell_iter->GetCellData()->SetItem("Fitness", 0.0);
 
 		// Get the location index corresponding to this cell
-		unsigned index = rCellPopulation.GetLocationIndexUsingCell(*cell_iter);
+		//unsigned index = rCellPopulation.GetLocationIndexUsingCell(*cell_iter);
 
-		CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index);
+		//CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index);
 
 		//if I simply call it 0: Assertion `mStepsTillDivision>0' failed.
-		double cell_fitness = p_cell->GetCellData()->GetItem("Fitness");
-		double num_neighbours_total = p_cell->GetCellData()->GetItem(
+		double cell_fitness = cell_iter->GetCellData()->GetItem("Fitness");
+		double num_neighbours_total = cell_iter->GetCellData()->GetItem(
 				"DiffNumNeighbours");
-		double num_cooperators_total = p_cell->GetCellData()->GetItem(
+		double num_cooperators_total = cell_iter->GetCellData()->GetItem(
 				"DiffNumCooperators");
 
 		//** uncomment below for a reverse prisoner's dilemma
@@ -376,7 +377,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 		//add the cost for the producers (if it has a label it is a cheater)
 		//first check if the cell is a producer
-		bool cell_cheater = p_cell->template HasCellProperty<CellLabel>();
+		bool cell_cheater = cell_iter->template HasCellProperty<CellLabel>();
 		//cout << " \ncell_cheater " << cell_cheater;
 
 		//if cell is a cheater give payoff
@@ -404,7 +405,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			//cell_fitness = (benefitSpecific + benefitSpecificCheater) - (cost);
 		}
 
-		p_cell->GetCellData()->SetItem("Fitness", cell_fitness);
+		cell_iter->GetCellData()->SetItem("Fitness", cell_fitness);
 	}
 
 	//celldeath
@@ -430,8 +431,8 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			// Get the location index corresponding to this cell
 			unsigned index = rCellPopulation.GetLocationIndexUsingCell(
 					*cell_iter);
-			CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index);
-			double cell_fitness = p_cell->GetCellData()->GetItem("Fitness");//
+			//CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index);
+			double cell_fitness = cell_iter->GetCellData()->GetItem("Fitness");//
 			double cell_fitness_death = 1 / cell_fitness;
 
 			// make sure all data can go sequentially on the abstract line
@@ -616,26 +617,26 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 	for (typename AbstractCellPopulation<DIM>::Iterator cell_iter =
 			rCellPopulation.Begin(); cell_iter != rCellPopulation.End();
 			++cell_iter) {
-		unsigned index = rCellPopulation.GetLocationIndexUsingCell(*cell_iter);
+		//unsigned index = rCellPopulation.GetLocationIndexUsingCell(*cell_iter);
 
-		CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index);
+		//CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index);
 
-		signed cell_type = p_cell->GetCellData()->GetItem("CellType");
+		signed cell_type = cell_iter->GetCellData()->GetItem("CellType");
 		//counts direct neighbours
-		unsigned number_neighbours = p_cell->GetCellData()->GetItem(
+		unsigned number_neighbours = cell_iter->GetCellData()->GetItem(
 				"NumNeighbours");
 		//counts diffusion neighbours
 		//double diff_number_coop_neighbours = p_cell->GetCellData()->GetItem("DiffNumCooperators");
 		//double diff_number_neighbours = p_cell->GetCellData()->GetItem("DiffNumNeighbours");
 
 		//counts direct neighbours
-		double diff_number_coop_neighbours = p_cell->GetCellData()->GetItem(
+		double diff_number_coop_neighbours = cell_iter->GetCellData()->GetItem(
 				"NumCooperators");
-		double diff_number_neighbours = p_cell->GetCellData()->GetItem(
+		double diff_number_neighbours = cell_iter->GetCellData()->GetItem(
 				"NumNeighbours");
 
-		double individual_fitness = p_cell->GetCellData()->GetItem("Fitness");
-		signed individual_boundary = p_cell->GetCellData()->GetItem("Boundary");
+		double individual_fitness = cell_iter->GetCellData()->GetItem("Fitness");
+		signed individual_boundary = cell_iter->GetCellData()->GetItem("Boundary");
 
 		// if cells are not boundary nodes
 		if (individual_boundary == -5) {
