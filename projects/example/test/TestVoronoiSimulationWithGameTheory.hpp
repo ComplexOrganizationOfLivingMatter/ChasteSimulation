@@ -113,7 +113,7 @@ public:
 		// Set up cell-based simulation
 
 		OffLatticeSimulation<2> simulator(cell_population);
-		//CryptSimulation2d simulator(cell_population);
+		//CryptSimulation2d simulator(cell_population); The cells start to grow from the bottom.
 		simulator.SetOutputDirectory("GameTheory");
 
 		//simulator.SetDt(0.01);
@@ -134,7 +134,7 @@ public:
 		srand(time(NULL));
 
 		//enclose the population in a square
-		 /*c_vector<double, 2> point = zero_vector<double>(2);
+		 c_vector<double, 2> point = zero_vector<double>(2);
 		 c_vector<double, 2> normal = zero_vector<double>(2);
 		 normal(0) = -1.0;
 		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc1,
@@ -163,7 +163,7 @@ public:
 
 		 MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
 		 (&cell_population, point, normal));
-		 simulator.AddCellKiller(p_killer);*/
+		 simulator.AddCellKiller(p_killer);
 
 		/*c_vector<double, 2> centre = zero_vector<double>(2);
 		centre(1) = 1.0;
