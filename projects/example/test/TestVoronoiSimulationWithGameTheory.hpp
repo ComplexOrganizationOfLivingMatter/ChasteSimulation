@@ -9,7 +9,7 @@
 
 #include "NagaiHondaForce.hpp"
 #include "SimpleTargetAreaModifier.hpp"
-
+#include "CryptSimulation2d.hpp"
 #include "CheckpointArchiveTypes.hpp"
 #include "OffLatticeSimulation.hpp"
 #include "HoneycombVertexMeshGenerator.hpp"
@@ -21,8 +21,9 @@
 #include "ChemotacticForce.hpp"
 #include "RandomCellKiller.hpp"
 #include "PlaneBasedCellKiller.hpp"
-
 #include "PlaneBoundaryCondition.hpp"
+
+#include "SphereGeometryBoundaryCondition.hpp"
 #include "AbstractCellBasedTestSuite.hpp"
 #include "NeighbourTrackingModifier.hpp"
 #include "NumericFileComparison.hpp"
@@ -41,8 +42,8 @@
 #include "CheckpointArchiveTypes.hpp"
 #include "AbstractCellBasedTestSuite.hpp"
 
-#include "StochasticDurationCellCycleModel.hpp"
 #include "VertexBasedCellPopulation.hpp"
+
 
 #include "FakePetscSetup.hpp"
 
@@ -66,15 +67,12 @@ public:
 	void TestGameTheoryDemo() throw (Exception) {
 		//EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
 
-		int num_cells_depth = 6;
-		int num_cells_width = 6;
+		int num_cells_depth = 2;
+		int num_cells_width = 2;
 
 		HoneycombVertexMeshGenerator generator(num_cells_width,
 				num_cells_depth); // Parameters are: cells across, cells up
 		MutableVertexMesh<2, 2>* p_mesh = generator.GetMesh();
-		//HoneycombMeshGenerator generator(num_cells_width, num_cells_depth,0);
-		//MutableMesh<2,2>* p_mesh = generator.GetMesh();
-
 		std::vector<CellPtr> cells;
 		cells.clear();
 
@@ -84,6 +82,7 @@ public:
 				CellPropertyRegistry::Instance()->Get<WildTypeCellMutationState>());
 		MAKE_PTR(DifferentiatedCellProliferativeType, p_differentiated_type);
 		MAKE_PTR(CellLabel, p_label);
+
 		for (unsigned i = 0; i < p_mesh->GetNumElements(); i++) {
 			GameTheoryCellCycleModel* p_model = new GameTheoryCellCycleModel();
 			p_model->SetDimension(2);
@@ -100,7 +99,7 @@ public:
 			cells.push_back(p_cell);
 		}
 
-		VertexBasedCellPopulation<2> cell_population(*p_mesh, cells); //casca
+		VertexBasedCellPopulationWithGhostNodes<2> cell_population(*p_mesh, cells); //casc
 
 		//check equivalent for nodes
 		//cell_population.SetWriteVtkAsPoints(true);
@@ -112,11 +111,14 @@ public:
 		cell_population.AddCellWriter<CellNeighboursWriter>();
 
 		// Set up cell-based simulation
+
 		OffLatticeSimulation<2> simulator(cell_population);
+		//CryptSimulation2d simulator(cell_population);
 		simulator.SetOutputDirectory("GameTheory");
 
-//        simulator.SetDt(0.01);
-		simulator.SetSamplingTimestepMultiple(12);
+		//simulator.SetDt(0.01);
+		//Ratio pictures/sec
+		simulator.SetSamplingTimestepMultiple(20);
 
 		MAKE_PTR_ARGS(NeighbourTrackingModifier<2>, p_modifier, ());
 		simulator.AddSimulationModifier(p_modifier);
@@ -132,36 +134,49 @@ public:
 		srand(time(NULL));
 
 		//enclose the population in a square
-		c_vector<double, 2> point = zero_vector<double>(2);
-		c_vector<double, 2> normal = zero_vector<double>(2);
-		normal(0) = -1.0;
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc1,
-				(&cell_population, point, normal));
-		simulator.AddCellPopulationBoundaryCondition(p_bc1);
+		 /*c_vector<double, 2> point = zero_vector<double>(2);
+		 c_vector<double, 2> normal = zero_vector<double>(2);
+		 normal(0) = -1.0;
+		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc1,
+		 (&cell_population, point, normal));
+		 simulator.AddCellPopulationBoundaryCondition(p_bc1);
 
-		point(0) = 10.0;
-		normal(0) = 1.0;
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc2,
-				(&cell_population, point, normal));
-		simulator.AddCellPopulationBoundaryCondition(p_bc2);
+		 point(0) = 10.0;
+		 normal(0) = 1.0;
+		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc2,
+		 (&cell_population, point, normal));
+		 simulator.AddCellPopulationBoundaryCondition(p_bc2);
 
-		point(0) = 0.0;
-		point(1) = 0.0;
-		normal(0) = 0.0;
-		normal(1) = -1.0;
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc3,
-				(&cell_population, point, normal));
-		simulator.AddCellPopulationBoundaryCondition(p_bc3);
+		 point(0) = 0.0;
+		 point(1) = 0.0;
+		 normal(0) = 0.0;
+		 normal(1) = -1.0;
+		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc3,
+		 (&cell_population, point, normal));
+		 simulator.AddCellPopulationBoundaryCondition(p_bc3);
 
-		point(1) = 10.0;
-		normal(1) = 1.0;
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc4,
-				(&cell_population, point, normal));
-		simulator.AddCellPopulationBoundaryCondition(p_bc4);
+		 point(1) = 10.0;
+		 normal(1) = 1.0;
+		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc4,
+		 (&cell_population, point, normal));
+		 simulator.AddCellPopulationBoundaryCondition(p_bc4);
+
+		 MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
+		 (&cell_population, point, normal));
+		 simulator.AddCellKiller(p_killer);*/
+
+		/*c_vector<double, 2> centre = zero_vector<double>(2);
+		centre(1) = 1.0;
+		double radius = 1.0;
+
+		MAKE_PTR_ARGS(SphereGeometryBoundaryCondition<2>, p_boundary_condition,
+				(&cell_population, centre, radius));
+		simulator.AddCellPopulationBoundaryCondition(p_boundary_condition);*/
 
 		simulator.SetEndTime(50.0);
 
 		simulator.Solve();
+		std::cout << "adios" << endl;
 	}
 };
 
