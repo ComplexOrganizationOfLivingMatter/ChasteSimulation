@@ -56,7 +56,7 @@
 //#include <unordered_map>
 
 const unsigned diffusion = 3;
-const unsigned max_population = 100; //CRASH IF THE POPULATION GOES BEYOND THIS NUMBER //have to fix it
+const unsigned max_population = 99;
 /*
  * The public good cost of production
  */
@@ -120,6 +120,7 @@ template<unsigned DIM>
 void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		AbstractCellPopulation<DIM, DIM>& rCellPopulation) {
 	// Make sure the cell population is updated
+	std::cout<<"In Update"<<endl;
 	rCellPopulation.Update();
 
 	// Only works for Mesh based at the moment
@@ -438,15 +439,27 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		cell_iter->GetCellData()->SetItem("Fitness", cell_fitness);
 	}
 
+	// find boundaries
+	//unsigned diffusion = 3;
+	std::set<unsigned> boundary_nodes;
+	for (typename AbstractMesh<DIM, DIM>::NodeIterator node_iter =
+			rCellPopulation.rGetMesh().GetNodeIteratorBegin();
+			node_iter != rCellPopulation.rGetMesh().GetNodeIteratorEnd();
+			++node_iter) {
+		if (node_iter->IsBoundaryNode()) {
+			unsigned index = node_iter->GetIndex();
+			boundary_nodes.insert(index);
+		}
+	}
+
 	//celldeath
 	if (rCellPopulation.GetNumAllCells() >= max_population) {
+		std::cout << "Time to die" << endl;
 		signed lowest = -1;
 		signed highest = -1;
 		double cell_fitness_initial = 0;
 		double cell_fitness_initial_death = 0;
 
-		double select_death = 0;
-		double select_divide = 0;
 		//a map of the id and fitness together. This will be used to create an abstract fitness line
 		std::map<double, unsigned> cell_id_fitness;
 		std::map<double, unsigned> cell_id_fitness_death;
@@ -455,42 +468,45 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		cell_id_fitness_death[cell_fitness_initial_death] = 0;
 
 		//check through the population and find the fitness
-		for (typename AbstractCellPopulation<DIM>::Iterator cell_iter =
-				rCellPopulation.Begin(); cell_iter != rCellPopulation.End();
-				++cell_iter) {
-			// Get the location index corresponding to this cell
-			unsigned index = rCellPopulation.GetLocationIndexUsingCell(
-					*cell_iter);
-			//CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index);
-			double cell_fitness = cell_iter->GetCellData()->GetItem("Fitness");	//
-			double cell_fitness_death = 1 / cell_fitness;
+		for (typename AbstractMesh<DIM, DIM>::NodeIterator node_iter =
+				rCellPopulation.rGetMesh().GetNodeIteratorBegin();
+				node_iter != rCellPopulation.rGetMesh().GetNodeIteratorEnd();
+				++node_iter) {
+			if (node_iter->IsBoundaryNode()) {
+				unsigned index = node_iter->GetIndex();
 
-			// make sure all data can go sequentially on the abstract line
-			if (cell_fitness < 0) {
-				//cell_fitness = cell_fitness * (-1);
-				//if (cell_fitness < 1){
-				cell_fitness = 0;
+				CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index);
+				double cell_fitness = p_cell->GetCellData()->GetItem(
+						"Fitness");	//
+				double cell_fitness_death = 1 / cell_fitness;
+
+				// make sure all data can go sequentially on the abstract line
+				if (cell_fitness < 0) {
+					//cell_fitness = cell_fitness * (-1);
+					//if (cell_fitness < 1){
+					cell_fitness = 0;
+				}
+
+				if (cell_fitness_death < 0) {
+					double _pow = cell_fitness * (-10);
+					cell_fitness_death = pow(100, _pow);
+				}
+
+				cell_fitness_initial = cell_fitness_initial + cell_fitness;
+				cell_fitness_initial_death = cell_fitness_initial_death
+						+ cell_fitness_death;
+
+				cell_id_fitness[cell_fitness_initial] = index;
+				cell_id_fitness_death[cell_fitness_initial_death] = index;
 			}
-
-			if (cell_fitness_death < 0) {
-				double _pow = cell_fitness * (-10);
-				cell_fitness_death = pow(100, _pow);
-			}
-
-			cell_fitness_initial = cell_fitness_initial + cell_fitness;
-			cell_fitness_initial_death = cell_fitness_initial_death
-					+ cell_fitness_death;
-
-			cell_id_fitness[cell_fitness_initial] = index;
-			cell_id_fitness_death[cell_fitness_initial_death] = index;
 		}
 		//assign for death the first element (i.e. the one with the lower fitness)
 		//select a random number representing the cell to die
 		//add a new random seed
 		//srand(time(NULL));
 
-		select_divide = fmod(rand(), cell_fitness_initial);
-		select_death = fmod(rand(), cell_fitness_initial_death);
+		double select_divide = fmod(rand(), cell_fitness_initial);
+		double select_death = fmod(rand(), cell_fitness_initial_death);
 
 		//unsigned test;
 		double previous_element = 0;
@@ -519,6 +535,8 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			previous_element = it->first;
 		}
 
+		previous_element = 0;
+
 		for (typename AbstractCellPopulation<DIM>::Iterator cell_iter =
 				rCellPopulation.Begin(); cell_iter != rCellPopulation.End();
 				++cell_iter) {
@@ -528,6 +546,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 			if (index == lowest) {
 				cell_iter->Kill();
+				//rCellPopulation.RemoveCellUsingLocationIndex(index, *cell_iter);
 			}
 			// to ensure that only one cell divides at each time slot
 			if (index == highest) {
@@ -536,19 +555,10 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 				cell_iter->GetCellData()->SetItem("mStepsTillDivision", 2000);
 			}
 		}
-	}
-
-	// find boundaries
-	//unsigned diffusion = 3;
-	std::set<unsigned> boundary_nodes;
-	for (typename AbstractMesh<DIM, DIM>::NodeIterator node_iter =
-			rCellPopulation.rGetMesh().GetNodeIteratorBegin();
-			node_iter != rCellPopulation.rGetMesh().GetNodeIteratorEnd();
-			++node_iter) {
-		if (node_iter->IsBoundaryNode()) {
-			unsigned index = node_iter->GetIndex();
-			boundary_nodes.insert(index);
-		}
+		rCellPopulation.RemoveDeadCells();
+		rCellPopulation.UpdateCellProcessLocation();
+		rCellPopulation.Update();
+		std::cout << "Death is over" << endl;
 	}
 
 	// find the neighbours of the boundary nodes and call them boundary
@@ -860,6 +870,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		cell_iter->GetCellData()->SetItem("Writer", writer);
 		writer = 1;
 	}
+	std::cout<<"Out of Update"<<endl;
 }
 
 /////////////////////////////////////////////////////////////////////////////
