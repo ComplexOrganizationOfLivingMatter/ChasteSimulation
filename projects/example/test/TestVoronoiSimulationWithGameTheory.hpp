@@ -99,7 +99,7 @@ public:
 			cells.push_back(p_cell);
 		}
 
-		VertexBasedCellPopulationWithGhostNodes<2> cell_population(*p_mesh, cells); //casc
+		VertexBasedCellPopulation<2> cell_population(*p_mesh, cells); //casc
 
 		//check equivalent for nodes
 		//cell_population.SetWriteVtkAsPoints(true);
