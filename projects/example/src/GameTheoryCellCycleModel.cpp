@@ -40,7 +40,7 @@
 #include "DifferentiatedCellProliferativeType.hpp"
 
 //2000 works
-const unsigned cStepsTillDivision = 200.0;
+const unsigned cStepsTillDivision = 2000.0;
 
 GameTheoryCellCycleModel::GameTheoryCellCycleModel() :
 		AbstractCellCycleModel(),
@@ -103,6 +103,7 @@ void GameTheoryCellCycleModel::InitialiseDaughterCell() {
 
 bool GameTheoryCellCycleModel::ReadyToDivide() {
 	assert(mpCell != NULL);
+	//std::cout<<mStepsTillDivision<<std::endl;
 	//assert(mStepsTillDivision > 0);
 
 	if (!mReadyToDivide) {

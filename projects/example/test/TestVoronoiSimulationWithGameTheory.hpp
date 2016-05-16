@@ -66,11 +66,11 @@ public:
 	void TestGameTheoryDemo() throw (Exception) {
 		//EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
 
-		// Create a simple 2D MeshBasedCellPopulation
-		int num_cells_depth = 3;
-		int num_cells_width = 3;
+		int num_cells_depth = 6;
+		int num_cells_width = 6;
 
-		HoneycombVertexMeshGenerator generator(num_cells_width, num_cells_depth); // Parameters are: cells across, cells up
+		HoneycombVertexMeshGenerator generator(num_cells_width,
+				num_cells_depth); // Parameters are: cells across, cells up
 		MutableVertexMesh<2, 2>* p_mesh = generator.GetMesh();
 		//HoneycombMeshGenerator generator(num_cells_width, num_cells_depth,0);
 		//MutableMesh<2,2>* p_mesh = generator.GetMesh();
@@ -131,25 +131,35 @@ public:
 		//add a new random seed
 		srand(time(NULL));
 
-		//enclose the population in boundaries
+		//enclose the population in a square
 		c_vector<double, 2> point = zero_vector<double>(2);
 		c_vector<double, 2> normal = zero_vector<double>(2);
-		//normal(1) = -1.0;
-		point(1) = 3.0;
-		normal(1) = 1.0;
-
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc,
+		normal(0) = -1.0;
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc1,
 				(&cell_population, point, normal));
-		simulator.AddCellPopulationBoundaryCondition(p_bc);
+		simulator.AddCellPopulationBoundaryCondition(p_bc1);
 
-		point(1) = -3.0;
+		point(0) = 10.0;
+		normal(0) = 1.0;
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc2,
+				(&cell_population, point, normal));
+		simulator.AddCellPopulationBoundaryCondition(p_bc2);
+
+		point(0) = 0.0;
+		point(1) = 0.0;
+		normal(0) = 0.0;
 		normal(1) = -1.0;
-
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc_2,
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc3,
 				(&cell_population, point, normal));
-		simulator.AddCellPopulationBoundaryCondition(p_bc_2);
+		simulator.AddCellPopulationBoundaryCondition(p_bc3);
 
-		simulator.SetEndTime(10.0);
+		point(1) = 10.0;
+		normal(1) = 1.0;
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc4,
+				(&cell_population, point, normal));
+		simulator.AddCellPopulationBoundaryCondition(p_bc4);
+
+		simulator.SetEndTime(50.0);
 
 		simulator.Solve();
 	}
