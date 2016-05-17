@@ -67,7 +67,7 @@ public:
 	void TestGameTheoryDemo() throw (Exception) {
 		//EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
 
-		int num_cells_depth = 1;
+		int num_cells_depth = 2;
 		int num_cells_width = 2;
 
 		HoneycombVertexMeshGenerator generator(num_cells_width,
