@@ -7,7 +7,7 @@
 #include <ctime>
 #include <cmath>
 
-#include "NagaiHondaForce.hpp"
+#include "NagaiHondaDifferentialAdhesionForce.hpp"
 #include "SimpleTargetAreaModifier.hpp"
 #include "CryptSimulation2d.hpp"
 #include "CheckpointArchiveTypes.hpp"
@@ -44,7 +44,6 @@
 
 #include "VertexBasedCellPopulation.hpp"
 
-
 #include "FakePetscSetup.hpp"
 
 class TestVoronoiSimulationWithGameTheory: public AbstractCellBasedTestSuite {
@@ -65,13 +64,13 @@ private:
 public:
 
 	void TestGameTheoryDemo() throw (Exception) {
-		//EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
+		EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
 
 		int num_cells_depth = 2;
 		int num_cells_width = 2;
 
 		HoneycombVertexMeshGenerator generator(num_cells_width,
-				num_cells_depth); // Parameters are: cells across, cells up
+				num_cells_depth);// Parameters are: cells across, cells up
 		MutableVertexMesh<2, 2>* p_mesh = generator.GetMesh();
 		std::vector<CellPtr> cells;
 		cells.clear();
@@ -90,7 +89,7 @@ public:
 			CellPtr p_cell(new Cell(p_state, p_model));
 			p_cell->SetCellProliferativeType(p_differentiated_type);
 			double birth_time = -RandomNumberGenerator::Instance()->ranf()
-					* 18.0;
+			* 18.0;
 			p_cell->SetBirthTime(birth_time);
 
 			// uncomment this for all cells to become cheaters
@@ -124,7 +123,25 @@ public:
 		simulator.AddSimulationModifier(p_modifier);
 
 		// Create a force law and pass it to the simulation
-		MAKE_PTR(NagaiHondaForce<2>, p_force);
+		//https://chaste.cs.ox.ac.uk/public-docs/classAbstractForce.html
+		//cell_based/test/population/TestForces.cpp
+		/* Kinds of force:
+		 * - ChemotacticForce. Not useful here. Concentrations.
+		 * - DiffusionForce. Viscosity and temperature: seem not to be here.
+		 * - FarhadifarForce.
+		 * - NagaiHondaForce. Inherited from it - NagaiHondaDifferentialAdhesionForce.
+		 * - VertexCryptBoundaryForce.
+		 * - WelikyOsterForce.
+		 * - BuskeCompressionForce.
+		 */
+		MAKE_PTR(NagaiHondaDifferentialAdhesionForce<2>, p_force);
+		p_force->SetNagaiHondaDeformationEnergyParameter(55.0);
+		p_force->SetNagaiHondaMembraneSurfaceEnergyParameter(0.0);
+		p_force->SetNagaiHondaCellCellAdhesionEnergyParameter(1.0);
+		p_force->SetNagaiHondaLabelledCellCellAdhesionEnergyParameter(6.0);
+		p_force->SetNagaiHondaLabelledCellLabelledCellAdhesionEnergyParameter(3.0);
+		p_force->SetNagaiHondaCellBoundaryAdhesionEnergyParameter(12.0);
+		p_force->SetNagaiHondaLabelledCellBoundaryAdhesionEnergyParameter(40.0);
 		simulator.AddForce(p_force);
 
 		MAKE_PTR(SimpleTargetAreaModifier<2>, p_growth_modifier);
@@ -134,45 +151,45 @@ public:
 		srand(time(NULL));
 
 		//enclose the population in a square
-		 c_vector<double, 2> point = zero_vector<double>(2);
-		 c_vector<double, 2> normal = zero_vector<double>(2);
-		 point(0) = -3.0;
-		 normal(0) = -1.0;
-		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc1,
-		 (&cell_population, point, normal));
-		 simulator.AddCellPopulationBoundaryCondition(p_bc1);
+		c_vector<double, 2> point = zero_vector<double>(2);
+		c_vector<double, 2> normal = zero_vector<double>(2);
+		point(0) = -3.0;
+		normal(0) = -1.0;
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc1,
+				(&cell_population, point, normal));
+		simulator.AddCellPopulationBoundaryCondition(p_bc1);
 
-		 point(0) = 5.0;
-		 normal(0) = 1.0;
-		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc2,
-		 (&cell_population, point, normal));
-		 simulator.AddCellPopulationBoundaryCondition(p_bc2);
+		point(0) = 5.0;
+		normal(0) = 1.0;
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc2,
+				(&cell_population, point, normal));
+		simulator.AddCellPopulationBoundaryCondition(p_bc2);
 
-		 point(0) = -3.0;
-		 point(1) = -3.0;
-		 normal(0) = 0.0;
-		 normal(1) = -1.0;
-		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc3,
-		 (&cell_population, point, normal));
-		 simulator.AddCellPopulationBoundaryCondition(p_bc3);
+		point(0) = -3.0;
+		point(1) = -3.0;
+		normal(0) = 0.0;
+		normal(1) = -1.0;
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc3,
+				(&cell_population, point, normal));
+		simulator.AddCellPopulationBoundaryCondition(p_bc3);
 
-		 point(1) = 5.0;
-		 normal(1) = 1.0;
-		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc4,
-		 (&cell_population, point, normal));
-		 simulator.AddCellPopulationBoundaryCondition(p_bc4);
+		point(1) = 5.0;
+		normal(1) = 1.0;
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc4,
+				(&cell_population, point, normal));
+		simulator.AddCellPopulationBoundaryCondition(p_bc4);
 
-		 MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
-		 (&cell_population, point, normal));
-		 simulator.AddCellKiller(p_killer);
+		MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
+				(&cell_population, point, normal));
+		simulator.AddCellKiller(p_killer);
 
 		/*c_vector<double, 2> centre = zero_vector<double>(2);
-		centre(1) = 1.0;
-		double radius = 1.0;
+		 centre(1) = 1.0;
+		 double radius = 1.0;
 
-		MAKE_PTR_ARGS(SphereGeometryBoundaryCondition<2>, p_boundary_condition,
-				(&cell_population, centre, radius));
-		simulator.AddCellPopulationBoundaryCondition(p_boundary_condition);*/
+		 MAKE_PTR_ARGS(SphereGeometryBoundaryCondition<2>, p_boundary_condition,
+		 (&cell_population, centre, radius));
+		 simulator.AddCellPopulationBoundaryCondition(p_boundary_condition);*/
 
 		simulator.SetEndTime(50.0);
 
