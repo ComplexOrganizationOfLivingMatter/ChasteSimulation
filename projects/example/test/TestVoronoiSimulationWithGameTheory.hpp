@@ -67,7 +67,7 @@ public:
 	void TestGameTheoryDemo() throw (Exception) {
 		//EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
 
-		int num_cells_depth = 2;
+		int num_cells_depth = 1;
 		int num_cells_width = 2;
 
 		HoneycombVertexMeshGenerator generator(num_cells_width,
@@ -136,26 +136,27 @@ public:
 		//enclose the population in a square
 		 c_vector<double, 2> point = zero_vector<double>(2);
 		 c_vector<double, 2> normal = zero_vector<double>(2);
+		 point(0) = -3.0;
 		 normal(0) = -1.0;
 		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc1,
 		 (&cell_population, point, normal));
 		 simulator.AddCellPopulationBoundaryCondition(p_bc1);
 
-		 point(0) = 10.0;
+		 point(0) = 5.0;
 		 normal(0) = 1.0;
 		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc2,
 		 (&cell_population, point, normal));
 		 simulator.AddCellPopulationBoundaryCondition(p_bc2);
 
-		 point(0) = 0.0;
-		 point(1) = 0.0;
+		 point(0) = -3.0;
+		 point(1) = -3.0;
 		 normal(0) = 0.0;
 		 normal(1) = -1.0;
 		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc3,
 		 (&cell_population, point, normal));
 		 simulator.AddCellPopulationBoundaryCondition(p_bc3);
 
-		 point(1) = 10.0;
+		 point(1) = 5.0;
 		 normal(1) = 1.0;
 		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc4,
 		 (&cell_population, point, normal));
