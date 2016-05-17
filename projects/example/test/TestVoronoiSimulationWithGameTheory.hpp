@@ -177,7 +177,7 @@ public:
 		simulator.SetEndTime(50.0);
 
 		simulator.Solve();
-		std::cout << "adios" << endl;
+		//std::cout << "adios" << endl;
 	}
 };
 

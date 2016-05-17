@@ -56,7 +56,7 @@
 //#include <unordered_map>
 
 const unsigned diffusion = 3;
-const unsigned max_population = 99;
+const unsigned max_population = 100;
 /*
  * The public good cost of production
  */
@@ -120,7 +120,7 @@ template<unsigned DIM>
 void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		AbstractCellPopulation<DIM, DIM>& rCellPopulation) {
 	// Make sure the cell population is updated
-	std::cout<<"In Update"<<endl;
+	//std::cout << "In Update" << endl;
 	rCellPopulation.Update();
 
 	// Only works for Mesh based at the moment
@@ -452,7 +452,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		}
 	}
 
-	//celldeath
+	//celldeath //Crashing
 	if (rCellPopulation.GetNumAllCells() >= max_population) {
 		std::cout << "Time to die" << endl;
 		signed lowest = -1;
@@ -468,38 +468,44 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		cell_id_fitness_death[cell_fitness_initial_death] = 0;
 
 		//check through the population and find the fitness
-		for (typename AbstractMesh<DIM, DIM>::NodeIterator node_iter =
-				rCellPopulation.rGetMesh().GetNodeIteratorBegin();
-				node_iter != rCellPopulation.rGetMesh().GetNodeIteratorEnd();
-				++node_iter) {
-			if (node_iter->IsBoundaryNode()) {
-				unsigned index = node_iter->GetIndex();
+		for (typename AbstractCellPopulation<DIM>::Iterator cell_iter =
+				rCellPopulation.Begin(); cell_iter != rCellPopulation.End();
+				++cell_iter) {
+			signed boundary = -5;
 
-				CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(index);
-				double cell_fitness = p_cell->GetCellData()->GetItem(
-						"Fitness");	//
-				double cell_fitness_death = 1 / cell_fitness;
+			cell_iter->GetCellData()->SetItem("Boundary", boundary);
+			unsigned index = rCellPopulation.GetLocationIndexUsingCell(
+					*cell_iter);
 
-				// make sure all data can go sequentially on the abstract line
-				if (cell_fitness < 0) {
-					//cell_fitness = cell_fitness * (-1);
-					//if (cell_fitness < 1){
-					cell_fitness = 0;
+			for (std::set<unsigned>::iterator it = boundary_nodes.begin();
+					it != boundary_nodes.end(); ++it) {
+				if (index == *it) {
+					double cell_fitness = cell_iter->GetCellData()->GetItem(
+							"Fitness");	//
+					double cell_fitness_death = 1 / cell_fitness;
+
+					// make sure all data can go sequentially on the abstract line
+					if (cell_fitness < 0) {
+						//cell_fitness = cell_fitness * (-1);
+						//if (cell_fitness < 1){
+						cell_fitness = 0;
+					}
+
+					if (cell_fitness_death < 0) {
+						double _pow = cell_fitness * (-10);
+						cell_fitness_death = pow(100, _pow);
+					}
+
+					cell_fitness_initial = cell_fitness_initial + cell_fitness;
+					cell_fitness_initial_death = cell_fitness_initial_death
+							+ cell_fitness_death;
+
+					cell_id_fitness[cell_fitness_initial] = index;
+					cell_id_fitness_death[cell_fitness_initial_death] = index;
 				}
-
-				if (cell_fitness_death < 0) {
-					double _pow = cell_fitness * (-10);
-					cell_fitness_death = pow(100, _pow);
-				}
-
-				cell_fitness_initial = cell_fitness_initial + cell_fitness;
-				cell_fitness_initial_death = cell_fitness_initial_death
-						+ cell_fitness_death;
-
-				cell_id_fitness[cell_fitness_initial] = index;
-				cell_id_fitness_death[cell_fitness_initial_death] = index;
 			}
 		}
+		std::cout << "Die" << endl;
 		//assign for death the first element (i.e. the one with the lower fitness)
 		//select a random number representing the cell to die
 		//add a new random seed
@@ -559,6 +565,19 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		rCellPopulation.UpdateCellProcessLocation();
 		rCellPopulation.Update();
 		std::cout << "Death is over" << endl;
+	}
+
+	// find boundaries
+	//unsigned diffusion = 3;
+	boundary_nodes.clear();
+	for (typename AbstractMesh<DIM, DIM>::NodeIterator node_iter =
+			rCellPopulation.rGetMesh().GetNodeIteratorBegin();
+			node_iter != rCellPopulation.rGetMesh().GetNodeIteratorEnd();
+			++node_iter) {
+		if (node_iter->IsBoundaryNode()) {
+			unsigned index = node_iter->GetIndex();
+			boundary_nodes.insert(index);
+		}
 	}
 
 	// find the neighbours of the boundary nodes and call them boundary
@@ -870,7 +889,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		cell_iter->GetCellData()->SetItem("Writer", writer);
 		writer = 1;
 	}
-	std::cout<<"Out of Update"<<endl;
+	//std::cout << "Out of Update" << endl;
 }
 
 /////////////////////////////////////////////////////////////////////////////
