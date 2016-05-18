@@ -44,7 +44,19 @@
 
 #include "VertexBasedCellPopulation.hpp"
 
-#include "FakePetscSetup.hpp"
+//Basics
+
+//Boundaries
+
+//Forces
+#include <FarhadifarForce.hpp>
+
+//Cell killers
+#include "ApoptoticCellKiller.hpp"
+
+//Parallelization
+//#include "PetscSetupAndFinalize.hpp"
+#include "FakePetscSetup.hpp" //NotParallelize
 
 class TestVoronoiSimulationWithGameTheory: public AbstractCellBasedTestSuite {
 private:
@@ -64,13 +76,13 @@ private:
 public:
 
 	void TestGameTheoryDemo() throw (Exception) {
-		EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
+		//EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
 
 		int num_cells_depth = 2;
 		int num_cells_width = 2;
 
 		HoneycombVertexMeshGenerator generator(num_cells_width,
-				num_cells_depth);// Parameters are: cells across, cells up
+				num_cells_depth); // Parameters are: cells across, cells up
 		MutableVertexMesh<2, 2>* p_mesh = generator.GetMesh();
 		std::vector<CellPtr> cells;
 		cells.clear();
@@ -89,7 +101,7 @@ public:
 			CellPtr p_cell(new Cell(p_state, p_model));
 			p_cell->SetCellProliferativeType(p_differentiated_type);
 			double birth_time = -RandomNumberGenerator::Instance()->ranf()
-			* 18.0;
+					* 18.0;
 			p_cell->SetBirthTime(birth_time);
 
 			// uncomment this for all cells to become cheaters
@@ -128,20 +140,34 @@ public:
 		/* Kinds of force:
 		 * - ChemotacticForce. Not useful here. Concentrations.
 		 * - DiffusionForce. Viscosity and temperature: seem not to be here.
-		 * - FarhadifarForce.
+		 * - FarhadifarForce. Interesting!
 		 * - NagaiHondaForce. Inherited from it - NagaiHondaDifferentialAdhesionForce.
 		 * - VertexCryptBoundaryForce.
 		 * - WelikyOsterForce.
 		 * - BuskeCompressionForce.
 		 */
-		MAKE_PTR(NagaiHondaDifferentialAdhesionForce<2>, p_force);
-		p_force->SetNagaiHondaDeformationEnergyParameter(55.0);
-		p_force->SetNagaiHondaMembraneSurfaceEnergyParameter(0.0);
-		p_force->SetNagaiHondaCellCellAdhesionEnergyParameter(1.0);
-		p_force->SetNagaiHondaLabelledCellCellAdhesionEnergyParameter(6.0);
-		p_force->SetNagaiHondaLabelledCellLabelledCellAdhesionEnergyParameter(3.0);
-		p_force->SetNagaiHondaCellBoundaryAdhesionEnergyParameter(12.0);
-		p_force->SetNagaiHondaLabelledCellBoundaryAdhesionEnergyParameter(40.0);
+		/*MAKE_PTR(NagaiHondaDifferentialAdhesionForce<2>, p_force);
+		 p_force->SetNagaiHondaDeformationEnergyParameter(55.0);
+		 p_force->SetNagaiHondaMembraneSurfaceEnergyParameter(0.0);
+		 p_force->SetNagaiHondaCellCellAdhesionEnergyParameter(1.0);
+		 p_force->SetNagaiHondaLabelledCellCellAdhesionEnergyParameter(6.0);
+		 p_force->SetNagaiHondaLabelledCellLabelledCellAdhesionEnergyParameter(3.0);
+		 p_force->SetNagaiHondaCellBoundaryAdhesionEnergyParameter(12.0);
+		 p_force->SetNagaiHondaLabelledCellBoundaryAdhesionEnergyParameter(40.0);*/
+
+		MAKE_PTR(FarhadifarForce<2>, p_force);
+
+		//limit the area
+		p_force->SetAreaElasticityParameter(15);
+		//Seems to decrease the size of the cells
+		p_force->SetPerimeterContractilityParameter(0.25); //not working with a high number > 0.5?
+		p_force->SetLineTensionParameter(0.0);
+		//Negative doesn't work
+		p_force->SetBoundaryLineTensionParameter(0.6);
+
+		// We need to reset the cell rearrangement threshold - vertex movements are kept below that threshold
+		//cell_population.rGetMesh().SetCellRearrangementThreshold(0.5);
+
 		simulator.AddForce(p_force);
 
 		MAKE_PTR(SimpleTargetAreaModifier<2>, p_growth_modifier);
@@ -180,8 +206,8 @@ public:
 		simulator.AddCellPopulationBoundaryCondition(p_bc4);
 
 		MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
-				(&cell_population, point, normal));
-		simulator.AddCellKiller(p_killer);
+		 (&cell_population, point, normal));
+		 simulator.AddCellKiller(p_killer);
 
 		/*c_vector<double, 2> centre = zero_vector<double>(2);
 		 centre(1) = 1.0;

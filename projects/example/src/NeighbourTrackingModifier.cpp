@@ -56,14 +56,14 @@
 //#include <unordered_map>
 
 const unsigned diffusion = 3;
-const unsigned max_population = 100;
+const unsigned max_population = 200;
 /*
  * The public good cost of production
  */
-const double good_cost = 0.6;
+const double good_cost = 0.1;
 
 //constract a sigmoid fitness based on the neighbours
-const double sigmoid = 1;
+const double sigmoid = 30;
 //2 in k = n/2
 const double effect = 2;
 
