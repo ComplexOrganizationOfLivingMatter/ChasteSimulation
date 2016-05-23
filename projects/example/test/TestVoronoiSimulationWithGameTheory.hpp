@@ -49,7 +49,7 @@
 //Boundaries
 
 //Forces
-#include <FarhadifarForce.hpp>
+#include <FarhadifarDifferentialByLabelForce.h>
 
 //Cell killers
 #include "ApoptoticCellKiller.hpp"
@@ -155,13 +155,19 @@ public:
 		 p_force->SetNagaiHondaCellBoundaryAdhesionEnergyParameter(12.0);
 		 p_force->SetNagaiHondaLabelledCellBoundaryAdhesionEnergyParameter(40.0);*/
 
-		MAKE_PTR(FarhadifarForce<2>, p_force);
+		/* Defaults: These parameters are Case I in Farhadifar's paper
+		 * mAreaElasticityCellLabelledParameter(1.0)
+		 * mPerimeterContractilityCellLabelledParameter(0.04)
+		 * mLineTensionCellLabelledParameter(0.12)
+		 * mBoundaryLineTensionCellLabelledParameter(0.12)
+		 */
+		MAKE_PTR(FarhadifarDifferentialByLabelForce<2>, p_force);
 
 		//limit the area
 		p_force->SetAreaElasticityParameter(15);
 		//Seems to decrease the size of the cells
 		p_force->SetPerimeterContractilityParameter(0.25); //not working with a high number > 0.5?
-		p_force->SetLineTensionParameter(0.0);
+		p_force->SetLineTensionParameter(0.4);
 		//Negative doesn't work
 		p_force->SetBoundaryLineTensionParameter(0.6);
 

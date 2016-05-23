@@ -19,6 +19,8 @@
 #include "VertexBasedCellPopulation.hpp"
 #include "CellLabel.hpp"
 
+#include <iostream>
+
 
 //https://chaste.cs.ox.ac.uk/public-docs/classFarhadifarForce.html
 //https://chaste.cs.ox.ac.uk/public-docs/classNagaiHondaDifferentialAdhesionForce.html
@@ -98,6 +100,8 @@ public:
 	double GetPerimeterContractilityCellLabelledParameter() const;
 	void SetPerimeterContractilityCellLabelledParameter(
 			double perimeterContractilityCellLabelledParameter);
+
+	double GetLineTensionFatherParameter() const;
 };
 
 #include "SerializationExportWrapper.hpp"

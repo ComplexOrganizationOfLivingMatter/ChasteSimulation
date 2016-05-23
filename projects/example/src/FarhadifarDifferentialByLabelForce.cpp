@@ -63,7 +63,7 @@ double FarhadifarDifferentialByLabelForce<DIM>::GetLineTensionParameter(
 					GetBoundaryLineTensionCellLabelledParameter();
 		}
 	} else {
-		line_tension_parameter_in_calculation = GetLineTensionParameter() / 2.0;
+		line_tension_parameter_in_calculation = GetLineTensionFatherParameter() / 2.0;
 
 		// If the edge corresponds to a single element, then the cell is on the boundary
 		if (shared_elements.size() == 1) {
@@ -119,3 +119,18 @@ void FarhadifarDifferentialByLabelForce<DIM>::SetPerimeterContractilityCellLabel
 	mPerimeterContractilityCellLabelledParameter =
 			perimeterContractilityCellLabelledParameter;
 }
+
+template<unsigned DIM>
+double FarhadifarDifferentialByLabelForce<DIM>::GetLineTensionFatherParameter() const{
+	return this->mLineTensionParameter;
+}
+
+
+// Explicit instantiation
+template class FarhadifarDifferentialByLabelForce<1>;
+template class FarhadifarDifferentialByLabelForce<2>;
+template class FarhadifarDifferentialByLabelForce<3>;
+
+// Serialization for Boost >= 1.36
+#include "SerializationExportWrapperForCpp.hpp"
+EXPORT_TEMPLATE_CLASS_SAME_DIMS(FarhadifarDifferentialByLabelForce)
