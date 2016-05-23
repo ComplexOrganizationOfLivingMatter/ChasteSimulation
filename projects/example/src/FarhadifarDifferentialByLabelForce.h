@@ -2,24 +2,88 @@
  * FarhadifarDifferentialByLabelForce.h
  *
  *  Created on: May 18, 2016
- *      Author: pablo
+ *      Author: Pablo Vicente-Munuera
  */
 
 #ifndef PROJECTS_EXAMPLE_SRC_FARHADIFARDIFFERENTIALBYLABELFORCE_H_
 #define PROJECTS_EXAMPLE_SRC_FARHADIFARDIFFERENTIALBYLABELFORCE_H_
 
+//Inherited class
 #include <FarhadifarForce.hpp>
 
+//Serialization
 #include "ChasteSerialization.hpp"
 #include <boost/serialization/base_object.hpp>
+
+//Exceptions
+#include "Exception.hpp"
 
 //https://chaste.cs.ox.ac.uk/public-docs/classFarhadifarForce.html
 //https://chaste.cs.ox.ac.uk/public-docs/classNagaiHondaDifferentialAdhesionForce.html
 template<unsigned DIM>
-class FarhadifarDifferentialByLabelForce : public FarhadifarForce<DIM> {
+class FarhadifarDifferentialByLabelForce: public FarhadifarForce<DIM> {
+private:
+
+	/**
+	 * The strength of the area term in the model. Corresponds to K_alpha in Farhadifar's paper.
+	 *  Refers to the labelled cell in the case it existed.
+	 */
+	double mAreaElasticityCellLabelledParameter;
+
+	/**
+	 * The strength of the perimeter term in the model. Corresponds to Gamma_alpha in Farhadifar's paper.
+	 *  Refers to the labelled cell in the case it existed.
+	 */
+	double mPerimeterContractilityCellLabelledParameter;
+
+	/**
+	 * The strength of the line tension term in the model. Lambda_{i,j} in Farhadifar's paper.
+	 * Refers to the labelled cell in the case it existed.
+	 */
+	double mLineTensionCellLabelledParameter;
+
+	/**
+	 * The strength of the line tension at the boundary. This term does correspond to Lambda_{i,j} in Farhadifar's paper.
+	 *  Refers to the labelled cell in the case it existed.
+	 */
+	double mBoundaryLineTensionCellLabelledParameter;
+
+	friend class boost::serialization::access;
+	/**
+	 * Boost Serialization method for archiving/checkpointing.
+	 * Archives the object and its member variables.
+	 *
+	 * @param archive  The boost archive.
+	 * @param version  The current version of this class.
+	 */
+	template<class Archive>
+	void serialize(Archive & archive, const unsigned int version) {
+		archive
+				& boost::serialization::base_object<FarhadifarForce<DIM> >(
+						*this);
+		archive & param;
+	}
+
 public:
 	FarhadifarDifferentialByLabelForce();
 	virtual ~FarhadifarDifferentialByLabelForce();
+	double GetAreaElasticityCellLabelledParameter() const;
+	void SetAreaElasticityCellLabelledParameter(
+			double areaElasticityCellLabelledParameter);
+	double GetBoundaryLineTensionCellLabelledParameter() const;
+	void SetBoundaryLineTensionCellLabelledParameter(
+			double boundaryLineTensionCellLabelledParameter);
+	double GetLineTensionCellLabelledParameter() const;
+	void SetLineTensionCellLabelledParameter(
+			double lineTensionCellLabelledParameter);
+	double GetPerimeterContractilityCellLabelledParameter() const;
+	void SetPerimeterContractilityCellLabelledParameter(
+			double perimeterContractilityCellLabelledParameter);
 };
+
+#include "SerializationExportWrapper.hpp"
+EXPORT_TEMPLATE_CLASS_SAME_DIMS(FarhadifarDifferentialByLabelForce)
+
+
 
 #endif /* PROJECTS_EXAMPLE_SRC_FARHADIFARDIFFERENTIALBYLABELFORCE_H_ */
