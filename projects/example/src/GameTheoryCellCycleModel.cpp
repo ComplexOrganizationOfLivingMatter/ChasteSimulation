@@ -40,7 +40,7 @@
 #include "DifferentiatedCellProliferativeType.hpp"
 
 //2000 works
-const unsigned cStepsTillDivision = 500.0;
+const unsigned cStepsTillDivision = 300.0;
 
 GameTheoryCellCycleModel::GameTheoryCellCycleModel() :
 		AbstractCellCycleModel(),
@@ -107,6 +107,10 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 	//std::cout<<mStepsTillDivision<<std::endl;
 	//assert(mStepsTillDivision > 0);
 
+	if (mpCell->template HasCellProperty<CellLabel>()) {
+		//std::cout<<"Soy mala "<<mStepsTillDivision<<std::endl;
+	}
+
 	if (!mReadyToDivide) {
 		// decrease mStepsTillDivision by the cells fittness
 		// if cooperator surrounded by cheaters the mStepsTillDivision
@@ -117,7 +121,10 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 		mpCell->GetCellData()->SetItem("StepsTillDivision", mStepsTillDivision);
 		if (mStepsTillDivision < 0) {
 			mReadyToDivide = true;
-			//std::cout << "we are ready to divide ueeeee!\n";
+			/*std::cout << "we are ready to divide ueeeee!"<< mpCell <<std::endl;
+			if (mpCell->template HasCellProperty<CellLabel>()) {
+					std::cout<<"Soy mala "<<std::endl;
+			}*/
 		}
 	}
 	return mReadyToDivide;

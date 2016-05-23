@@ -91,7 +91,7 @@ public:
 
 		boost::shared_ptr<AbstractCellProperty> p_state(
 				CellPropertyRegistry::Instance()->Get<WildTypeCellMutationState>());
-		MAKE_PTR(DifferentiatedCellProliferativeType, p_differentiated_type);
+		MAKE_PTR(DefaultCellProliferativeType, p_differentiated_type);
 		MAKE_PTR(CellLabel, p_label);
 
 		for (unsigned i = 0; i < p_mesh->GetNumElements(); i++) {
@@ -105,10 +105,14 @@ public:
 			p_cell->SetBirthTime(birth_time);
 
 
-			if (i>= p_mesh->GetNumElements()/2){
-				std::cout<<"hola soy mala " << i<<endl;
+			/*if (i%2){
+				//std::cout<<"hola soy mala " << i<<endl;
 				p_cell->AddCellProperty(p_label);
-			}
+			}*/
+			/*int aux = i%8;
+			if (aux == 0 || aux == 1 || aux == 2 || aux == 3){
+				p_cell->AddCellProperty(p_label);
+			}*/
 
 			cells.push_back(p_cell);
 		}
@@ -128,7 +132,7 @@ public:
 
 		OffLatticeSimulation<2> simulator(cell_population);
 		//CryptSimulation2d simulator(cell_population); The cells start to grow from the bottom.
-		simulator.SetOutputDirectory("GameTheory");
+		simulator.SetOutputDirectory("GameTheory2");
 
 		//simulator.SetDt(0.01);
 		//Ratio pictures/sec
@@ -168,13 +172,14 @@ public:
 
 		//limit the area
 		p_force->SetAreaElasticityParameter(3);
-		p_force->SetAreaElasticityCellLabelledParameter(3);
+		//p_force->SetAreaElasticityCellLabelledParameter(3);
 		//Seems to decrease the size of the cells
-		//p_force->SetPerimeterContractilityParameter(0.12); //not working with a high number > 0.5?
+		p_force->SetPerimeterContractilityParameter(0.12); //not working with a high number > 0.5?
+		//p_force->SetPerimeterContractilityCellLabelledParameter(0.12); //not working with a high number > 0.5?
 		p_force->SetLineTensionParameter(0.4);
-		p_force->SetLineTensionCellLabelledParameter(0.4);
+		//p_force->SetLineTensionCellLabelledParameter(0.4);
 		p_force->SetBoundaryLineTensionParameter(0.6);
-		p_force->SetBoundaryLineTensionCellLabelledParameter(0.9);
+		//p_force->SetBoundaryLineTensionCellLabelledParameter(0.6);
 
 		// We need to reset the cell rearrangement threshold - vertex movements are kept below that threshold
 		//cell_population.rGetMesh().SetCellRearrangementThreshold(0.5);
