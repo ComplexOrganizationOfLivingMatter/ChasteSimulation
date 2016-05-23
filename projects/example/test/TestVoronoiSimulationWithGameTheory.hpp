@@ -55,8 +55,8 @@
 #include "ApoptoticCellKiller.hpp"
 
 //Parallelization
-//#include "PetscSetupAndFinalize.hpp"
-#include "FakePetscSetup.hpp" //NotParallelize
+#include "PetscSetupAndFinalize.hpp"
+//#include "FakePetscSetup.hpp" //NotParallelize
 
 class TestVoronoiSimulationWithGameTheory: public AbstractCellBasedTestSuite {
 private:
@@ -78,8 +78,8 @@ public:
 	void TestGameTheoryDemo() throw (Exception) {
 		//EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
 
-		int num_cells_depth = 2;
-		int num_cells_width = 2;
+		int num_cells_depth = 8;
+		int num_cells_width = 8;
 
 		HoneycombVertexMeshGenerator generator(num_cells_width,
 				num_cells_depth); // Parameters are: cells across, cells up
@@ -104,8 +104,11 @@ public:
 					* 18.0;
 			p_cell->SetBirthTime(birth_time);
 
-			// uncomment this for all cells to become cheaters
-			//    p_cell->AddCellProperty(p_label);
+
+			if (i>= p_mesh->GetNumElements()/2){
+				std::cout<<"hola soy mala " << i<<endl;
+				p_cell->AddCellProperty(p_label);
+			}
 
 			cells.push_back(p_cell);
 		}
@@ -183,7 +186,7 @@ public:
 		srand(time(NULL));
 
 		//enclose the population in a square
-		c_vector<double, 2> point = zero_vector<double>(2);
+		/*c_vector<double, 2> point = zero_vector<double>(2);
 		c_vector<double, 2> normal = zero_vector<double>(2);
 		point(0) = -3.0;
 		normal(0) = -1.0;
@@ -213,7 +216,7 @@ public:
 
 		MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
 		 (&cell_population, point, normal));
-		 simulator.AddCellKiller(p_killer);
+		 simulator.AddCellKiller(p_killer);*/
 
 		/*c_vector<double, 2> centre = zero_vector<double>(2);
 		 centre(1) = 1.0;
