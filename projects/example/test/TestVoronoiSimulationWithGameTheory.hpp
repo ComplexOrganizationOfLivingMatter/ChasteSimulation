@@ -167,12 +167,14 @@ public:
 		MAKE_PTR(FarhadifarDifferentialByLabelForce<2>, p_force);
 
 		//limit the area
-		p_force->SetAreaElasticityParameter(15);
+		p_force->SetAreaElasticityParameter(3);
+		p_force->SetAreaElasticityCellLabelledParameter(3);
 		//Seems to decrease the size of the cells
-		p_force->SetPerimeterContractilityParameter(0.25); //not working with a high number > 0.5?
+		//p_force->SetPerimeterContractilityParameter(0.12); //not working with a high number > 0.5?
 		p_force->SetLineTensionParameter(0.4);
-		//Negative doesn't work
+		p_force->SetLineTensionCellLabelledParameter(0.4);
 		p_force->SetBoundaryLineTensionParameter(0.6);
+		p_force->SetBoundaryLineTensionCellLabelledParameter(0.9);
 
 		// We need to reset the cell rearrangement threshold - vertex movements are kept below that threshold
 		//cell_population.rGetMesh().SetCellRearrangementThreshold(0.5);
