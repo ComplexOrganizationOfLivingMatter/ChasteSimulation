@@ -56,7 +56,7 @@
 //#include <unordered_map>
 
 const unsigned diffusion = 3;
-const unsigned max_population = 200;
+const unsigned max_population = 200000;
 /*
  * The public good cost of production
  */
@@ -452,7 +452,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		}
 	}
 
-	//celldeath //Crashing
+	//celldeath
 	if (rCellPopulation.GetNumAllCells() >= max_population) {
 		std::cout << "Time to die" << endl;
 		signed lowest = -1;

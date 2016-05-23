@@ -87,17 +87,18 @@ AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
 void GameTheoryCellCycleModel::InitialiseDaughterCell() {
 	if (!mpCell->template HasCellProperty<CellLabel>()) {
 		// chance that a daugher will be mutant
-		bool mutant = (rand() % 1001) > 500;
+		// bool mutant = (rand() % 1001) > 500;
 		// not everything below is necessary, but since I
 		//occasionally get some random mutants these are
 		//things I tried to overcome it.
-		if (mutant) {
+
+		/*if (mutant) {
 			MAKE_PTR(CellLabel, p_label);
 			mpCell->AddCellProperty(p_label);
 			mpCell->GetCellData()->SetItem("CellType", -2);
 		} else {
 			mpCell->GetCellData()->SetItem("CellType", -1);
-		}
+		}*/
 	}
 }
 
@@ -116,7 +117,7 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 		mpCell->GetCellData()->SetItem("StepsTillDivision", mStepsTillDivision);
 		if (mStepsTillDivision < 0) {
 			mReadyToDivide = true;
-			std::cout << "we are ready to divide ueeeee!\n";
+			//std::cout << "we are ready to divide ueeeee!\n";
 		}
 	}
 	return mReadyToDivide;
@@ -140,22 +141,6 @@ void GameTheoryCellCycleModel::SetStepsTillDivision(double stepsTillDivision) {
 	mStepsTillDivision = stepsTillDivision;
 	//std::cout << " \nGameTheoryCellCycleModel::SetStepsTillDivision" << mStepsTillDivision;
 }
-
-void GameTheoryCellCycleModel::SetG1Duration() {
-	RandomNumberGenerator* p_gen = RandomNumberGenerator::Instance();
-
-	if (mpCell->GetCellProliferativeType()->IsType<StemCellProliferativeType>()) {
-		mG1Duration = GetStemCellG1Duration() + 2 * p_gen->ranf(); // U[0,2]
-	} else if (mpCell->GetCellProliferativeType()->IsType<
-			TransitCellProliferativeType>()) {
-		mG1Duration = GetTransitCellG1Duration() + 2 * p_gen->ranf(); // U[0,2]
-	} else if (mpCell->GetCellProliferativeType()->IsType<
-			DifferentiatedCellProliferativeType>()) {
-		mG1Duration = DBL_MAX;
-	} else {
-		NEVER_REACHED;
-		}
-	}
 
 // Serialization for Boost >= 1.36
 #include "SerializationExportWrapperForCpp.hpp"

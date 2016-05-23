@@ -140,11 +140,6 @@ public:
 	void SetStepsTillDivision(double stepsTillDivision);
 
 	/**
-	 * Overridden SetG1Duration Method to add stochastic cell cycle times
-	 */
-	void SetG1Duration();
-
-	/**
 	 * Outputs cell cycle model parameters to file.
 	 *
 	 * @param rParamsFile the file stream to which the parameters are output
