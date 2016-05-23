@@ -104,15 +104,14 @@ public:
 					* 18.0;
 			p_cell->SetBirthTime(birth_time);
 
-
 			/*if (i%2){
 				//std::cout<<"hola soy mala " << i<<endl;
 				p_cell->AddCellProperty(p_label);
 			}*/
-			/*int aux = i%8;
-			if (aux == 0 || aux == 1 || aux == 2 || aux == 3){
+			int aux = i%8;
+			if (aux < 4){
 				p_cell->AddCellProperty(p_label);
-			}*/
+			}
 
 			cells.push_back(p_cell);
 		}
@@ -132,11 +131,11 @@ public:
 
 		OffLatticeSimulation<2> simulator(cell_population);
 		//CryptSimulation2d simulator(cell_population); The cells start to grow from the bottom.
-		simulator.SetOutputDirectory("GameTheory2");
+		simulator.SetOutputDirectory("GameTheory");
 
 		//simulator.SetDt(0.01);
 		//Ratio pictures/sec
-		simulator.SetSamplingTimestepMultiple(20);
+		simulator.SetSamplingTimestepMultiple(10);
 
 		MAKE_PTR_ARGS(NeighbourTrackingModifier<2>, p_modifier, ());
 		simulator.AddSimulationModifier(p_modifier);
@@ -171,15 +170,15 @@ public:
 		MAKE_PTR(FarhadifarDifferentialByLabelForce<2>, p_force);
 
 		//limit the area
-		p_force->SetAreaElasticityParameter(3);
+		p_force->SetAreaElasticityParameter(15);
 		//p_force->SetAreaElasticityCellLabelledParameter(3);
 		//Seems to decrease the size of the cells
-		p_force->SetPerimeterContractilityParameter(0.12); //not working with a high number > 0.5?
+		p_force->SetPerimeterContractilityParameter(0.25); //not working with a high number > 0.5?
 		//p_force->SetPerimeterContractilityCellLabelledParameter(0.12); //not working with a high number > 0.5?
-		p_force->SetLineTensionParameter(0.4);
-		//p_force->SetLineTensionCellLabelledParameter(0.4);
-		p_force->SetBoundaryLineTensionParameter(0.6);
-		//p_force->SetBoundaryLineTensionCellLabelledParameter(0.6);
+		p_force->SetLineTensionParameter(0.6);
+		p_force->SetLineTensionCellLabelledParameter(0.6);
+		p_force->SetBoundaryLineTensionParameter(0.8);
+		p_force->SetBoundaryLineTensionCellLabelledParameter(0.6);
 
 		// We need to reset the cell rearrangement threshold - vertex movements are kept below that threshold
 		//cell_population.rGetMesh().SetCellRearrangementThreshold(0.5);

@@ -9,9 +9,9 @@
 
 template<unsigned DIM>
 FarhadifarDifferentialByLabelForce<DIM>::FarhadifarDifferentialByLabelForce() :
-		FarhadifarForce<DIM>(), mAreaElasticityCellLabelledParameter(3.0), // These parameters are Case I in Farhadifar's paper
-		mPerimeterContractilityCellLabelledParameter(0.12), mLineTensionCellLabelledParameter(
-				0.6), mBoundaryLineTensionCellLabelledParameter(0.6) // this parameter as such does not exist in Farhadifar's model.
+		FarhadifarForce<DIM>(), mAreaElasticityCellLabelledParameter(1.0), // These parameters are Case I in Farhadifar's paper
+		mPerimeterContractilityCellLabelledParameter(0.04), mLineTensionCellLabelledParameter(
+				0.12), mBoundaryLineTensionCellLabelledParameter(0.12) // this parameter as such does not exist in Farhadifar's model.
 {
 	// TODO Auto-generated constructor stub
 }

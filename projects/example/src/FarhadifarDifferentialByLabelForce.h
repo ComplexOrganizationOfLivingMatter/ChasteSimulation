@@ -83,7 +83,7 @@ public:
 	 *
 	 * @param rCellPopulation reference to the cell population
 	 */
-	virtual void AddForceContribution(
+	void AddForceContribution(
 			AbstractCellPopulation<DIM>& rCellPopulation);
 	/**
 	 * Get the line tension parameter for the edge between two given nodes.
@@ -94,7 +94,7 @@ public:
 	 *
 	 * @return the line tension parameter for this edge.
 	 */
-	virtual double GetLineTensionParameter(Node<DIM>* pNodeA, Node<DIM>* pNodeB,
+	double GetLineTensionParameter(Node<DIM>* pNodeA, Node<DIM>* pNodeB,
 			VertexBasedCellPopulation<DIM>& rVertexCellPopulation);
 	double GetAreaElasticityCellLabelledParameter() const;
 	void SetAreaElasticityCellLabelledParameter(
