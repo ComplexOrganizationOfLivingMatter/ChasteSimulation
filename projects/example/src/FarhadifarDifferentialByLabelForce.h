@@ -8,21 +8,23 @@
 #ifndef PROJECTS_EXAMPLE_SRC_FARHADIFARDIFFERENTIALBYLABELFORCE_H_
 #define PROJECTS_EXAMPLE_SRC_FARHADIFARDIFFERENTIALBYLABELFORCE_H_
 
-//Inherited class
-#include <FarhadifarForce.hpp>
-
 //Serialization
 #include "ChasteSerialization.hpp"
 #include <boost/serialization/base_object.hpp>
-
-//Exceptions
 #include "Exception.hpp"
+
+//Inherited class
+#include "FarhadifarForce.hpp"
+
+#include "VertexBasedCellPopulation.hpp"
+#include "CellLabel.hpp"
+
 
 //https://chaste.cs.ox.ac.uk/public-docs/classFarhadifarForce.html
 //https://chaste.cs.ox.ac.uk/public-docs/classNagaiHondaDifferentialAdhesionForce.html
 template<unsigned DIM>
 class FarhadifarDifferentialByLabelForce: public FarhadifarForce<DIM> {
-private:
+protected:
 
 	/**
 	 * The strength of the area term in the model. Corresponds to K_alpha in Farhadifar's paper.
@@ -48,6 +50,9 @@ private:
 	 */
 	double mBoundaryLineTensionCellLabelledParameter;
 
+
+private:
+
 	friend class boost::serialization::access;
 	/**
 	 * Boost Serialization method for archiving/checkpointing.
@@ -61,12 +66,26 @@ private:
 		archive
 				& boost::serialization::base_object<FarhadifarForce<DIM> >(
 						*this);
-		archive & param;
+		archive & mAreaElasticityCellLabelledParameter;
+		archive & mPerimeterContractilityCellLabelledParameter;
+		archive & mLineTensionCellLabelledParameter;
+		archive & mBoundaryLineTensionCellLabelledParameter;
 	}
 
 public:
 	FarhadifarDifferentialByLabelForce();
 	virtual ~FarhadifarDifferentialByLabelForce();
+	/**
+	 * Get the line tension parameter for the edge between two given nodes.
+	 *
+	 * @param pNodeA one node
+	 * @param pNodeB the other node
+	 * @param rVertexCellPopulation reference to the cell population
+	 *
+	 * @return the line tension parameter for this edge.
+	 */
+	virtual double GetLineTensionParameter(Node<DIM>* pNodeA, Node<DIM>* pNodeB,
+			VertexBasedCellPopulation<DIM>& rVertexCellPopulation);
 	double GetAreaElasticityCellLabelledParameter() const;
 	void SetAreaElasticityCellLabelledParameter(
 			double areaElasticityCellLabelledParameter);
@@ -83,7 +102,5 @@ public:
 
 #include "SerializationExportWrapper.hpp"
 EXPORT_TEMPLATE_CLASS_SAME_DIMS(FarhadifarDifferentialByLabelForce)
-
-
 
 #endif /* PROJECTS_EXAMPLE_SRC_FARHADIFARDIFFERENTIALBYLABELFORCE_H_ */
