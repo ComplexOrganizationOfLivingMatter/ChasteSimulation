@@ -21,7 +21,6 @@
 
 #include <iostream>
 
-
 //https://chaste.cs.ox.ac.uk/public-docs/classFarhadifarForce.html
 //https://chaste.cs.ox.ac.uk/public-docs/classNagaiHondaDifferentialAdhesionForce.html
 template<unsigned DIM>
@@ -52,7 +51,6 @@ protected:
 	 */
 	double mBoundaryLineTensionCellLabelledParameter;
 
-
 private:
 
 	friend class boost::serialization::access;
@@ -78,6 +76,16 @@ public:
 	FarhadifarDifferentialByLabelForce();
 	virtual ~FarhadifarDifferentialByLabelForce();
 	/**
+	 * Overridden AddForceContribution() method.
+	 *
+	 * Calculates the force on each node in the vertex-based cell population based on the energy function
+	 * Farhadifar's model.
+	 *
+	 * @param rCellPopulation reference to the cell population
+	 */
+	virtual void AddForceContribution(
+			AbstractCellPopulation<DIM>& rCellPopulation);
+	/**
 	 * Get the line tension parameter for the edge between two given nodes.
 	 *
 	 * @param pNodeA one node
@@ -101,7 +109,25 @@ public:
 	void SetPerimeterContractilityCellLabelledParameter(
 			double perimeterContractilityCellLabelledParameter);
 
-	double GetLineTensionFatherParameter() const;
+	/**
+	 * @return mAreaElasticityParameter
+	 */
+	double GetAreaElasticityParameter();
+
+	/**
+	 * @return mPerimeterContractilityParameter
+	 */
+	double GetPerimeterContractilityParameter();
+
+	/**
+	 * @return mLineTensionParameter
+	 */
+	double GetLineTensionParameter();
+
+	/**
+	 * @return mBoundaryLineTensionParameter
+	 */
+	double GetBoundaryLineTensionParameter();
 };
 
 #include "SerializationExportWrapper.hpp"
