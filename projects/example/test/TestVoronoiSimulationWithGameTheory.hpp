@@ -112,8 +112,8 @@ public:
 			 //std::cout<<"hola soy mala " << i<<endl;
 			 p_cell->AddCellProperty(p_label);
 			 }*/
-			int aux = i % 6;
-			if (aux < 4) {
+			int aux = i % num_cells_depth;
+			if (aux < num_cells_depth/2) {
 				p_cell->AddCellProperty(p_label);
 			}
 
@@ -234,7 +234,7 @@ public:
 		c_vector<double, 2> point = zero_vector<double>(2);
 		c_vector<double, 2> normal = zero_vector<double>(2);
 		//normal(1) = -1.0;
-		point(1) = 6.0;
+		point(1) = num_cells_depth;
 		normal(1) = 1.0;
 
 		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc,
