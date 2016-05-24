@@ -76,6 +76,7 @@ NeighbourTrackingModifier<DIM>::NeighbourTrackingModifier() :
 //AbstractCellPopulationWriter<ELEMENT_DIM, SPACE_DIM>()
 
 {
+	cellularFood = 100;
 }
 
 template<unsigned DIM>
@@ -420,7 +421,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		//traditional prisoners dilemma
 		if (cell_cheater) {
 			//** unshade below for Prisoners Dilemma
-			cell_fitness = benefitSpecific;
+			//cell_fitness = benefitSpecific;
 
 			//** unshade below for Reverse Prisoners Dilemma
 			//** the value 1.1 represents the increase in cost of the cheaters
@@ -431,7 +432,11 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			//** as it does not update, meaning that occasionally mStepTillDivision is
 			//** negative when it reaches ReadyToDivide. Tried to check why, could not
 			//** find the reason.
-			//cell_fitness = 0.99;
+			if (cellularFood <= 0)
+			{
+				DecreaseCellularFood();
+				cell_fitness = 0.99;
+			}
 
 			// if cell is a producer give payoff - cost
 		} else {

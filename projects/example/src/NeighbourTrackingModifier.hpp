@@ -57,6 +57,7 @@ class NeighbourTrackingModifier: public AbstractCellBasedSimulationModifier<DIM,
 {
 	/** Needed for serialization. */
 	friend class boost::serialization::access;
+
 	/**
 	 * Boost Serialization method for archiving/checkpointing.
 	 * Archives the object and its member variables.
@@ -76,6 +77,7 @@ class NeighbourTrackingModifier: public AbstractCellBasedSimulationModifier<DIM,
 
 private:
 	int ticks;
+	int cellularFood;
 public:
 
 	/**
@@ -124,6 +126,22 @@ public:
 	 virtual void Visit(MeshBasedCellPopulation<ELEMENT_DIM, SPACE_DIM>* pCellPopulation);*/
 	//void OutputCellKillerParameters(out_stream& rParamsFile);
 	void OutputSimulationModifierParameters(out_stream& rParamsFile);
+
+	int GetCellularFood() const {
+		return cellularFood;
+	}
+
+	void SetCellularFood(int cellularFood) {
+		this->cellularFood = cellularFood;
+	}
+
+	void DecreaseCellularFood() {
+		this->cellularFood--;
+	}
+
+	void IncreaseCellularFood() {
+		this->cellularFood++;
+	}
 };
 
 #include "SerializationExportWrapper.hpp"
