@@ -109,11 +109,11 @@ public:
 			p_cell->SetBirthTime(birth_time);
 
 			/*if (i%2){
-				//std::cout<<"hola soy mala " << i<<endl;
-				p_cell->AddCellProperty(p_label);
-			}*/
-			int aux = i%8;
-			if (aux < 4){
+			 //std::cout<<"hola soy mala " << i<<endl;
+			 p_cell->AddCellProperty(p_label);
+			 }*/
+			int aux = i % 8;
+			if (aux < 4) {
 				p_cell->AddCellProperty(p_label);
 			}
 
@@ -199,36 +199,54 @@ public:
 
 		//enclose the population in a square
 		/*c_vector<double, 2> point = zero_vector<double>(2);
-		c_vector<double, 2> normal = zero_vector<double>(2);
-		point(0) = 0.0;
-		normal(0) = -1.0;
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc1,
-				(&cell_population, point, normal));
-		simulator.AddCellPopulationBoundaryCondition(p_bc1);
+		 c_vector<double, 2> normal = zero_vector<double>(2);
+		 point(0) = 0.0;
+		 normal(0) = -1.0;
+		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc1,
+		 (&cell_population, point, normal));
+		 simulator.AddCellPopulationBoundaryCondition(p_bc1);
 
-		point(0) = 9.0;
-		normal(0) = 1.0;
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc2,
-				(&cell_population, point, normal));
-		simulator.AddCellPopulationBoundaryCondition(p_bc2);
+		 point(0) = 9.0;
+		 normal(0) = 1.0;
+		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc2,
+		 (&cell_population, point, normal));
+		 simulator.AddCellPopulationBoundaryCondition(p_bc2);
 
-		point(0) = 0.0;
-		point(1) = 0.0;
-		normal(0) = 0.0;
-		normal(1) = -1.0;
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc3,
-				(&cell_population, point, normal));
-		simulator.AddCellPopulationBoundaryCondition(p_bc3);
+		 point(0) = 0.0;
+		 point(1) = 0.0;
+		 normal(0) = 0.0;
+		 normal(1) = -1.0;
+		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc3,
+		 (&cell_population, point, normal));
+		 simulator.AddCellPopulationBoundaryCondition(p_bc3);
 
-		point(1) = 9.0;
-		normal(1) = 1.0;
-		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc4,
-				(&cell_population, point, normal));
-		simulator.AddCellPopulationBoundaryCondition(p_bc4);
+		 point(1) = 9.0;
+		 normal(1) = 1.0;
+		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc4,
+		 (&cell_population, point, normal));
+		 simulator.AddCellPopulationBoundaryCondition(p_bc4);
 
-		MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
+		 MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
 		 (&cell_population, point, normal));
 		 simulator.AddCellKiller(p_killer);*/
+
+		//enclose the population in boundaries
+		c_vector<double, 2> point = zero_vector<double>(2);
+		c_vector<double, 2> normal = zero_vector<double>(2);
+		//normal(1) = -1.0;
+		point(1) = 7.0;
+		normal(1) = 1.0;
+
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc,
+				(&cell_population, point, normal));
+		simulator.AddCellPopulationBoundaryCondition(p_bc);
+
+		point(1) = 0.0;
+		normal(1) = -1.0;
+
+		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc_2,
+				(&cell_population, point, normal));
+		simulator.AddCellPopulationBoundaryCondition(p_bc_2);
 
 		simulator.SetEndTime(50.0);
 
