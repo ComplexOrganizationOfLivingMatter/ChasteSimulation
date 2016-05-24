@@ -40,7 +40,8 @@
 #include "DifferentiatedCellProliferativeType.hpp"
 
 //2000 works
-const unsigned cStepsTillDivision = 1000.0;
+const unsigned cStepsTillDivision = 100.0;
+const double areaIdeal = 0.866025;
 
 GameTheoryCellCycleModel::GameTheoryCellCycleModel() :
 		AbstractCellCycleModel(),
@@ -93,12 +94,12 @@ void GameTheoryCellCycleModel::InitialiseDaughterCell() {
 		//things I tried to overcome it.
 
 		/*if (mutant) {
-			MAKE_PTR(CellLabel, p_label);
-			mpCell->AddCellProperty(p_label);
-			mpCell->GetCellData()->SetItem("CellType", -2);
-		} else {
-			mpCell->GetCellData()->SetItem("CellType", -1);
-		}*/
+		 MAKE_PTR(CellLabel, p_label);
+		 mpCell->AddCellProperty(p_label);
+		 mpCell->GetCellData()->SetItem("CellType", -2);
+		 } else {
+		 mpCell->GetCellData()->SetItem("CellType", -1);
+		 }*/
 	}
 }
 
@@ -106,10 +107,6 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 	assert(mpCell != NULL);
 	//std::cout<<mStepsTillDivision<<std::endl;
 	//assert(mStepsTillDivision > 0);
-
-	if (mpCell->template HasCellProperty<CellLabel>()) {
-		//std::cout<<"Soy mala "<<mStepsTillDivision<<std::endl;
-	}
 
 	if (!mReadyToDivide) {
 		// decrease mStepsTillDivision by the cells fittness
@@ -119,12 +116,16 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 		mStepsTillDivision -= mpCell->GetCellData()->GetItem("Fitness");
 
 		mpCell->GetCellData()->SetItem("StepsTillDivision", mStepsTillDivision);
-		if (mStepsTillDivision < 0) {
+
+		//UpdateCellCyclePhase();
+		//std::cout<<"Edad: "<<GetAge()<<std::endl;
+		//std::cout<<GetMDuration() + GetSDuration() + GetG2Duration()<<std::endl;
+		if (mStepsTillDivision < 0 && mpCell->GetCellData()->GetItem("Volume") >= areaIdeal) {
 			mReadyToDivide = true;
 			/*std::cout << "we are ready to divide ueeeee!"<< mpCell <<std::endl;
-			if (mpCell->template HasCellProperty<CellLabel>()) {
-					std::cout<<"Soy mala "<<std::endl;
-			}*/
+			 if (mpCell->template HasCellProperty<CellLabel>()) {
+			 std::cout<<"Soy mala "<<std::endl;
+			 }*/
 		}
 	}
 	return mReadyToDivide;
@@ -140,15 +141,15 @@ void GameTheoryCellCycleModel::ResetForDivision() {
 
 void GameTheoryCellCycleModel::OutputCellCycleModelParameters(
 		out_stream& rParamsFile) {
-	// No new parameters to output, so just call method on direct parent class
+// No new parameters to output, so just call method on direct parent class
 	AbstractCellCycleModel::OutputCellCycleModelParameters(rParamsFile);
 }
 
 void GameTheoryCellCycleModel::SetStepsTillDivision(double stepsTillDivision) {
 	mStepsTillDivision = stepsTillDivision;
-	//std::cout << " \nGameTheoryCellCycleModel::SetStepsTillDivision" << mStepsTillDivision;
+//std::cout << " \nGameTheoryCellCycleModel::SetStepsTillDivision" << mStepsTillDivision;
 }
 
 // Serialization for Boost >= 1.36
 #include "SerializationExportWrapperForCpp.hpp"
-	CHASTE_CLASS_EXPORT(GameTheoryCellCycleModel)
+CHASTE_CLASS_EXPORT(GameTheoryCellCycleModel)

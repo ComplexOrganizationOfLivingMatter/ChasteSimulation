@@ -123,6 +123,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 	//std::cout << "In Update" << endl;
 	rCellPopulation.Update();
 
+
 	// Only works for Mesh based at the moment
 	//assert(dynamic_cast<MeshBasedCellPopulation<DIM>*>(&rCellPopulation));
 	unsigned population_size = 0;
@@ -136,6 +137,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		//cout<<"Member "<<cell_iter->GetCellData()->GetItem("Id")<<endl;
 		//Get size of cell population. Is it used?
 		population_size++;
+		//sstd::cout<<rCellPopulation.GetVolumeOfCell(*cell_iter)<<std::endl;
 
 		// Get the location index corresponding to this cell
 		unsigned index = rCellPopulation.GetLocationIndexUsingCell(*cell_iter);
@@ -202,6 +204,9 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 		unsigned num_cheaters = cheaters;
 		unsigned num_cooperators = cooperators;
+
+
+		cell_iter->GetCellData()->SetItem("Volume", rCellPopulation.GetVolumeOfCell(*cell_iter));
 
 		// Store the number of cheaters/producers
 		cell_iter->GetCellData()->SetItem("NumCheaters", num_cheaters);

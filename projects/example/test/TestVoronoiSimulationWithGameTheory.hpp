@@ -43,6 +43,10 @@
 #include "AbstractCellBasedTestSuite.hpp"
 
 #include "VertexBasedCellPopulation.hpp"
+//Cell writers //output info
+#include "CellAgesWriter.hpp"
+#include "CellVolumesWriter.hpp"
+#include "CellMutationStatesCountWriter.hpp"
 
 //Basics
 
@@ -78,8 +82,8 @@ public:
 	void TestGameTheoryDemo() throw (Exception) {
 		//EXIT_IF_PARALLEL;    // HoneycombMeshGenerator does not work in parallel
 
-		int num_cells_depth = 8;
-		int num_cells_width = 8;
+		int num_cells_depth = 6;
+		int num_cells_width = 6;
 
 		HoneycombVertexMeshGenerator generator(num_cells_width,
 				num_cells_depth); // Parameters are: cells across, cells up
@@ -101,7 +105,7 @@ public:
 			CellPtr p_cell(new Cell(p_state, p_model));
 			p_cell->SetCellProliferativeType(p_differentiated_type);
 			double birth_time = -RandomNumberGenerator::Instance()->ranf()
-					* 18.0;
+					* 12.0;
 			p_cell->SetBirthTime(birth_time);
 
 			/*if (i%2){
@@ -126,12 +130,14 @@ public:
 		cell_population.AddCellWriter<CellProliferativeTypesWriter>();
 		cell_population.AddCellWriter<CellIdWriter>();
 		cell_population.AddCellWriter<CellNeighboursWriter>();
+		cell_population.AddCellWriter<CellAgesWriter>();
+		cell_population.AddCellWriter<CellVolumesWriter>();
 
 		// Set up cell-based simulation
 
 		OffLatticeSimulation<2> simulator(cell_population);
 		//CryptSimulation2d simulator(cell_population); The cells start to grow from the bottom.
-		simulator.SetOutputDirectory("GameTheory3");
+		simulator.SetOutputDirectory("GameTheory");
 
 		//simulator.SetDt(0.01);
 		//Ratio pictures/sec
@@ -170,15 +176,15 @@ public:
 		MAKE_PTR(FarhadifarDifferentialByLabelForce<2>, p_force);
 
 		//limit the area
-		p_force->SetAreaElasticityParameter(3);
-		p_force->SetAreaElasticityCellLabelledParameter(3);
+		p_force->SetAreaElasticityParameter(20);
+		p_force->SetAreaElasticityCellLabelledParameter(20);
 		//Seems to decrease the size of the cells
 		p_force->SetPerimeterContractilityParameter(0.2); //not working with a high number > 0.5?
 		p_force->SetPerimeterContractilityCellLabelledParameter(0.2); //not working with a high number > 0.5?
-		p_force->SetLineTensionParameter(0.8);
-		p_force->SetLineTensionCellLabelledParameter(0.4);
-		p_force->SetBoundaryLineTensionParameter(0.8);
-		p_force->SetBoundaryLineTensionCellLabelledParameter(0.3);
+		p_force->SetLineTensionParameter(1);
+		p_force->SetLineTensionCellLabelledParameter(1);
+		p_force->SetBoundaryLineTensionParameter(1);
+		p_force->SetBoundaryLineTensionCellLabelledParameter(1);
 
 		// We need to reset the cell rearrangement threshold - vertex movements are kept below that threshold
 		//cell_population.rGetMesh().SetCellRearrangementThreshold(0.5);
@@ -192,7 +198,7 @@ public:
 		srand(time(NULL));
 
 		//enclose the population in a square
-		c_vector<double, 2> point = zero_vector<double>(2);
+		/*c_vector<double, 2> point = zero_vector<double>(2);
 		c_vector<double, 2> normal = zero_vector<double>(2);
 		point(0) = 0.0;
 		normal(0) = -1.0;
@@ -222,15 +228,7 @@ public:
 
 		MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
 		 (&cell_population, point, normal));
-		 simulator.AddCellKiller(p_killer);
-
-		/*c_vector<double, 2> centre = zero_vector<double>(2);
-		 centre(1) = 1.0;
-		 double radius = 1.0;
-
-		 MAKE_PTR_ARGS(SphereGeometryBoundaryCondition<2>, p_boundary_condition,
-		 (&cell_population, centre, radius));
-		 simulator.AddCellPopulationBoundaryCondition(p_boundary_condition);*/
+		 simulator.AddCellKiller(p_killer);*/
 
 		simulator.SetEndTime(50.0);
 
