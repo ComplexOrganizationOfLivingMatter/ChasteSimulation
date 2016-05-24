@@ -91,7 +91,7 @@ public:
 
 		boost::shared_ptr<AbstractCellProperty> p_state(
 				CellPropertyRegistry::Instance()->Get<WildTypeCellMutationState>());
-		MAKE_PTR(DefaultCellProliferativeType, p_differentiated_type);
+		MAKE_PTR(DifferentiatedCellProliferativeType, p_differentiated_type);
 		MAKE_PTR(CellLabel, p_label);
 
 		for (unsigned i = 0; i < p_mesh->GetNumElements(); i++) {
@@ -131,7 +131,7 @@ public:
 
 		OffLatticeSimulation<2> simulator(cell_population);
 		//CryptSimulation2d simulator(cell_population); The cells start to grow from the bottom.
-		simulator.SetOutputDirectory("GameTheory");
+		simulator.SetOutputDirectory("GameTheory3");
 
 		//simulator.SetDt(0.01);
 		//Ratio pictures/sec
@@ -170,15 +170,15 @@ public:
 		MAKE_PTR(FarhadifarDifferentialByLabelForce<2>, p_force);
 
 		//limit the area
-		p_force->SetAreaElasticityParameter(15);
-		//p_force->SetAreaElasticityCellLabelledParameter(3);
+		p_force->SetAreaElasticityParameter(3);
+		p_force->SetAreaElasticityCellLabelledParameter(3);
 		//Seems to decrease the size of the cells
-		p_force->SetPerimeterContractilityParameter(0.25); //not working with a high number > 0.5?
-		//p_force->SetPerimeterContractilityCellLabelledParameter(0.12); //not working with a high number > 0.5?
-		p_force->SetLineTensionParameter(0.6);
-		p_force->SetLineTensionCellLabelledParameter(0.6);
+		p_force->SetPerimeterContractilityParameter(0.2); //not working with a high number > 0.5?
+		p_force->SetPerimeterContractilityCellLabelledParameter(0.2); //not working with a high number > 0.5?
+		p_force->SetLineTensionParameter(0.8);
+		p_force->SetLineTensionCellLabelledParameter(0.4);
 		p_force->SetBoundaryLineTensionParameter(0.8);
-		p_force->SetBoundaryLineTensionCellLabelledParameter(0.6);
+		p_force->SetBoundaryLineTensionCellLabelledParameter(0.3);
 
 		// We need to reset the cell rearrangement threshold - vertex movements are kept below that threshold
 		//cell_population.rGetMesh().SetCellRearrangementThreshold(0.5);
@@ -192,29 +192,29 @@ public:
 		srand(time(NULL));
 
 		//enclose the population in a square
-		/*c_vector<double, 2> point = zero_vector<double>(2);
+		c_vector<double, 2> point = zero_vector<double>(2);
 		c_vector<double, 2> normal = zero_vector<double>(2);
-		point(0) = -3.0;
+		point(0) = 0.0;
 		normal(0) = -1.0;
 		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc1,
 				(&cell_population, point, normal));
 		simulator.AddCellPopulationBoundaryCondition(p_bc1);
 
-		point(0) = 5.0;
+		point(0) = 9.0;
 		normal(0) = 1.0;
 		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc2,
 				(&cell_population, point, normal));
 		simulator.AddCellPopulationBoundaryCondition(p_bc2);
 
-		point(0) = -3.0;
-		point(1) = -3.0;
+		point(0) = 0.0;
+		point(1) = 0.0;
 		normal(0) = 0.0;
 		normal(1) = -1.0;
 		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc3,
 				(&cell_population, point, normal));
 		simulator.AddCellPopulationBoundaryCondition(p_bc3);
 
-		point(1) = 5.0;
+		point(1) = 9.0;
 		normal(1) = 1.0;
 		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc4,
 				(&cell_population, point, normal));
@@ -222,7 +222,7 @@ public:
 
 		MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
 		 (&cell_population, point, normal));
-		 simulator.AddCellKiller(p_killer);*/
+		 simulator.AddCellKiller(p_killer);
 
 		/*c_vector<double, 2> centre = zero_vector<double>(2);
 		 centre(1) = 1.0;

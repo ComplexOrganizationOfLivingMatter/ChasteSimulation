@@ -55,15 +55,15 @@
 //#include <QDebug>
 //#include <unordered_map>
 
-const unsigned diffusion = 3;
-const unsigned max_population = 200000;
+const unsigned diffusion = 5;
+const unsigned max_population = 1200;
 /*
  * The public good cost of production
  */
-const double good_cost = 0.1;
+const double good_cost = 0.6;
 
 //constract a sigmoid fitness based on the neighbours
-const double sigmoid = 30;
+const double sigmoid = 5;
 //2 in k = n/2
 const double effect = 2;
 
@@ -163,16 +163,16 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		bool cell_cheater = cell_iter->template HasCellProperty<CellLabel>();
 
 		// cheater labeled -2, cooperator -1
+		MAKE_PTR(DifferentiatedCellProliferativeType,
+							p_differentiated_type);
 		if (cell_cheater) {
 			cell_type = -2;
 			//cout << " bool cell cheater " << cell_cheater;
 		} else {
-			MAKE_PTR(DifferentiatedCellProliferativeType,
-					p_differentiated_type);
 			cell_type = -1;
-			cell_iter->SetCellProliferativeType(p_differentiated_type);
 		}
 
+		cell_iter->SetCellProliferativeType(p_differentiated_type);
 		// Store the cell type
 		cell_iter->GetCellData()->SetItem("CellType", cell_type);
 
