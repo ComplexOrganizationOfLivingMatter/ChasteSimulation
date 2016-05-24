@@ -211,13 +211,16 @@ double FarhadifarDifferentialByLabelForce<DIM>::GetLineTensionParameter(
 	CellPtr p_cell = rVertexCellPopulation.GetCellUsingLocationIndex(
 			element_index);
 
-	if (p_cell->template HasCellProperty<CellLabel>()) {
+	int pNodeALabel = rVertexCellPopulation.GetCellUsingLocationIndex(pNodeA->rGetLocation()[0])->template HasCellProperty<CellLabel>();
+	int pNodeBLabel = rVertexCellPopulation.GetCellUsingLocationIndex(pNodeB ->rGetLocation()[0])->template HasCellProperty<CellLabel>();
+
+	if (pNodeALabel == -2) {
 
 		line_tension_parameter_in_calculation =
 				GetLineTensionCellLabelledParameter() / 2.0;
 
 		// If the edge corresponds to a single element, then the cell is on the boundary
-		if (shared_elements.size() == 1) {
+		if (shared_elements.size() == 1|| pNodeALabel != pNodeBLabel) {
 			line_tension_parameter_in_calculation =
 					GetBoundaryLineTensionCellLabelledParameter();
 		}
@@ -225,8 +228,9 @@ double FarhadifarDifferentialByLabelForce<DIM>::GetLineTensionParameter(
 		line_tension_parameter_in_calculation = GetLineTensionParameter()
 				/ 2.0;
 
+
 		// If the edge corresponds to a single element, then the cell is on the boundary
-		if (shared_elements.size() == 1) {
+		if (shared_elements.size() == 1 || pNodeALabel != pNodeBLabel) {
 			line_tension_parameter_in_calculation =
 					this->GetBoundaryLineTensionParameter();
 		}
