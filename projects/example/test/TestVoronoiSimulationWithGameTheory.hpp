@@ -112,7 +112,7 @@ public:
 			 //std::cout<<"hola soy mala " << i<<endl;
 			 p_cell->AddCellProperty(p_label);
 			 }*/
-			int aux = i % 8;
+			int aux = i % 6;
 			if (aux < 4) {
 				p_cell->AddCellProperty(p_label);
 			}
@@ -234,7 +234,7 @@ public:
 		c_vector<double, 2> point = zero_vector<double>(2);
 		c_vector<double, 2> normal = zero_vector<double>(2);
 		//normal(1) = -1.0;
-		point(1) = 7.0;
+		point(1) = 6.0;
 		normal(1) = 1.0;
 
 		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc,
@@ -247,6 +247,10 @@ public:
 		MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc_2,
 				(&cell_population, point, normal));
 		simulator.AddCellPopulationBoundaryCondition(p_bc_2);
+
+		MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
+				(&cell_population, point, normal));
+		simulator.AddCellKiller(p_killer);
 
 		simulator.SetEndTime(50.0);
 
