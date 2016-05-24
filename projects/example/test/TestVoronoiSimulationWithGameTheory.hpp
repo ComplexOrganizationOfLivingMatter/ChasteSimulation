@@ -181,10 +181,10 @@ public:
 		//Seems to decrease the size of the cells
 		p_force->SetPerimeterContractilityParameter(0.2); //not working with a high number > 0.5?
 		p_force->SetPerimeterContractilityCellLabelledParameter(0.2); //not working with a high number > 0.5?
-		p_force->SetLineTensionParameter(1);
+		/*p_force->SetLineTensionParameter(1);
 		p_force->SetLineTensionCellLabelledParameter(1);
 		p_force->SetBoundaryLineTensionParameter(1);
-		p_force->SetBoundaryLineTensionCellLabelledParameter(1);
+		p_force->SetBoundaryLineTensionCellLabelledParameter(1);*/
 
 		// We need to reset the cell rearrangement threshold - vertex movements are kept below that threshold
 		//cell_population.rGetMesh().SetCellRearrangementThreshold(0.5);

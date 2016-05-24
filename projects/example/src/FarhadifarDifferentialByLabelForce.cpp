@@ -32,7 +32,7 @@ void FarhadifarDifferentialByLabelForce<DIM>::AddForceContribution(
 	}
 
 	// Define some helper variables
-	VertexBasedCellPopulation < DIM > *p_cell_population =
+	VertexBasedCellPopulation<DIM> *p_cell_population =
 			static_cast<VertexBasedCellPopulation<DIM>*>(&rCellPopulation);
 	unsigned num_nodes = p_cell_population->GetNumNodes();
 	unsigned num_elements = p_cell_population->GetNumElements();
@@ -67,7 +67,7 @@ void FarhadifarDifferentialByLabelForce<DIM>::AddForceContribution(
 
 	// Iterate over vertices in the cell population
 	for (unsigned node_index = 0; node_index < num_nodes; node_index++) {
-		Node < DIM > *p_this_node = p_cell_population->GetNode(node_index);
+		Node<DIM> *p_this_node = p_cell_population->GetNode(node_index);
 
 		/*
 		 * The force on this Node is given by the gradient of the total free
@@ -97,13 +97,13 @@ void FarhadifarDifferentialByLabelForce<DIM>::AddForceContribution(
 				containing_elem_indices.begin();
 				iter != containing_elem_indices.end(); ++iter) {
 			// Get this element, its index and its number of nodes
-			VertexElement < DIM, DIM > *p_element =
-					p_cell_population->GetElement(*iter);
+			VertexElement<DIM, DIM> *p_element = p_cell_population->GetElement(
+					*iter);
 			unsigned elem_index = p_element->GetIndex();
 			unsigned num_nodes_elem = p_element->GetNumNodes();
 
 			CellPtr p_cell = rCellPopulation.GetCellUsingLocationIndex(
-									elem_index);
+					elem_index);
 
 			// Find the local index of this node in this element
 			unsigned local_index = p_element->GetNodeLocalIndex(node_index);
@@ -114,23 +114,25 @@ void FarhadifarDifferentialByLabelForce<DIM>::AddForceContribution(
 							p_element, local_index);
 
 			if (p_cell->template HasCellProperty<CellLabel>()) {
-				area_elasticity_contribution -= GetAreaElasticityCellLabelledParameter()
-					* (element_areas[elem_index] - target_areas[elem_index])
-					* element_area_gradient;
-			}
-			else{
-				area_elasticity_contribution -= GetAreaElasticityParameter() * (element_areas[elem_index] - target_areas[elem_index]) * element_area_gradient;
+				area_elasticity_contribution -=
+						GetAreaElasticityCellLabelledParameter()
+								* (element_areas[elem_index]
+										- target_areas[elem_index])
+								* element_area_gradient;
+			} else {
+				area_elasticity_contribution -= GetAreaElasticityParameter()
+						* (element_areas[elem_index] - target_areas[elem_index])
+						* element_area_gradient;
 			}
 
 			// Get the previous and next nodes in this element
 			unsigned previous_node_local_index = (num_nodes_elem + local_index
 					- 1) % num_nodes_elem;
-			Node < DIM > *p_previous_node = p_element->GetNode(
+			Node<DIM> *p_previous_node = p_element->GetNode(
 					previous_node_local_index);
 
 			unsigned next_node_local_index = (local_index + 1) % num_nodes_elem;
-			Node < DIM > *p_next_node = p_element->GetNode(
-					next_node_local_index);
+			Node<DIM> *p_next_node = p_element->GetNode(next_node_local_index);
 
 			// Compute the line tension parameter for each of these edges - be aware that this is half of the actual
 			// value for internal edges since we are looping over each of the internal edges twice
@@ -157,19 +159,16 @@ void FarhadifarDifferentialByLabelForce<DIM>::AddForceContribution(
 			c_vector<double, DIM> element_perimeter_gradient =
 					previous_edge_gradient + next_edge_gradient;
 
-
-
 			double perimeterContractility;
 			if (p_cell->template HasCellProperty<CellLabel>()) {
-				perimeterContractility = GetPerimeterContractilityCellLabelledParameter();
-			}
-			else{
+				perimeterContractility =
+						GetPerimeterContractilityCellLabelledParameter();
+			} else {
 				perimeterContractility = GetPerimeterContractilityParameter();
 			}
-			perimeter_contractility_contribution -=
-					perimeterContractility
-							* element_perimeters[elem_index]
-							* element_perimeter_gradient;
+			perimeter_contractility_contribution -= perimeterContractility
+					* element_perimeters[elem_index]
+					* element_perimeter_gradient;
 		}
 
 		c_vector<double, DIM> force_on_node = area_elasticity_contribution
@@ -205,32 +204,33 @@ double FarhadifarDifferentialByLabelForce<DIM>::GetLineTensionParameter(
 
 	double line_tension_parameter_in_calculation = 0.0;
 
-	unsigned element_index = *(shared_elements.begin());
+	//unsigned element_index = *(shared_elements.begin());
 
 	// Get cell associated with this element
-	CellPtr p_cell = rVertexCellPopulation.GetCellUsingLocationIndex(
-			element_index);
+	CellPtr p_cellA = rVertexCellPopulation.GetCellUsingLocationIndex(*elements_containing_nodeA.begin());
+	CellPtr p_cellB = rVertexCellPopulation.GetCellUsingLocationIndex(*elements_containing_nodeB.begin());
 
-	int pNodeALabel = rVertexCellPopulation.GetCellUsingLocationIndex(pNodeA->rGetLocation()[0])->template HasCellProperty<CellLabel>();
-	int pNodeBLabel = rVertexCellPopulation.GetCellUsingLocationIndex(pNodeB ->rGetLocation()[0])->template HasCellProperty<CellLabel>();
+	//No rula
+	bool pNodeALabel = p_cellA->template HasCellProperty<CellLabel>();
+	bool pNodeBLabel = p_cellB->template HasCellProperty<CellLabel>();
 
-	if (pNodeALabel == -2) {
+	if (pNodeALabel) {
 
 		line_tension_parameter_in_calculation =
 				GetLineTensionCellLabelledParameter() / 2.0;
 
 		// If the edge corresponds to a single element, then the cell is on the boundary
-		if (shared_elements.size() == 1|| pNodeALabel != pNodeBLabel) {
+		if (shared_elements.size() == 1 || (pNodeALabel && !pNodeBLabel)
+				|| (!pNodeALabel && pNodeBLabel)) {
 			line_tension_parameter_in_calculation =
 					GetBoundaryLineTensionCellLabelledParameter();
 		}
 	} else {
-		line_tension_parameter_in_calculation = GetLineTensionParameter()
-				/ 2.0;
-
+		line_tension_parameter_in_calculation = GetLineTensionParameter() / 2.0;
 
 		// If the edge corresponds to a single element, then the cell is on the boundary
-		if (shared_elements.size() == 1 || pNodeALabel != pNodeBLabel) {
+		if (shared_elements.size() == 1 || (pNodeALabel && !pNodeBLabel)
+				|| (!pNodeALabel && pNodeBLabel)) {
 			line_tension_parameter_in_calculation =
 					this->GetBoundaryLineTensionParameter();
 		}
@@ -285,26 +285,23 @@ void FarhadifarDifferentialByLabelForce<DIM>::SetPerimeterContractilityCellLabel
 }
 
 template<unsigned DIM>
-double FarhadifarDifferentialByLabelForce<DIM>::GetLineTensionParameter(){
+double FarhadifarDifferentialByLabelForce<DIM>::GetLineTensionParameter() {
 	return this->mLineTensionParameter;
 }
 
 template<unsigned DIM>
-double FarhadifarDifferentialByLabelForce<DIM>::GetAreaElasticityParameter()
-{
-    return this->mAreaElasticityParameter;
+double FarhadifarDifferentialByLabelForce<DIM>::GetAreaElasticityParameter() {
+	return this->mAreaElasticityParameter;
 }
 
 template<unsigned DIM>
-double FarhadifarDifferentialByLabelForce<DIM>::GetPerimeterContractilityParameter()
-{
-    return this->mPerimeterContractilityParameter;
+double FarhadifarDifferentialByLabelForce<DIM>::GetPerimeterContractilityParameter() {
+	return this->mPerimeterContractilityParameter;
 }
 
 template<unsigned DIM>
-double FarhadifarDifferentialByLabelForce<DIM>::GetBoundaryLineTensionParameter()
-{
-    return this->mBoundaryLineTensionParameter;
+double FarhadifarDifferentialByLabelForce<DIM>::GetBoundaryLineTensionParameter() {
+	return this->mBoundaryLineTensionParameter;
 }
 
 // Explicit instantiation
