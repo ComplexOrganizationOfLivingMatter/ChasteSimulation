@@ -8,7 +8,9 @@
 #include <cmath>
 
 #include "NagaiHondaDifferentialAdhesionForce.hpp"
-#include "SimpleTargetAreaModifier.hpp"
+//Area modifiers
+#include "FoodDifferentialByLabelAreaModifier.h"
+
 #include "CryptSimulation2d.hpp"
 #include "CheckpointArchiveTypes.hpp"
 #include "OffLatticeSimulation.hpp"
@@ -59,8 +61,8 @@
 #include "ApoptoticCellKiller.hpp"
 
 //Parallelization
-#include "PetscSetupAndFinalize.hpp"
-//#include "FakePetscSetup.hpp" //NotParallelize
+//#include "PetscSetupAndFinalize.hpp"
+#include "FakePetscSetup.hpp" //NotParallelize
 
 class TestVoronoiSimulationWithGameTheory: public AbstractCellBasedTestSuite {
 private:
@@ -191,7 +193,7 @@ public:
 
 		simulator.AddForce(p_force);
 
-		MAKE_PTR(SimpleTargetAreaModifier<2>, p_growth_modifier);
+		MAKE_PTR(FoodDifferentialByLabelAreaModifier<2>, p_growth_modifier);
 		simulator.AddSimulationModifier(p_growth_modifier);
 
 		//add a new random seed

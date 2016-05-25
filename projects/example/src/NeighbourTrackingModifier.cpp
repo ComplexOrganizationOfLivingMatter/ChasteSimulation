@@ -77,7 +77,6 @@ NeighbourTrackingModifier<DIM>::NeighbourTrackingModifier() :
 //AbstractCellPopulationWriter<ELEMENT_DIM, SPACE_DIM>()
 
 {
-	cellularFood = 100;
 }
 
 template<unsigned DIM>
@@ -433,9 +432,8 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			//** as it does not update, meaning that occasionally mStepTillDivision is
 			//** negative when it reaches ReadyToDivide. Tried to check why, could not
 			//** find the reason.
-			if (cellularFood >= 0 && (rand() % 10) > 7 && rCellPopulation.GetVolumeOfCell(*cell_iter) >= areaIdeal)
+			if (rCellPopulation.GetVolumeOfCell(*cell_iter) >= areaIdeal)
 			{
-				DecreaseCellularFood();
 				cell_fitness = 300;
 			}
 

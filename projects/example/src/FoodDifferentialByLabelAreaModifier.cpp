@@ -20,7 +20,8 @@ FoodDifferentialByLabelAreaModifier<DIM>::~FoodDifferentialByLabelAreaModifier()
 }
 
 template<unsigned DIM>
-void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(CellPtr pCell) {
+void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
+		CellPtr pCell) {
 	// Get target area A of a healthy cell in S, G2 or M phase
 	double cell_target_area = this->mReferenceTargetArea;
 
@@ -65,6 +66,27 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(CellPtr pC
 
 	// Set cell data
 	pCell->GetCellData()->SetItem("target area", cell_target_area);
+}
+
+template<unsigned DIM>
+int FoodDifferentialByLabelAreaModifier<DIM>::GetCellularFood() const {
+	return cellularFood;
+}
+
+template<unsigned DIM>
+void FoodDifferentialByLabelAreaModifier<DIM>::SetCellularFood(
+		int cellularFood) {
+	this->cellularFood = cellularFood;
+}
+
+template<unsigned DIM>
+void FoodDifferentialByLabelAreaModifier<DIM>::DecreaseCellularFood() {
+	this->cellularFood--;
+}
+
+template<unsigned DIM>
+void FoodDifferentialByLabelAreaModifier<DIM>::IncreaseCellularFood() {
+	this->cellularFood++;
 }
 
 // Explicit instantiation

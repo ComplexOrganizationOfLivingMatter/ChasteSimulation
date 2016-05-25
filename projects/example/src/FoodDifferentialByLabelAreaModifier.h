@@ -15,6 +15,9 @@
 
 template<unsigned DIM>
 class FoodDifferentialByLabelAreaModifier: public AbstractTargetAreaModifier<DIM> {
+private:
+	int cellularFood;
+
 	/** Needed for serialization. */
 	friend class boost::serialization::access;
 	/**
@@ -41,6 +44,14 @@ public:
 	 * @param pCell pointer to a cell
 	 */
 	void UpdateTargetAreaOfCell(const CellPtr pCell);
+
+	int GetCellularFood() const;
+
+	void SetCellularFood(int cellularFood);
+
+	void IncreaseCellularFood();
+
+	void DecreaseCellularFood();
 };
 
 

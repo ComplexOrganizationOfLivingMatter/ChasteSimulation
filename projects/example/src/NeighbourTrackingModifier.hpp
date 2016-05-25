@@ -77,7 +77,6 @@ class NeighbourTrackingModifier: public AbstractCellBasedSimulationModifier<DIM,
 
 private:
 	int ticks;
-	int cellularFood;
 public:
 
 	/**
@@ -127,21 +126,7 @@ public:
 	//void OutputCellKillerParameters(out_stream& rParamsFile);
 	void OutputSimulationModifierParameters(out_stream& rParamsFile);
 
-	int GetCellularFood() const {
-		return cellularFood;
-	}
 
-	void SetCellularFood(int cellularFood) {
-		this->cellularFood = cellularFood;
-	}
-
-	void DecreaseCellularFood() {
-		this->cellularFood--;
-	}
-
-	void IncreaseCellularFood() {
-		this->cellularFood++;
-	}
 };
 
 #include "SerializationExportWrapper.hpp"
