@@ -8,11 +8,13 @@
 #include <projects/example/src/FoodDifferentialByLabelAreaModifier.h>
 #include "ApoptoticCellProperty.hpp"
 
+const double cAreaIdeal = 0.866025;
+
 template<unsigned DIM>
 FoodDifferentialByLabelAreaModifier<DIM>::FoodDifferentialByLabelAreaModifier() :
 		AbstractTargetAreaModifier<DIM>() {
 	// TODO Auto-generated constructor stub
-	cellularFood = 500;
+	cellularFood = 1000;
 }
 
 template<unsigned DIM>
@@ -25,6 +27,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 		CellPtr pCell) {
 	// Get target area A of a healthy cell in S, G2 or M phase
 	double cell_target_area = this->mReferenceTargetArea;
+	std::cout<<GetCellularFood()<<std::endl;
 
 	if (pCell->HasCellProperty<ApoptoticCellProperty>()) {
 		// The target area of an apoptotic cell decreases linearly to zero (and past it negative)
@@ -41,7 +44,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 	} else {
 		if (pCell->template HasCellProperty<CellLabel>()) {
 			double cell_age = pCell->GetAge();
-			double growth_start_time = 7;
+			double growth_start_time = 10;
 			AbstractCellCycleModel* p_model = pCell->GetCellCycleModel();
 
 			//std::cout<<"edad: "<< cell_age <<" "<< growth_start_time<<std::endl;
@@ -52,7 +55,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 					cell_target_area *=
 							(1
 									+ (cell_age - growth_start_time)
-											/ g2_duration/growth_start_time);
+											/ g2_duration);
 					DecreaseCellularFood();
 					DecreaseCellularFood();
 
@@ -66,14 +69,14 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 			}
 		} else {
 			double cell_age = pCell->GetAge();
-			double growth_start_time = 10;
+			double growth_start_time = 20;
 			AbstractCellCycleModel* p_model = pCell->GetCellCycleModel();
 
 			//std::cout<<"edad: "<< cell_age <<" "<< growth_start_time<<std::endl;
 			// The target area of a proliferating cell increases linearly from A to 2A over the course of the G2 phase
 			if (cell_age > growth_start_time) {
 				double g2_duration = p_model->GetG2Duration();
-				cell_target_area *= (1 + (cell_age - growth_start_time) / g2_duration/growth_start_time);
+				cell_target_area *= (1 + (cell_age - growth_start_time) / g2_duration);
 			}
 			IncreaseCellularFood();
 		}
@@ -86,7 +89,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 		 * \todo This is a little hack that we might want to clean up in the future.
 		 */
 		if (pCell->ReadyToDivide()) {
-			cell_target_area = this->mReferenceTargetArea;
+			cell_target_area = cAreaIdeal;
 		}
 	}
 
