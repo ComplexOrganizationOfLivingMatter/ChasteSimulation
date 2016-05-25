@@ -6,6 +6,7 @@
  */
 
 #include <projects/example/src/FarhadifarDifferentialByLabelForce.h>
+#include "CellLabel.hpp"
 
 template<unsigned DIM>
 FarhadifarDifferentialByLabelForce<DIM>::FarhadifarDifferentialByLabelForce() :

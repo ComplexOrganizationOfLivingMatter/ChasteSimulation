@@ -6,12 +6,13 @@
  */
 
 #include <projects/example/src/FoodDifferentialByLabelAreaModifier.h>
+#include "ApoptoticCellProperty.hpp"
 
 template<unsigned DIM>
 FoodDifferentialByLabelAreaModifier<DIM>::FoodDifferentialByLabelAreaModifier() :
 		AbstractTargetAreaModifier<DIM>() {
 	// TODO Auto-generated constructor stub
-
+	cellularFood = 500;
 }
 
 template<unsigned DIM>
@@ -38,18 +39,44 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 			cell_target_area = 0;
 		}
 	} else {
-		double cell_age = pCell->GetAge();
+		if (pCell->template HasCellProperty<CellLabel>()) {
+			double cell_age = pCell->GetAge();
+			double growth_start_time = 10;
+			AbstractCellCycleModel* p_model = pCell->GetCellCycleModel();
 
-		// Get the combined duration of the cell's M, G1 and S phases
-		AbstractCellCycleModel* p_model = pCell->GetCellCycleModel();
-		double growth_start_time = p_model->GetMDuration()
-				+ p_model->GetG1Duration() + p_model->GetSDuration();
+			//std::cout<<"edad: "<< cell_age <<" "<< growth_start_time<<std::endl;
+			// The target area of a proliferating cell increases linearly from A to 2A over the course of the G2 phase
+			if (cell_age > growth_start_time) {
+				if (GetCellularFood() > 1) {
+					double g2_duration = p_model->GetG2Duration();
+					cell_target_area *=
+							(-RandomNumberGenerator::Instance()->ranf() * 2 + 1
+									+ (cell_age - growth_start_time)
+											/ g2_duration);
+					DecreaseCellularFood();
+					DecreaseCellularFood();
 
-		// The target area of a proliferating cell increases linearly from A to 2A over the course of the G2 phase
-		if (cell_age > growth_start_time) {
-			double g2_duration = p_model->GetG2Duration();
-			cell_target_area *= (1
-					+ (cell_age - growth_start_time) / g2_duration);
+					if (pCell->template HasCellProperty<ApoptoticCellProperty>()) {
+						pCell->template RemoveCellProperty<ApoptoticCellProperty>();
+					}
+				} else {
+					MAKE_PTR(ApoptoticCellProperty, apoptotic);
+					pCell->AddCellProperty(apoptotic);
+				}
+			}
+		} else {
+			double cell_age = pCell->GetAge();
+			double growth_start_time = 10;
+			AbstractCellCycleModel* p_model = pCell->GetCellCycleModel();
+
+			//std::cout<<"edad: "<< cell_age <<" "<< growth_start_time<<std::endl;
+			// The target area of a proliferating cell increases linearly from A to 2A over the course of the G2 phase
+			if (cell_age > growth_start_time) {
+				double g2_duration = p_model->GetG2Duration();
+				cell_target_area *= (-RandomNumberGenerator::Instance()->ranf()
+						+ 1 + (cell_age - growth_start_time) / g2_duration);
+			}
+			IncreaseCellularFood();
 		}
 
 		/**
