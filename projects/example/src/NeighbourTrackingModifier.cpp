@@ -432,7 +432,7 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			//** as it does not update, meaning that occasionally mStepTillDivision is
 			//** negative when it reaches ReadyToDivide. Tried to check why, could not
 			//** find the reason.
-			if (rCellPopulation.GetVolumeOfCell(*cell_iter) >= areaIdeal)
+			if (rCellPopulation.GetVolumeOfCell(*cell_iter) >= 2* areaIdeal)
 			{
 				cell_fitness = 300;
 			}

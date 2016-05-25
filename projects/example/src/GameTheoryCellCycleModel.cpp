@@ -124,7 +124,7 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 		mpCell->GetCellData()->SetItem("StepsTillDivision", mStepsTillDivision);
 
 		if (mStepsTillDivision < 0
-				&& mpCell->GetCellData()->GetItem("Volume") >= areaIdeal) {
+				&& mpCell->GetCellData()->GetItem("Volume") >= 2*areaIdeal) {
 			mReadyToDivide = true;
 			//std::cout << "we are ready to divide ueeeee!"<< mpCell <<std::endl;
 		}
