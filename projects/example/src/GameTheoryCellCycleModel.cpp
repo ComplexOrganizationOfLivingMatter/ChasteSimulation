@@ -50,6 +50,7 @@ GameTheoryCellCycleModel::GameTheoryCellCycleModel() :
 		// negative when it reaches ReadyToDivide. Tried to check why, could not
 		// find the reason.
 		mStepsTillDivision(cStepsTillDivision) {
+	this->mBirthTime = -RandomNumberGenerator::Instance()->ranf()* 12.0;
 }
 
 AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
@@ -73,7 +74,7 @@ AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
 	 * SetDimension() on the new cell-cycle model an exception would be triggered;
 	 * hence we do not set this member variable.
 	 */
-	p_model->SetBirthTime(mBirthTime);
+	p_model->SetBirthTime(-RandomNumberGenerator::Instance()->ranf()* 12.0);
 	p_model->SetMinimumGapDuration(mMinimumGapDuration);
 	p_model->SetStemCellG1Duration(mStemCellG1Duration);
 	p_model->SetTransitCellG1Duration(mTransitCellG1Duration);
@@ -81,27 +82,14 @@ AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
 	p_model->SetG2Duration(mG2Duration);
 	p_model->SetMDuration(mMDuration);
 	p_model->SetStepsTillDivision(cStepsTillDivision);
+	//mpCell->GetCellData()->SetItem("target area", cAreaIdeal);
 
 
 	return p_model;
 }
 
 void GameTheoryCellCycleModel::InitialiseDaughterCell() {
-	if (!mpCell->template HasCellProperty<CellLabel>()) {
-		// chance that a daugher will be mutant
-		// bool mutant = (rand() % 1001) > 500;
-		// not everything below is necessary, but since I
-		//occasionally get some random mutants these are
-		//things I tried to overcome it.
-
-		/*if (mutant) {
-		 MAKE_PTR(CellLabel, p_label);
-		 mpCell->AddCellProperty(p_label);
-		 mpCell->GetCellData()->SetItem("CellType", -2);
-		 } else {
-		 mpCell->GetCellData()->SetItem("CellType", -1);
-		 }*/
-	}
+	mpCell->GetCellData()->SetItem("target area", cAreaIdeal);
 }
 
 bool GameTheoryCellCycleModel::ReadyToDivide() {
@@ -119,14 +107,11 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 			std::cout << "Soy mala " << mpCell->GetCellData()->GetItem("Volume") <<" " <<mStepsTillDivision<<std::endl;
 		}*/
 
-
-
 		mpCell->GetCellData()->SetItem("StepsTillDivision", mStepsTillDivision);
 
 		if (mStepsTillDivision < 0
 				&& mpCell->GetCellData()->GetItem("Volume") >= 2*cAreaIdeal) {
 			mReadyToDivide = true;
-			mpCell->GetCellData()->SetItem("target area", cAreaIdeal);
 			//std::cout << "we are ready to divide ueeeee!"<< mpCell <<std::endl;
 		}
 	}

@@ -30,12 +30,9 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 	//std::cout<<GetCellularFood()<<std::endl;
 
 	if (pCell->HasCellProperty<ApoptoticCellProperty>()) {
-		// The target area of an apoptotic cell decreases linearly to zero (and past it negative)
-		///\todo: which cells are apoptotic? if they get apoptotic during G2-phase then this line has to be changed
+		//std::cout<<"apoptotic!!"<<std::endl;
 		cell_target_area = cell_target_area
-				- 0.5 * cell_target_area / (pCell->GetApoptosisTime())
-						* (SimulationTime::Instance()->GetTime()
-								- pCell->GetStartOfApoptosisTime());
+				- 0.001 * cell_target_area;
 
 		// Don't allow a negative target area
 		if (cell_target_area < 0) {
@@ -50,7 +47,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 			//std::cout<<"edad: "<< cell_age <<" "<< growth_start_time<<std::endl;
 			// The target area of a proliferating cell increases linearly from A to 2A over the course of the G2 phase
 			if (cell_age > growth_start_time) {
-				if (GetCellularFood() > 1) {
+				if (GetCellularFood() > 1 && cell_target_area < 2*cAreaIdeal) {
 					double g2_duration = p_model->GetG2Duration();
 					cell_target_area *=
 							(1
@@ -74,7 +71,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 
 			//std::cout<<"edad: "<< cell_age <<" "<< growth_start_time<<std::endl;
 			// The target area of a proliferating cell increases linearly from A to 2A over the course of the G2 phase
-			if (cell_age > growth_start_time) {
+			if (cell_age > growth_start_time && cell_target_area < 2*cAreaIdeal) {
 				double g2_duration = p_model->GetG2Duration();
 				cell_target_area *= (1 + (cell_age - growth_start_time) / g2_duration);
 			}

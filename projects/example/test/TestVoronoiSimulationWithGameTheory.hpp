@@ -106,9 +106,6 @@ public:
 
 			CellPtr p_cell(new Cell(p_state, p_model));
 			p_cell->SetCellProliferativeType(p_differentiated_type);
-			double birth_time = -RandomNumberGenerator::Instance()->ranf()
-					* 12.0;
-			p_cell->SetBirthTime(birth_time);
 
 			/*if (i%2){
 			 //std::cout<<"hola soy mala " << i<<endl;
@@ -139,11 +136,11 @@ public:
 
 		OffLatticeSimulation<2> simulator(cell_population);
 		//CryptSimulation2d simulator(cell_population); The cells start to grow from the bottom.
-		simulator.SetOutputDirectory("GameTheory");
+		simulator.SetOutputDirectory("GameTheory2");
 
 		//simulator.SetDt(0.01);
 		//Ratio pictures/sec
-		simulator.SetSamplingTimestepMultiple(10);
+		simulator.SetSamplingTimestepMultiple(1);
 
 		MAKE_PTR_ARGS(NeighbourTrackingModifier<2>, p_modifier, ());
 		simulator.AddSimulationModifier(p_modifier);
