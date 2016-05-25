@@ -96,6 +96,8 @@ public:
 	 */
 	double GetLineTensionParameter(Node<DIM>* pNodeA, Node<DIM>* pNodeB,
 			VertexBasedCellPopulation<DIM>& rVertexCellPopulation);
+
+
 	double GetAreaElasticityCellLabelledParameter() const;
 	void SetAreaElasticityCellLabelledParameter(
 			double areaElasticityCellLabelledParameter);

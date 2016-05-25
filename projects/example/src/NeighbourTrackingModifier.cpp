@@ -432,10 +432,10 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			//** as it does not update, meaning that occasionally mStepTillDivision is
 			//** negative when it reaches ReadyToDivide. Tried to check why, could not
 			//** find the reason.
-			if (cellularFood <= 0)
+			if (cellularFood >= 0 && (rand() % 10) > 6)
 			{
 				DecreaseCellularFood();
-				cell_fitness = 0.99;
+				cell_fitness = cell_iter->GetCellData()->GetItem("StepsTillDivision");
 			}
 
 			// if cell is a producer give payoff - cost

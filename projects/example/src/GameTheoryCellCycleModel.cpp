@@ -112,20 +112,20 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 		// decrease mStepsTillDivision by the cells fittness
 		// if cooperator surrounded by cheaters the mStepsTillDivision
 		//will increase possibly (Fitness could be negative)
-
 		mStepsTillDivision -= mpCell->GetCellData()->GetItem("Fitness");
+
+		/*if (mpCell->template HasCellProperty<CellLabel>()) {
+			std::cout << "Soy mala " << mpCell->GetCellData()->GetItem("Volume") <<" " <<mStepsTillDivision<<std::endl;
+		}*/
+
+
 
 		mpCell->GetCellData()->SetItem("StepsTillDivision", mStepsTillDivision);
 
-		//UpdateCellCyclePhase();
-		//std::cout<<"Edad: "<<GetAge()<<std::endl;
-		//std::cout<<GetMDuration() + GetSDuration() + GetG2Duration()<<std::endl;
-		if (mStepsTillDivision < 0 && mpCell->GetCellData()->GetItem("Volume") >= areaIdeal) {
+		if (mStepsTillDivision < 0
+				&& mpCell->GetCellData()->GetItem("Volume") >= areaIdeal) {
 			mReadyToDivide = true;
-			/*std::cout << "we are ready to divide ueeeee!"<< mpCell <<std::endl;
-			 if (mpCell->template HasCellProperty<CellLabel>()) {
-			 std::cout<<"Soy mala "<<std::endl;
-			 }*/
+			//std::cout << "we are ready to divide ueeeee!"<< mpCell <<std::endl;
 		}
 	}
 	return mReadyToDivide;
