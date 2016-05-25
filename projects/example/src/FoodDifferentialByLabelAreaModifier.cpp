@@ -8,18 +8,19 @@
 #include <projects/example/src/FoodDifferentialByLabelAreaModifier.h>
 
 template<unsigned DIM>
-FoodDifferentialByLabelAreaModifier::FoodDifferentialByLabelAreaModifier() : AbstractTargetAreaModifier<DIM>(){
+FoodDifferentialByLabelAreaModifier<DIM>::FoodDifferentialByLabelAreaModifier() :
+		AbstractTargetAreaModifier<DIM>() {
 	// TODO Auto-generated constructor stub
 
 }
 
 template<unsigned DIM>
-FoodDifferentialByLabelAreaModifier::~FoodDifferentialByLabelAreaModifier() {
+FoodDifferentialByLabelAreaModifier<DIM>::~FoodDifferentialByLabelAreaModifier() {
 	// TODO Auto-generated destructor stub
 }
 
 template<unsigned DIM>
-void FarhadifarTypeModifier<DIM>::UpdateTargetAreaOfCell(CellPtr pCell) {
+void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(CellPtr pCell) {
 	// Get target area A of a healthy cell in S, G2 or M phase
 	double cell_target_area = this->mReferenceTargetArea;
 

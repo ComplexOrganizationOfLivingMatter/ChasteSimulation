@@ -31,9 +31,9 @@ class FoodDifferentialByLabelAreaModifier: public AbstractTargetAreaModifier<DIM
 						AbstractTargetAreaModifier<DIM> >(*this);
 	}
 public:
-	template<unsigned DIM>
+
 	FoodDifferentialByLabelAreaModifier();
-	template<unsigned DIM>
+
 	virtual ~FoodDifferentialByLabelAreaModifier();
 	/**
 	 * Helper method to update the target area property of an individual cell.
@@ -42,5 +42,9 @@ public:
 	 */
 	void UpdateTargetAreaOfCell(const CellPtr pCell);
 };
+
+
+#include "SerializationExportWrapper.hpp"
+EXPORT_TEMPLATE_CLASS_SAME_DIMS(FoodDifferentialByLabelAreaModifier)
 
 #endif /* PROJECTS_EXAMPLE_SRC_FOODDIFFERENTIALBYLABELAREAMODIFIER_H_ */
