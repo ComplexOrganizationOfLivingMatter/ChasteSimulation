@@ -14,7 +14,7 @@ template<unsigned DIM>
 FoodDifferentialByLabelAreaModifier<DIM>::FoodDifferentialByLabelAreaModifier() :
 		AbstractTargetAreaModifier<DIM>() {
 	// TODO Auto-generated constructor stub
-	cellularFood = 1000;
+	cellularFood = 5000;
 }
 
 template<unsigned DIM>
@@ -27,7 +27,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 		CellPtr pCell) {
 	// Get target area A of a healthy cell in S, G2 or M phase
 	double cell_target_area = this->mReferenceTargetArea;
-	std::cout<<GetCellularFood()<<std::endl;
+	//std::cout<<GetCellularFood()<<std::endl;
 
 	if (pCell->HasCellProperty<ApoptoticCellProperty>()) {
 		// The target area of an apoptotic cell decreases linearly to zero (and past it negative)
