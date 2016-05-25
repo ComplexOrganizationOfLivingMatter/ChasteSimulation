@@ -57,6 +57,7 @@
 
 const unsigned diffusion = 5;
 const unsigned max_population = 1200;
+const double areaIdeal = 0.866025;
 /*
  * The public good cost of production
  */
@@ -432,10 +433,10 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			//** as it does not update, meaning that occasionally mStepTillDivision is
 			//** negative when it reaches ReadyToDivide. Tried to check why, could not
 			//** find the reason.
-			if (cellularFood >= 0 && (rand() % 10) > 6)
+			if (cellularFood >= 0 && (rand() % 10) > 7 && rCellPopulation.GetVolumeOfCell(*cell_iter) >= areaIdeal)
 			{
 				DecreaseCellularFood();
-				cell_fitness = cell_iter->GetCellData()->GetItem("StepsTillDivision");
+				cell_fitness = 300;
 			}
 
 			// if cell is a producer give payoff - cost
