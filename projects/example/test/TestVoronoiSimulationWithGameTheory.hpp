@@ -61,8 +61,8 @@
 #include "ApoptoticCellKiller.hpp"
 
 //Parallelization
-//#include "PetscSetupAndFinalize.hpp"
-#include "FakePetscSetup.hpp" //NotParallelize
+#include "PetscSetupAndFinalize.hpp"
+//#include "FakePetscSetup.hpp" //NotParallelize
 
 class TestVoronoiSimulationWithGameTheory: public AbstractCellBasedTestSuite {
 private:
@@ -117,7 +117,6 @@ public:
 			int aux = i % num_cells_depth;
 			if (aux < num_cells_depth/2) {
 				p_cell->AddCellProperty(p_label);
-				p_cell->SetBirthTime(-RandomNumberGenerator::Instance()->ranf()*4 + 6);
 			}
 
 			cells.push_back(p_cell);

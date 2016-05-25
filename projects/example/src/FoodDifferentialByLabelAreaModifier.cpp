@@ -41,7 +41,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 	} else {
 		if (pCell->template HasCellProperty<CellLabel>()) {
 			double cell_age = pCell->GetAge();
-			double growth_start_time = 10;
+			double growth_start_time = 7;
 			AbstractCellCycleModel* p_model = pCell->GetCellCycleModel();
 
 			//std::cout<<"edad: "<< cell_age <<" "<< growth_start_time<<std::endl;
@@ -50,9 +50,9 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 				if (GetCellularFood() > 1) {
 					double g2_duration = p_model->GetG2Duration();
 					cell_target_area *=
-							(-RandomNumberGenerator::Instance()->ranf() * 2 + 1
+							(1
 									+ (cell_age - growth_start_time)
-											/ g2_duration);
+											/ g2_duration/growth_start_time);
 					DecreaseCellularFood();
 					DecreaseCellularFood();
 
@@ -73,8 +73,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 			// The target area of a proliferating cell increases linearly from A to 2A over the course of the G2 phase
 			if (cell_age > growth_start_time) {
 				double g2_duration = p_model->GetG2Duration();
-				cell_target_area *= (-RandomNumberGenerator::Instance()->ranf()
-						+ 1 + (cell_age - growth_start_time) / g2_duration);
+				cell_target_area *= (1 + (cell_age - growth_start_time) / g2_duration/growth_start_time);
 			}
 			IncreaseCellularFood();
 		}
