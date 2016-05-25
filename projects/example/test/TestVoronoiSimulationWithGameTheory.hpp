@@ -140,7 +140,7 @@ public:
 
 		//simulator.SetDt(0.01);
 		//Ratio pictures/sec
-		simulator.SetSamplingTimestepMultiple(1);
+		simulator.SetSamplingTimestepMultiple(2);
 
 		MAKE_PTR_ARGS(NeighbourTrackingModifier<2>, p_modifier, ());
 		simulator.AddSimulationModifier(p_modifier);
