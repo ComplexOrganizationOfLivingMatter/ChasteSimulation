@@ -41,14 +41,11 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 		if (pCell->template HasCellProperty<CellLabel>()) {
 			double cell_age = pCell->GetAge();
 			double growth_start_time = 5;
-			AbstractCellCycleModel* p_model = pCell->GetCellCycleModel();
 
 			if (cell_age > growth_start_time) {
 				if (GetCellularFood() > 1
 						&& cell_target_area <= 2 * cAreaIdeal) {
-					double g2_duration = p_model->GetG2Duration();
-					cell_target_area *= (1
-							+ (cell_age - growth_start_time) / (g2_duration*4));
+					cell_target_area *= 1.01;
 					DecreaseCellularFood();
 					DecreaseCellularFood();
 
