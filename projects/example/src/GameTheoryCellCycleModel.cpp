@@ -50,7 +50,7 @@ GameTheoryCellCycleModel::GameTheoryCellCycleModel() :
 		// negative when it reaches ReadyToDivide. Tried to check why, could not
 		// find the reason.
 		mStepsTillDivision(cStepsTillDivision) {
-	this->mBirthTime = -RandomNumberGenerator::Instance()->ranf() * 12.0;
+	//this->mBirthTime = -RandomNumberGenerator::Instance()->ranf() * 12.0;
 }
 
 AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
@@ -74,7 +74,7 @@ AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
 	 * SetDimension() on the new cell-cycle model an exception would be triggered;
 	 * hence we do not set this member variable.
 	 */
-	p_model->SetBirthTime(-RandomNumberGenerator::Instance()->ranf() * 12.0);
+	p_model->SetBirthTime(mBirthTime);
 	p_model->SetMinimumGapDuration(mMinimumGapDuration);
 	p_model->SetStemCellG1Duration(mStemCellG1Duration);
 	p_model->SetTransitCellG1Duration(mTransitCellG1Duration);
@@ -87,8 +87,8 @@ AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
 }
 
 void GameTheoryCellCycleModel::InitialiseDaughterCell() {
-	mpCell->GetCellData()->SetItem("target area", cAreaIdeal);
-	mBirthTime = -RandomNumberGenerator::Instance()->ranf() * 12.0;
+	mpCell->GetCellData()->SetItem("volume", cAreaIdeal);
+	mBirthTime = SimulationTime::Instance()->GetTime();
 }
 
 bool GameTheoryCellCycleModel::ReadyToDivide() {
@@ -106,8 +106,8 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 
 		mpCell->GetCellData()->SetItem("StepsTillDivision", mStepsTillDivision);
 
-		//std::cout << mpCell->GetCellData()->GetItem("target area") << std::endl;
-		if (mpCell->GetCellData()->GetItem("target area") >= 2 * cAreaIdeal) {
+		//std::cout << mpCell->GetCellData()->GetItem("volume") << std::endl;
+		if (mpCell->GetCellData()->GetItem("volume") >= 2 * cAreaIdeal) {
 			mReadyToDivide = true;
 			return true;
 		}
@@ -122,8 +122,8 @@ void GameTheoryCellCycleModel::ResetForDivision() {
 
 	AbstractCellCycleModel::ResetForDivision();
 	mStepsTillDivision = cStepsTillDivision;
-	mpCell->GetCellData()->SetItem("target area", cAreaIdeal);
-	mBirthTime = -RandomNumberGenerator::Instance()->ranf() * 12.0;
+	mpCell->GetCellData()->SetItem("volume", cAreaIdeal);
+	//mBirthTime = -RandomNumberGenerator::Instance()->ranf() * 12.0;
 }
 
 void GameTheoryCellCycleModel::OutputCellCycleModelParameters(

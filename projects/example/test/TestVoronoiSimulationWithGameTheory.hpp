@@ -114,7 +114,7 @@ public:
 			p_model->SetDimension(2);
 
 			CellPtr p_cell(new Cell(p_state, p_model));
-			p_cell->GetCellData()->SetItem("target area", 1);
+			p_cell -> SetBirthTime(-RandomNumberGenerator::Instance()->ranf() * 12.0);
 
 
 			/*if (i%2){
@@ -135,8 +135,8 @@ public:
 		}
 
 		VertexBasedCellPopulation<2> cell_population(*p_mesh, cells);
-		boost::shared_ptr<AbstractVertexBasedDivisionRule<2> > p_division_rule_to_set(new RandomDirectionVertexBasedDivisionRule<2>());
-		cell_population.SetVertexBasedDivisionRule(p_division_rule_to_set);
+		//boost::shared_ptr<AbstractVertexBasedDivisionRule<2> > p_division_rule_to_set(new RandomDirectionVertexBasedDivisionRule<2>());
+		//cell_population.SetVertexBasedDivisionRule(p_division_rule_to_set);
 
 		//check equivalent for nodes
 		//cell_population.SetWriteVtkAsPoints(true);
