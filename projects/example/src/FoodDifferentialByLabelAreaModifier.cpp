@@ -8,13 +8,13 @@
 #include <projects/example/src/FoodDifferentialByLabelAreaModifier.h>
 #include "ApoptoticCellProperty.hpp"
 
-const double cAreaIdeal = 0.866025;
+const double cAreaIdeal = 1;
 
 template<unsigned DIM>
 FoodDifferentialByLabelAreaModifier<DIM>::FoodDifferentialByLabelAreaModifier() :
 		AbstractTargetAreaModifier<DIM>() {
 	// TODO Auto-generated constructor stub
-	cellularFood = 5000;
+	cellularFood = 5000000;
 }
 
 template<unsigned DIM>
@@ -31,8 +31,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 
 	if (pCell->HasCellProperty<ApoptoticCellProperty>()) {
 		//std::cout<<"apoptotic!!"<<std::endl;
-		cell_target_area = cell_target_area
-				- 0.001 * cell_target_area;
+		cell_target_area = cell_target_area - 0.001 * cell_target_area;
 
 		// Don't allow a negative target area
 		if (cell_target_area < 0) {
@@ -41,24 +40,22 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 	} else {
 		if (pCell->template HasCellProperty<CellLabel>()) {
 			double cell_age = pCell->GetAge();
-			double growth_start_time = 10;
+			double growth_start_time = 5;
 			AbstractCellCycleModel* p_model = pCell->GetCellCycleModel();
 
-			//std::cout<<"edad: "<< cell_age <<" "<< growth_start_time<<std::endl;
-			// The target area of a proliferating cell increases linearly from A to 2A over the course of the G2 phase
 			if (cell_age > growth_start_time) {
-				if (GetCellularFood() > 1 && cell_target_area < 2*cAreaIdeal) {
+				if (GetCellularFood() > 1
+						&& cell_target_area <= 2 * cAreaIdeal) {
 					double g2_duration = p_model->GetG2Duration();
-					cell_target_area *=
-							(1
-									+ (cell_age - growth_start_time)
-											/ g2_duration);
+					cell_target_area *= (1
+							+ (cell_age - growth_start_time) / (g2_duration*4));
 					DecreaseCellularFood();
 					DecreaseCellularFood();
 
 					if (pCell->template HasCellProperty<ApoptoticCellProperty>()) {
 						pCell->template RemoveCellProperty<ApoptoticCellProperty>();
 					}
+
 				} else {
 					MAKE_PTR(ApoptoticCellProperty, apoptotic);
 					pCell->AddCellProperty(apoptotic);
@@ -66,27 +63,18 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 			}
 		} else {
 			double cell_age = pCell->GetAge();
-			double growth_start_time = 20;
+			double growth_start_time = 10;
 			AbstractCellCycleModel* p_model = pCell->GetCellCycleModel();
 
 			//std::cout<<"edad: "<< cell_age <<" "<< growth_start_time<<std::endl;
 			// The target area of a proliferating cell increases linearly from A to 2A over the course of the G2 phase
-			if (cell_age > growth_start_time && cell_target_area < 2*cAreaIdeal) {
+			if (cell_age > growth_start_time
+					&& cell_target_area <= 2 * cAreaIdeal) {
 				double g2_duration = p_model->GetG2Duration();
-				cell_target_area *= (1 + (cell_age - growth_start_time) / g2_duration);
+				cell_target_area *= (1
+						+ (pCell->GetCellData()->GetItem("Fitness") / (g2_duration * 8)));
 			}
 			IncreaseCellularFood();
-		}
-
-		/**
-		 * At division, daughter cells inherit the cell data array from the mother cell.
-		 * Here, we assign the target area that we want daughter cells to have to cells
-		 * that we know to divide in this time step.
-		 *
-		 * \todo This is a little hack that we might want to clean up in the future.
-		 */
-		if (pCell->ReadyToDivide()) {
-			cell_target_area = cAreaIdeal;
 		}
 	}
 

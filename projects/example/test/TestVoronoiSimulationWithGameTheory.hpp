@@ -7,9 +7,16 @@
 #include <ctime>
 #include <cmath>
 
-#include "NagaiHondaDifferentialAdhesionForce.hpp"
 //Area modifiers
 #include "FoodDifferentialByLabelAreaModifier.h"
+
+//Division rule
+#include "RandomDirectionVertexBasedDivisionRule.hpp"
+#include "AbstractVertexBasedDivisionRule.hpp"
+
+//Tracking modifiers
+#include "VolumeTrackingModifier.hpp"
+#include "NeighbourTrackingModifier.hpp"
 
 #include "CryptSimulation2d.hpp"
 #include "CheckpointArchiveTypes.hpp"
@@ -27,7 +34,7 @@
 
 #include "SphereGeometryBoundaryCondition.hpp"
 #include "AbstractCellBasedTestSuite.hpp"
-#include "NeighbourTrackingModifier.hpp"
+
 #include "NumericFileComparison.hpp"
 #include "CellBasedEventHandler.hpp"
 #include "WildTypeCellMutationState.hpp"
@@ -98,6 +105,8 @@ public:
 		boost::shared_ptr<AbstractCellProperty> p_state(
 				CellPropertyRegistry::Instance()->Get<WildTypeCellMutationState>());
 		MAKE_PTR(DifferentiatedCellProliferativeType, p_differentiated_type);
+		MAKE_PTR(StemCellProliferativeType, p_stem_type);
+		MAKE_PTR(TransitCellProliferativeType, p_transit_type);
 		MAKE_PTR(CellLabel, p_label);
 
 		for (unsigned i = 0; i < p_mesh->GetNumElements(); i++) {
@@ -105,21 +114,29 @@ public:
 			p_model->SetDimension(2);
 
 			CellPtr p_cell(new Cell(p_state, p_model));
-			p_cell->SetCellProliferativeType(p_differentiated_type);
+			p_cell->GetCellData()->SetItem("target area", 1);
+
 
 			/*if (i%2){
 			 //std::cout<<"hola soy mala " << i<<endl;
 			 p_cell->AddCellProperty(p_label);
 			 }*/
 			int aux = i % num_cells_depth;
-			if (aux < num_cells_depth/2) {
+			if (aux < num_cells_depth / 2) {
 				p_cell->AddCellProperty(p_label);
+				p_cell->SetCellProliferativeType(p_differentiated_type);
+			}
+			else
+			{
+				p_cell->SetCellProliferativeType(p_transit_type);
 			}
 
 			cells.push_back(p_cell);
 		}
 
 		VertexBasedCellPopulation<2> cell_population(*p_mesh, cells);
+		boost::shared_ptr<AbstractVertexBasedDivisionRule<2> > p_division_rule_to_set(new RandomDirectionVertexBasedDivisionRule<2>());
+		cell_population.SetVertexBasedDivisionRule(p_division_rule_to_set);
 
 		//check equivalent for nodes
 		//cell_population.SetWriteVtkAsPoints(true);
@@ -136,14 +153,17 @@ public:
 
 		OffLatticeSimulation<2> simulator(cell_population);
 		//CryptSimulation2d simulator(cell_population); The cells start to grow from the bottom.
-		simulator.SetOutputDirectory("GameTheory2");
+		simulator.SetOutputDirectory("GameTheory");
 
-		//simulator.SetDt(0.01);
+		//simulator.SetDt(0.001);
 		//Ratio pictures/sec
-		simulator.SetSamplingTimestepMultiple(2);
+		simulator.SetSamplingTimestepMultiple(10);
 
 		MAKE_PTR_ARGS(NeighbourTrackingModifier<2>, p_modifier, ());
 		simulator.AddSimulationModifier(p_modifier);
+
+		MAKE_PTR_ARGS(VolumeTrackingModifier<2>, v_modifier, ());
+		simulator.AddSimulationModifier(v_modifier);
 
 		// Create a force law and pass it to the simulation
 		//https://chaste.cs.ox.ac.uk/public-docs/classAbstractForce.html

@@ -57,7 +57,7 @@
 
 const unsigned diffusion = 5;
 const unsigned max_population = 1200;
-const double areaIdeal = 0.866025;
+const double areaIdeal = 1;
 /*
  * The public good cost of production
  */
@@ -124,7 +124,6 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 	//std::cout << "In Update" << endl;
 	rCellPopulation.Update();
 
-
 	// Only works for Mesh based at the moment
 	//assert(dynamic_cast<MeshBasedCellPopulation<DIM>*>(&rCellPopulation));
 	unsigned population_size = 0;
@@ -166,16 +165,17 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 		bool cell_cheater = cell_iter->template HasCellProperty<CellLabel>();
 
 		// cheater labeled -2, cooperator -1
-		MAKE_PTR(DifferentiatedCellProliferativeType,
-							p_differentiated_type);
+		MAKE_PTR(DifferentiatedCellProliferativeType, p_differentiated_type);
+		MAKE_PTR(StemCellProliferativeType, p_stem_type);
+		MAKE_PTR(TransitCellProliferativeType, p_transit_type);
 		if (cell_cheater) {
 			cell_type = -2;
+			cell_iter->SetCellProliferativeType(p_differentiated_type);
 			//cout << " bool cell cheater " << cell_cheater;
 		} else {
+			cell_iter->SetCellProliferativeType(p_differentiated_type);
 			cell_type = -1;
 		}
-
-		cell_iter->SetCellProliferativeType(p_differentiated_type);
 		// Store the cell type
 		cell_iter->GetCellData()->SetItem("CellType", cell_type);
 
@@ -205,9 +205,6 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 
 		unsigned num_cheaters = cheaters;
 		unsigned num_cooperators = cooperators;
-
-
-		cell_iter->GetCellData()->SetItem("Volume", rCellPopulation.GetVolumeOfCell(*cell_iter));
 
 		// Store the number of cheaters/producers
 		cell_iter->GetCellData()->SetItem("NumCheaters", num_cheaters);
@@ -432,10 +429,6 @@ void NeighbourTrackingModifier<DIM>::UpdateCellData(
 			//** as it does not update, meaning that occasionally mStepTillDivision is
 			//** negative when it reaches ReadyToDivide. Tried to check why, could not
 			//** find the reason.
-			if (rCellPopulation.GetVolumeOfCell(*cell_iter) >= 2* areaIdeal)
-			{
-				cell_fitness = 300;
-			}
 
 			// if cell is a producer give payoff - cost
 		} else {

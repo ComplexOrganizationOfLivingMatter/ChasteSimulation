@@ -50,7 +50,7 @@ GameTheoryCellCycleModel::GameTheoryCellCycleModel() :
 		// negative when it reaches ReadyToDivide. Tried to check why, could not
 		// find the reason.
 		mStepsTillDivision(cStepsTillDivision) {
-	this->mBirthTime = -RandomNumberGenerator::Instance()->ranf()* 12.0;
+	this->mBirthTime = -RandomNumberGenerator::Instance()->ranf() * 12.0;
 }
 
 AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
@@ -74,7 +74,7 @@ AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
 	 * SetDimension() on the new cell-cycle model an exception would be triggered;
 	 * hence we do not set this member variable.
 	 */
-	p_model->SetBirthTime(-RandomNumberGenerator::Instance()->ranf()* 12.0);
+	p_model->SetBirthTime(-RandomNumberGenerator::Instance()->ranf() * 12.0);
 	p_model->SetMinimumGapDuration(mMinimumGapDuration);
 	p_model->SetStemCellG1Duration(mStemCellG1Duration);
 	p_model->SetTransitCellG1Duration(mTransitCellG1Duration);
@@ -82,20 +82,17 @@ AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
 	p_model->SetG2Duration(mG2Duration);
 	p_model->SetMDuration(mMDuration);
 	p_model->SetStepsTillDivision(cStepsTillDivision);
-	//mpCell->GetCellData()->SetItem("target area", cAreaIdeal);
-
 
 	return p_model;
 }
 
 void GameTheoryCellCycleModel::InitialiseDaughterCell() {
 	mpCell->GetCellData()->SetItem("target area", cAreaIdeal);
+	mBirthTime = -RandomNumberGenerator::Instance()->ranf() * 12.0;
 }
 
 bool GameTheoryCellCycleModel::ReadyToDivide() {
 	assert(mpCell != NULL);
-	//std::cout<<mStepsTillDivision<<std::endl;
-	//assert(mStepsTillDivision > 0);
 
 	if (!mReadyToDivide) {
 		// decrease mStepsTillDivision by the cells fittness
@@ -104,26 +101,29 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 		mStepsTillDivision -= mpCell->GetCellData()->GetItem("Fitness");
 
 		/*if (mpCell->template HasCellProperty<CellLabel>()) {
-			std::cout << "Soy mala " << mpCell->GetCellData()->GetItem("Volume") <<" " <<mStepsTillDivision<<std::endl;
-		}*/
+		 std::cout << "Soy mala " << mpCell->GetCellData()->GetItem("Volume") <<" " <<mStepsTillDivision<<std::endl;
+		 }*/
 
 		mpCell->GetCellData()->SetItem("StepsTillDivision", mStepsTillDivision);
 
-		if (mStepsTillDivision < 0
-				&& mpCell->GetCellData()->GetItem("Volume") >= 2*cAreaIdeal) {
+		//std::cout << mpCell->GetCellData()->GetItem("target area") << std::endl;
+		if (mpCell->GetCellData()->GetItem("target area") >= 2 * cAreaIdeal) {
 			mReadyToDivide = true;
-			//std::cout << "we are ready to divide ueeeee!"<< mpCell <<std::endl;
+			return true;
 		}
+
 	}
 	return mReadyToDivide;
 }
 
 void GameTheoryCellCycleModel::ResetForDivision() {
 	assert(mReadyToDivide);
-	assert(mStepsTillDivision < 0);
+	//assert(mStepsTillDivision < 0);
 
 	AbstractCellCycleModel::ResetForDivision();
 	mStepsTillDivision = cStepsTillDivision;
+	mpCell->GetCellData()->SetItem("target area", cAreaIdeal);
+	mBirthTime = -RandomNumberGenerator::Instance()->ranf() * 12.0;
 }
 
 void GameTheoryCellCycleModel::OutputCellCycleModelParameters(
