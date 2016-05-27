@@ -26,7 +26,7 @@ template<unsigned DIM>
 void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 		CellPtr pCell) {
 	// Get target area A of a healthy cell in S, G2 or M phase
-	double cell_target_area = pCell->GetCellData()->GetItem("volume");
+	double cell_target_area = this->mReferenceTargetArea;
 	//std::cout<<GetCellularFood()<<std::endl;
 
 	if (pCell->HasCellProperty<ApoptoticCellProperty>()) {
@@ -41,11 +41,14 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 		if (pCell->template HasCellProperty<CellLabel>()) {
 			double cell_age = pCell->GetAge();
 			double growth_start_time = 5;
+			AbstractCellCycleModel* p_model = pCell->GetCellCycleModel();
 
 			if (cell_age > growth_start_time) {
 				if (GetCellularFood() > 1
 						&& cell_target_area <= 2 * cAreaIdeal) {
-					cell_target_area *= 1.01;
+					double g2_duration = p_model->GetG2Duration();
+					cell_target_area *= (1
+							+ (cell_age - growth_start_time) / (g2_duration*4));
 					DecreaseCellularFood();
 					DecreaseCellularFood();
 
@@ -76,7 +79,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 	}
 
 	// Set cell data
-	pCell->GetCellData()->SetItem("volume", cell_target_area);
+	pCell->GetCellData()->SetItem("target area", cell_target_area);
 }
 
 template<unsigned DIM>

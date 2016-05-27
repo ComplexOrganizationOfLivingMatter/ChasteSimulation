@@ -59,7 +59,7 @@ void FarhadifarDifferentialByLabelForce<DIM>::AddForceContribution(
 			// target areas.
 			target_areas[elem_index] =
 					p_cell_population->GetCellUsingLocationIndex(elem_index)->GetCellData()->GetItem(
-							"volume");
+							"target area");
 		} catch (Exception&) {
 			EXCEPTION(
 					"You need to add an AbstractTargetAreaModifier to the simulation in order to use a FarhadifarForce");
