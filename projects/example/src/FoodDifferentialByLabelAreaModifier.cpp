@@ -82,7 +82,7 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 	}
 
 	if (pCell->ReadyToDivide()) {
-		cell_target_area = 0.5 * this->mReferenceTargetArea;
+		cell_target_area = this->mReferenceTargetArea;
 	}
 
 	// Set cell data
