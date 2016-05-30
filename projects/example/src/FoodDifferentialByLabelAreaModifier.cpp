@@ -47,8 +47,10 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 				if (GetCellularFood() > 1
 						&& cell_target_area <= 2 * cAreaIdeal) {
 					double g2_duration = p_model->GetG2Duration();
-					cell_target_area *= (1
-							+ (cell_age - growth_start_time) / (g2_duration*4));
+					cell_target_area *=
+							(1
+									+ (cell_age - growth_start_time)
+											/ (g2_duration * 4));
 					DecreaseCellularFood();
 					DecreaseCellularFood();
 
@@ -72,10 +74,15 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 					&& cell_target_area <= 2 * cAreaIdeal) {
 				double g2_duration = p_model->GetG2Duration();
 				cell_target_area *= (1
-						+ (pCell->GetCellData()->GetItem("Fitness") / (g2_duration * 8)));
+						+ (pCell->GetCellData()->GetItem("Fitness")
+								/ (g2_duration * 8)));
 			}
 			IncreaseCellularFood();
 		}
+	}
+
+	if (pCell->ReadyToDivide()) {
+		cell_target_area = 0.5 * this->mReferenceTargetArea;
 	}
 
 	// Set cell data

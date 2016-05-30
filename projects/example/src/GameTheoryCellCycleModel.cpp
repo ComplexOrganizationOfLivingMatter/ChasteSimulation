@@ -87,7 +87,6 @@ AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
 }
 
 void GameTheoryCellCycleModel::InitialiseDaughterCell() {
-	mpCell->GetCellData()->SetItem("volume", cAreaIdeal);
 	mBirthTime = SimulationTime::Instance()->GetTime();
 }
 
@@ -122,7 +121,7 @@ void GameTheoryCellCycleModel::ResetForDivision() {
 
 	AbstractCellCycleModel::ResetForDivision();
 	mStepsTillDivision = cStepsTillDivision;
-	mpCell->GetCellData()->SetItem("volume", cAreaIdeal);
+	//mpCell->GetCellData()->SetItem("volume", cAreaIdeal);
 	//mBirthTime = -RandomNumberGenerator::Instance()->ranf() * 12.0;
 }
 
