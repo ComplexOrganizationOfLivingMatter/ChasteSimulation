@@ -14,7 +14,7 @@ template<unsigned DIM>
 FoodDifferentialByLabelAreaModifier<DIM>::FoodDifferentialByLabelAreaModifier() :
 		AbstractTargetAreaModifier<DIM>() {
 	// TODO Auto-generated constructor stub
-	cellularFood = 5000000;
+	cellularFood = 500000;
 }
 
 template<unsigned DIM>
@@ -72,11 +72,13 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 				//std::cout<<"edad: "<< cell_age <<" "<< growth_start_time<<std::endl;
 				// The target area of a proliferating cell increases linearly from A to 2A over the course of the G2 phase
 				if (cell_age > growth_start_time
-						&& cell_target_area <= 2 * cAreaIdeal) {
+						&& cell_target_area <= 2 * cAreaIdeal && pCell->GetCellData()->GetItem("Fitness") > 0) {
+
 					double g2_duration = p_model->GetG2Duration();
 					cell_target_area *= (1
-							+ (pCell->GetCellData()->GetItem("Fitness")
-									/ (g2_duration * 8)));
+							+ ((cell_age-growth_start_time) * pCell->GetCellData()->GetItem("Fitness")
+									/ (g2_duration)));
+					std::cout<<cell_target_area<<std::endl;
 				}
 				IncreaseCellularFood();
 			}
