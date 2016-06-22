@@ -41,7 +41,7 @@
 
 //2000 works
 const unsigned cStepsTillDivision = 300.0;
-const double cAreaIdeal = 1;
+const double cAreaIdeal = 0.86; //DON'T TOUCH BECAUSE YOU COMPARE IT WITH VOLUME NOT AREA
 
 GameTheoryCellCycleModel::GameTheoryCellCycleModel() :
 		AbstractCellCycleModel(),
@@ -105,8 +105,9 @@ bool GameTheoryCellCycleModel::ReadyToDivide() {
 
 		mpCell->GetCellData()->SetItem("StepsTillDivision", mStepsTillDivision);
 
-		//std::cout << mpCell->GetCellData()->GetItem("volume") << std::endl;
-		if (mpCell->GetCellData()->GetItem("volume") >= 2 * cAreaIdeal) {
+
+		if (mpCell->GetCellData()->GetItem("volume")
+				>= 2 * cAreaIdeal) {
 			mReadyToDivide = true;
 			return true;
 		}
