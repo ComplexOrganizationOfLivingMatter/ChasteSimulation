@@ -10,6 +10,8 @@
 
 #include "ChasteSerialization.hpp"
 #include <boost/serialization/base_object.hpp>
+#include "AbstractCellBasedSimulationModifier.hpp"
+#include "VertexBasedCellPopulation.hpp"
 
 #include "AbstractTargetAreaModifier.hpp"
 
@@ -44,6 +46,13 @@ public:
 	 * @param pCell pointer to a cell
 	 */
 	void UpdateTargetAreaOfCell(const CellPtr pCell);
+
+	/**
+	     * Helper method to update the target area property of all cells in the population.
+	     *
+	     * @param rCellPopulation reference to the cell population
+	     */
+	    void UpdateTargetAreas(AbstractCellPopulation<DIM,DIM>& rCellPopulation);
 
 	int GetCellularFood() const;
 

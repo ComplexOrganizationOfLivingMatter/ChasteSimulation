@@ -41,7 +41,7 @@
 
 //2000 works
 const unsigned cStepsTillDivision = 300.0;
-const double cAreaIdeal = 0.866025;
+const double cAreaIdeal = 1;
 
 GameTheoryCellCycleModel::GameTheoryCellCycleModel() :
 		AbstractCellCycleModel(),
@@ -74,7 +74,7 @@ AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
 	 * SetDimension() on the new cell-cycle model an exception would be triggered;
 	 * hence we do not set this member variable.
 	 */
-	p_model->SetBirthTime(mBirthTime);
+	p_model->SetBirthTime(SimulationTime::Instance()->GetTime());
 	p_model->SetMinimumGapDuration(mMinimumGapDuration);
 	p_model->SetStemCellG1Duration(mStemCellG1Duration);
 	p_model->SetTransitCellG1Duration(mTransitCellG1Duration);
@@ -87,7 +87,7 @@ AbstractCellCycleModel* GameTheoryCellCycleModel::CreateCellCycleModel() {
 }
 
 void GameTheoryCellCycleModel::InitialiseDaughterCell() {
-	mBirthTime = SimulationTime::Instance()->GetTime();
+	//mBirthTime = SimulationTime::Instance()->GetTime();
 }
 
 bool GameTheoryCellCycleModel::ReadyToDivide() {
@@ -122,7 +122,7 @@ void GameTheoryCellCycleModel::ResetForDivision() {
 	AbstractCellCycleModel::ResetForDivision();
 	mStepsTillDivision = cStepsTillDivision;
 	//mpCell->GetCellData()->SetItem("volume", cAreaIdeal);
-	//mBirthTime = -RandomNumberGenerator::Instance()->ranf() * 12.0;
+	mBirthTime = SimulationTime::Instance()->GetTime();
 }
 
 void GameTheoryCellCycleModel::OutputCellCycleModelParameters(
