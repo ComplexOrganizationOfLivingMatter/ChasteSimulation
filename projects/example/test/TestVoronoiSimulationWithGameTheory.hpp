@@ -203,7 +203,7 @@ public:
 		p_force->SetLineTensionParameter(0.12);
 		p_force->SetLineTensionCellLabelledParameter(0.12);
 		p_force->SetBoundaryLineTensionParameter(0.12);
-		p_force->SetBoundaryLineTensionCellLabelledParameter(0.12);
+		p_force->SetBoundaryLineTensionCellLabelledParameter(0.18);
 
 		// We need to reset the cell rearrangement threshold - vertex movements are kept below that threshold
 		//cell_population.rGetMesh().SetCellRearrangementThreshold(0.5);

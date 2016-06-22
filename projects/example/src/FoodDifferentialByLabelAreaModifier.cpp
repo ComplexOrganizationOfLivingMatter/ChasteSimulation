@@ -77,12 +77,15 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 					double g2_duration = p_model->GetG2Duration();
 					cell_target_area *= (1
 							+ ((cell_age-growth_start_time) * pCell->GetCellData()->GetItem("Fitness")
-									/ (g2_duration)));
-					std::cout<<cell_target_area<<std::endl;
+									/ (g2_duration * 1)));
 				}
 				IncreaseCellularFood();
 			}
 		}
+	}
+
+	if (cell_target_area > 2.2){
+		cell_target_area = 2.2;
 	}
 
 	// Set cell data
