@@ -238,11 +238,10 @@ double FarhadifarDifferentialByLabelForce<DIM>::GetLineTensionParameter(
 	} else {
 		if (p_cellB->template HasCellProperty<CellLabel>()) {
 			line_tension_parameter_in_calculation =
-					GetBoundaryLineTensionCellLabelledParameter();
+					GetBoundaryLineTensionParameter()- GetBoundaryLineTensionCellLabelledParameter();
 			//std::cout<<p_cellA->GetCellId()<<" "<<p_cellB->GetCellId()<<std::endl;
 		} else {
-			line_tension_parameter_in_calculation =
-					this->GetBoundaryLineTensionParameter();
+			line_tension_parameter_in_calculation = GetBoundaryLineTensionCellLabelledParameter() - GetBoundaryLineTensionParameter();
 			//std::cout<<p_cellA->GetCellId()<<" "<<p_cellB->GetCellId()<<std::endl;
 		}
 	}
