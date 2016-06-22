@@ -213,41 +213,47 @@ double FarhadifarDifferentialByLabelForce<DIM>::GetLineTensionParameter(
 	CellPtr p_cellB = rVertexCellPopulation.GetCellUsingLocationIndex(
 			*elements_containing_nodeB.begin());
 
-	/*if (p_cellA->template HasCellProperty<CellLabel>() && p_cellB->template HasCellProperty<CellLabel>()) {
+	if (p_cellA->template HasCellProperty<CellLabel>()
+			&& p_cellB->template HasCellProperty<CellLabel>()) {
 
-	 line_tension_parameter_in_calculation =
-	 GetLineTensionCellLabelledParameter() / 2.0;
-
-	 // If the edge corresponds to a single element, then the cell is on the boundary
-	 if (shared_elements.size() == 1) {
-	 line_tension_parameter_in_calculation =
-	 GetBoundaryLineTensionCellLabelledParameter();
-	 }
-	 } else if (!p_cellA->template HasCellProperty<CellLabel>() && !p_cellB->template HasCellProperty<CellLabel>()) {
-	 line_tension_parameter_in_calculation = GetLineTensionParameter() / 2.0;
-
-	 // If the edge corresponds to a single element, then the cell is on the boundary
-	 if (shared_elements.size() == 1) {
-	 line_tension_parameter_in_calculation =
-	 this->GetBoundaryLineTensionParameter();
-	 }
-	 } else {
-	 if (p_cellB->template HasCellProperty<CellLabel>()) {
-	 line_tension_parameter_in_calculation =
-	 GetBoundaryLineTensionCellLabelledParameter();
-	 } else {
-	 line_tension_parameter_in_calculation =
-	 this->GetBoundaryLineTensionParameter();
-	 }
-	 }*/
-
-	line_tension_parameter_in_calculation = GetLineTensionParameter() / 2.0;
-
-	// If the edge corresponds to a single element, then the cell is on the boundary
-	if (shared_elements.size() == 1) {
 		line_tension_parameter_in_calculation =
-				this->GetBoundaryLineTensionParameter();
+				GetLineTensionCellLabelledParameter() / 2.0;
+
+		// If the edge corresponds to a single element, then the cell is on the boundary
+		if (shared_elements.size() == 1) {
+			line_tension_parameter_in_calculation =
+					GetBoundaryLineTensionCellLabelledParameter();
+			//std::cout<<p_cellA->GetCellId()<<" "<<p_cellB->GetCellId()<<std::endl;
+		}
+	} else if (!p_cellA->template HasCellProperty<CellLabel>()
+			&& !p_cellB->template HasCellProperty<CellLabel>()) {
+		line_tension_parameter_in_calculation = GetLineTensionParameter() / 2.0;
+
+		// If the edge corresponds to a single element, then the cell is on the boundary
+		if (shared_elements.size() == 1) {
+			line_tension_parameter_in_calculation =
+					this->GetBoundaryLineTensionParameter();
+			//std::cout<<p_cellA->GetCellId()<<" "<<p_cellB->GetCellId()<<std::endl;
+		}
+	} else {
+		if (p_cellB->template HasCellProperty<CellLabel>()) {
+			line_tension_parameter_in_calculation =
+					GetBoundaryLineTensionCellLabelledParameter();
+			//std::cout<<p_cellA->GetCellId()<<" "<<p_cellB->GetCellId()<<std::endl;
+		} else {
+			line_tension_parameter_in_calculation =
+					this->GetBoundaryLineTensionParameter();
+			//std::cout<<p_cellA->GetCellId()<<" "<<p_cellB->GetCellId()<<std::endl;
+		}
 	}
+
+	/*line_tension_parameter_in_calculation = GetLineTensionParameter() / 2.0;
+
+	 // If the edge corresponds to a single element, then the cell is on the boundary
+	 if (shared_elements.size() == 1) {
+	 line_tension_parameter_in_calculation =
+	 this->GetBoundaryLineTensionParameter();
+	 }*/
 
 	return line_tension_parameter_in_calculation;
 }

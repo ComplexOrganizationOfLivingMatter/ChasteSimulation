@@ -82,9 +82,6 @@ void FoodDifferentialByLabelAreaModifier<DIM>::UpdateTargetAreaOfCell(
 			}
 		}
 	}
-	else{
-		cell_target_area = 0.5*this->mReferenceTargetArea;
-	}
 
 	// Set cell data
 	pCell->GetCellData()->SetItem("target area", cell_target_area);

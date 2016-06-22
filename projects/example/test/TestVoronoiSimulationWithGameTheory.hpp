@@ -128,7 +128,7 @@ public:
 			}
 			else
 			{
-				p_cell->SetCellProliferativeType(p_transit_type);
+				p_cell->SetCellProliferativeType(p_differentiated_type);
 			}
 
 			cells.push_back(p_cell);
@@ -195,15 +195,15 @@ public:
 		MAKE_PTR(FarhadifarDifferentialByLabelForce<2>, p_force);
 
 		//limit the area
-		p_force->SetAreaElasticityParameter(20);
-		p_force->SetAreaElasticityCellLabelledParameter(20);
+		p_force->SetAreaElasticityParameter(1);
+		p_force->SetAreaElasticityCellLabelledParameter(1);
 		//Seems to decrease the size of the cells
-		p_force->SetPerimeterContractilityParameter(0.2); //not working with a high number > 0.5?
-		p_force->SetPerimeterContractilityCellLabelledParameter(0.2); //not working with a high number > 0.5?
-		//p_force->SetLineTensionParameter(1);
-		//p_force->SetLineTensionCellLabelledParameter(1);
-		//p_force->SetBoundaryLineTensionParameter(1);
-		//p_force->SetBoundaryLineTensionCellLabelledParameter(1);
+		p_force->SetPerimeterContractilityParameter(0.04); //not working with a high number > 0.5?
+		p_force->SetPerimeterContractilityCellLabelledParameter(0.04); //not working with a high number > 0.5?
+		p_force->SetLineTensionParameter(0.12);
+		p_force->SetLineTensionCellLabelledParameter(0.12);
+		p_force->SetBoundaryLineTensionParameter(0.12);
+		p_force->SetBoundaryLineTensionCellLabelledParameter(0.12);
 
 		// We need to reset the cell rearrangement threshold - vertex movements are kept below that threshold
 		//cell_population.rGetMesh().SetCellRearrangementThreshold(0.5);
