@@ -202,8 +202,8 @@ public:
 		p_force->SetPerimeterContractilityCellLabelledParameter(0.04); //not working with a high number > 0.5?
 		p_force->SetLineTensionParameter(0.12);
 		p_force->SetLineTensionCellLabelledParameter(0.12);
-		p_force->SetBoundaryLineTensionParameter(0.12);
-		p_force->SetBoundaryLineTensionCellLabelledParameter(0.18);
+		p_force->SetBoundaryLineTensionParameter(0.12 + (0.12)*2.5);
+		p_force->SetBoundaryLineTensionCellLabelledParameter(0.12);
 
 		// We need to reset the cell rearrangement threshold - vertex movements are kept below that threshold
 		//cell_population.rGetMesh().SetCellRearrangementThreshold(0.5);
@@ -216,30 +216,32 @@ public:
 		//add a new random seed
 		srand(time(NULL));
 
+		double boundary = -1.0;
+
 		//enclose the population in a square
-		/*c_vector<double, 2> point = zero_vector<double>(2);
+		c_vector<double, 2> point = zero_vector<double>(2);
 		 c_vector<double, 2> normal = zero_vector<double>(2);
-		 point(0) = 0.0;
+		 point(0) = boundary;
 		 normal(0) = -1.0;
 		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc1,
 		 (&cell_population, point, normal));
 		 simulator.AddCellPopulationBoundaryCondition(p_bc1);
 
-		 point(0) = 9.0;
+		 point(0) = num_cells_depth + 1.5;
 		 normal(0) = 1.0;
 		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc2,
 		 (&cell_population, point, normal));
 		 simulator.AddCellPopulationBoundaryCondition(p_bc2);
 
-		 point(0) = 0.0;
-		 point(1) = 0.0;
+		 point(0) = boundary;
+		 point(1) = boundary;
 		 normal(0) = 0.0;
 		 normal(1) = -1.0;
 		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc3,
 		 (&cell_population, point, normal));
 		 simulator.AddCellPopulationBoundaryCondition(p_bc3);
 
-		 point(1) = 9.0;
+		 point(1) = num_cells_depth;
 		 normal(1) = 1.0;
 		 MAKE_PTR_ARGS(PlaneBoundaryCondition<2>, p_bc4,
 		 (&cell_population, point, normal));
@@ -247,9 +249,9 @@ public:
 
 		 MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
 		 (&cell_population, point, normal));
-		 simulator.AddCellKiller(p_killer);*/
+		 simulator.AddCellKiller(p_killer);
 
-		//enclose the population in boundaries
+		/*//enclose the population in boundaries
 		c_vector<double, 2> point = zero_vector<double>(2);
 		c_vector<double, 2> normal = zero_vector<double>(2);
 		//normal(1) = -1.0;
@@ -269,9 +271,9 @@ public:
 
 		MAKE_PTR_ARGS(PlaneBasedCellKiller<2>, p_killer,
 				(&cell_population, point, normal));
-		simulator.AddCellKiller(p_killer);
+		simulator.AddCellKiller(p_killer);*/
 
-		simulator.SetEndTime(50.0);
+		simulator.SetEndTime(150.0);
 
 		simulator.Solve();
 		//std::cout << "adios" << endl;
